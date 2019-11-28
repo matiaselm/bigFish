@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    background-color: red;
+}
+
+
+.header {
+    position: -webkit-sticky;
+    overflow: hidden;
+    top: 0px;
+    height:10vh;
+    width: 100%;
+    background-color: lightgreen;
+    z-index: 1;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+    font-size: 3vh;
+}
+
+p {
+    font-size: 2vh;
+}
+
+li {
+    font-size: 2vh;
+    margin: 2%;
+}
+
+@media only screen and (max-width: 17cm) {
+    body {
+        background-color: lightblue;
+    }
+
+    #header {
+        position: -webkit-sticky;
+        overflow: hidden;
+        top: 0px;
+        height:10vh;
+        width: 100%;
+        background-color: lightgreen;
+        z-index: 1;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .headerBox{
+        width:50%;
+        height: 100%;
+        position: absolute;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 0;
+        padding: 10px;
+    }
+
+    #headerLeft{
+        background-color: aquamarine;
+        left:0px;
+        align-content: center;
+    }
+
+    #headerRight{
+        background-color: beige;
+        right: 0;
+        align-content: center;
+    }
+
+    .mainFeedBG{
+        z-index:-1;
+        margin:fill;
+    }
+
+    .postCards {
+        position: absolute;
+        height: 100%;
+        right: 0;
+        left: 0;
+        background-color: #333333;
+        top: 10vh;
+        box-shadow: -5px 0px grey;
+        margin: 0;
+        box-sizing: border-box;
+        padding:0;
+    }
+
+    .postCard{
+        width: 95%;
+        margin: 2%;
+        min-height: 60px;
+        height: 7vh;
+        background-color: #a6a6a6;
+        list-style-type: none;
+        box-shadow: 5px 5px #1a1a1a;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border: #a9a9a9 solid 1px;
+    }
+    
+    .navBarRight {
+        background-color: red;
+        min-height: 400px;
+        max-height: 1000px;
+    }
+}
