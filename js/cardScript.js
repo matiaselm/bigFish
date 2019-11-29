@@ -47,12 +47,13 @@ const openFunction = (e) => {
 };
 
 const bigPost = (e) => {
-    return `<div class="bigCard" id=${e.target.id}> 
+    return `<a class="bigCard" id=${e.target.id}> 
                             <p>title here</p>
                             <img id="postImage" src="img/placeholder.png">
                             <p>I got a big fish today! Wow!</p>
                             <p class="username">username here</p>
                             <div class="votes">likes here</div>
+                            <a href="html/comments.html">comments</a>
 </div>`;
 };
 
