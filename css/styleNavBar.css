@@ -1,38 +1,39 @@
 /* Element #Header is the whole upper-part of the site, holding user-icon/settings, logo and searchbar */
+
 #header {
     position: static;
     overflow: hidden;
-    top: 0px;
-    height: 24ch;
+    top: 0;
     width: 100%;
-    background-color: lightgreen;
+    background-color: var(--secondary-col2);
     z-index: 1;
     margin: 0;
     box-sizing: border-box;
+    height: var(--header-height);
 }
 
 /* Class .headerBox splits header into inline-parts, currently left and right */
 .headerBox {
     width: 50%;
-    height: 24ch;
     z-index: 1;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
     margin: 0;
     padding: 10px;
+    height: var(--header-height);
 }
 
 #headerLeft {
     box-sizing: border-box;
-    background-color: aquamarine;
+    background-color: var(--main-col1);
     left: 0;
     align-content: center;
 }
 
 #headerRight {
     box-sizing: border-box;
-    background-color: beige;
+    background-color: var(--main-col2);
     right: 0;
     align-content: center;
 }
@@ -40,41 +41,33 @@
 .header {
     position: -webkit-sticky;
     overflow: hidden;
-    top: 0px;
-    height: 10vh;
+    top: 0;
     width: 100%;
-    background-color: lightgreen;
     z-index: 1;
     margin: 0;
     box-sizing: border-box;
+    background-color: var(--contrast-col1);
+    height: var(--header-height);
 }
 
 #userIcon {
+    color: var(--text-col1);
     position: absolute;
-    right: 4ch;
-    top: 4ch;
-    width: 14ch;
-    height: 14ch;
-    border-radius: 14ch;
+    right: 1.5ch;
+    top: 1.5ch;
+    width: 7ch;
+    height: 7ch;
+    border-radius: 7ch;
     border: none;
-    background-color: blueviolet;
+    background-color: var(--contrast-col1);
 }
 
 #toggle-1 {
-    width: 50px;
-    height: 50px;
+    width: 0;
+    height: 0;
+    top: -9999px;
+    left: -9999px;
     position: absolute;
-}
-
-#menuButton {
-    position: absolute;
-    right: 24ch;
-    top: 4ch;
-    width: 14ch;
-    height: 14ch;
-    border-radius: 14ch;
-    border: none;
-    background-color: blueviolet;
 }
 
 /*
@@ -88,47 +81,61 @@ input[type=checkbox]:checked + label {
     font-style: normal;
 }*/
 
+#arrow{
+    font-size: var(--text-title-size);
+    color: var(--contrast-col1);
+}
+
+#searchField{
+    visibility: hidden;
+}
+
 #menuButton {
+    color: var(--text-col1);
     position: absolute;
-    right: 24ch;
-    top: 4ch;
-    width: 14ch;
-    height: 14ch;
+    right: 10ch;
+    top: 1.5ch;
+    width: 7ch;
+    height: 7ch;
     border-radius: 10ch;
     border: none;
-    background-color: blueviolet;
+    background-color: var(--contrast-col1);
     -webkit-transition: width 0.5s;
     /* For Safari 3.1 to 6.0 */
-    transition: width 0.5s;
+    transition: width 0.2s, height 0.2s, top 0.2s;
 }
 
 /*Old method to working with searchbar, supposed to widen up when clicked, transforming into a searchbar*/
 
 #menuButton:hover {
+    color: var(--text-col1);
     position: absolute;
-    right: 24ch;
-    top: 4ch;
-    width: 14ch;
-    height: 14ch;
+    right: 10ch;
+    top: 1.5ch;
+    width: 7ch;
+    height: 7ch;
     border-radius: 14ch;
-    background-color: blueviolet;
+    background-color: var(--contrast-col1);
 }
 
 #menuButton:active {
+    color: var(--text-col1);
     position: absolute;
-    right: 24ch;
-    top: 4ch;
-    width: 80%;
-    height: 14ch;
+    right: 10ch;
+    top: 1.5ch;
+    width: 7ch;
+    height: 7ch;
     border-radius: 14ch;
 }
 
 #menuField input:checked + #menuButton {
     position: absolute;
-    border: solid white 1px;
-    right: 24ch;
-    top: 4ch;
-    width: 80%;
-    height: 14ch;
+    /*border: solid white 1px;*/
+    right: 10ch;
+    top: 1.5ch;
+    width: 40ch;
+    height: 7ch;
     border-radius: 14ch;
+
+    color: var(--text-col2);
 }
