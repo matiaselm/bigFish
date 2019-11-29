@@ -1,0 +1,134 @@
+/* Element #Header is the whole upper-part of the site, holding user-icon/settings, logo and searchbar */
+#header {
+    position: static;
+    overflow: hidden;
+    top: 0px;
+    height: 24ch;
+    width: 100%;
+    background-color: lightgreen;
+    z-index: 1;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Class .headerBox splits header into inline-parts, currently left and right */
+.headerBox {
+    width: 50%;
+    height: 24ch;
+    z-index: 1;
+    position: absolute;
+    box-sizing: border-box;
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+}
+
+#headerLeft {
+    box-sizing: border-box;
+    background-color: aquamarine;
+    left: 0;
+    align-content: center;
+}
+
+#headerRight {
+    box-sizing: border-box;
+    background-color: beige;
+    right: 0;
+    align-content: center;
+}
+
+.header {
+    position: -webkit-sticky;
+    overflow: hidden;
+    top: 0px;
+    height: 10vh;
+    width: 100%;
+    background-color: lightgreen;
+    z-index: 1;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#userIcon {
+    position: absolute;
+    right: 4ch;
+    top: 4ch;
+    width: 14ch;
+    height: 14ch;
+    border-radius: 14ch;
+    border: none;
+    background-color: blueviolet;
+}
+
+#toggle-1 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+#menuButton {
+    position: absolute;
+    right: 24ch;
+    top: 4ch;
+    width: 14ch;
+    height: 14ch;
+    border-radius: 14ch;
+    border: none;
+    background-color: blueviolet;
+}
+
+/*
+input[type=checkbox] + label {
+    color: #ccc;
+    font-style: italic;
+}
+
+input[type=checkbox]:checked + label {
+    color: #f00;
+    font-style: normal;
+}*/
+
+#menuButton {
+    position: absolute;
+    right: 24ch;
+    top: 4ch;
+    width: 14ch;
+    height: 14ch;
+    border-radius: 10ch;
+    border: none;
+    background-color: blueviolet;
+    -webkit-transition: width 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s;
+}
+
+/*Old method to working with searchbar, supposed to widen up when clicked, transforming into a searchbar*/
+
+#menuButton:hover {
+    position: absolute;
+    right: 24ch;
+    top: 4ch;
+    width: 14ch;
+    height: 14ch;
+    border-radius: 14ch;
+    background-color: blueviolet;
+}
+
+#menuButton:active {
+    position: absolute;
+    right: 24ch;
+    top: 4ch;
+    width: 80%;
+    height: 14ch;
+    border-radius: 14ch;
+}
+
+#menuField input:checked + #menuButton {
+    position: absolute;
+    border: solid white 1px;
+    right: 24ch;
+    top: 4ch;
+    width: 80%;
+    height: 14ch;
+    border-radius: 14ch;
+}

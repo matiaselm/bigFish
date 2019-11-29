@@ -1,19 +1,15 @@
+/*
+
 body {
     margin: 0;
     background-color: red;
+    overflow: hidden;
 }
 
-
-.header {
-    position: -webkit-sticky;
-    overflow: hidden;
-    top: 0px;
-    height:10vh;
-    width: 100%;
-    background-color: lightgreen;
-    z-index: 1;
-    margin: 0;
-    box-sizing: border-box;
+#toggle-1 {
+    width: 50px;
+    height: 50px;
+    position: absolute;
 }
 
 h1 {
@@ -31,48 +27,73 @@ li {
     margin: 2%;
 }
 
-@media only screen and (max-width: 17cm) {
+@media only screen and (max-width: 20in) {
     body {
         background-color: lightblue;
     }
 
-    #header {
-        position: -webkit-sticky;
-        overflow: hidden;
-        top: 0px;
-        height:10vh;
-        width: 100%;
-        background-color: lightgreen;
-        z-index: 1;
-        margin: 0;
-        box-sizing: border-box;
-    }
+   
 
-    .headerBox{
-        width:50%;
-        height: 100%;
+    #userIcon {
         position: absolute;
-        box-sizing: border-box;
-        display: inline-block;
-        margin: 0;
-        padding: 10px;
+        right: 4ch;
+        top: 4ch;
+        width: 14ch;
+        height: 14ch;
+        border-radius: 14ch;
+        border: none;
+        background-color: blueviolet;
     }
 
-    #headerLeft{
-        background-color: aquamarine;
-        left:0px;
-        align-content: center;
+    #menuButton {
+        position: absolute;
+        right: 24ch;
+        top: 4ch;
+        width: 14ch;
+        height: 14ch;
+        border-radius: 14ch;
+        border: none;
+        background-color: blueviolet;
     }
 
-    #headerRight{
-        background-color: beige;
-        right: 0;
-        align-content: center;
+    #menuButton:hover {
+        position: absolute;
+        right: 24ch;
+        top: 4ch;
+        width: 14ch;
+        height: 14ch;
+        border-radius: 14ch;
+        background-color: blueviolet;
+        box-shadow: 2px 2px black;
     }
 
-    .mainFeedBG{
-        z-index:-1;
-        margin:fill;
+    #menuButton:active {
+        position: absolute;
+        right: 24ch;
+        top: 4ch;
+        width: 40ch;
+        height: 14ch;
+        border-radius: 14ch;
+        width: 34ch;
+        box-shadow: 2px 2px black;
+    }
+
+    #toggle-1:checked + #menuButton {
+        position: absolute;
+        right: 24ch;
+        top: 4ch;
+        width: 40ch;
+        height: 14ch;
+        border-radius: 14ch;
+        width: 34ch;
+        box-shadow: 2px 2px black;
+    }
+
+
+    .mainFeedBG {
+        z-index: -1;
+        margin: fill;
+        overflow-y: scroll;
     }
 
     .postCards {
@@ -85,25 +106,27 @@ li {
         box-shadow: -5px 0px grey;
         margin: 0;
         box-sizing: border-box;
-        padding:0;
+        padding: 0;
+        overflow-y: scroll;
     }
 
-    .postCard{
+    .postCard {
         width: 95%;
         margin: 2%;
         min-height: 60px;
         height: 7vh;
         background-color: #a6a6a6;
         list-style-type: none;
-        box-shadow: 5px 5px #1a1a1a;
+        box-shadow: 1px 1px #1a1a1a;
         box-sizing: border-box;
         border-radius: 5px;
         border: #a9a9a9 solid 1px;
     }
-    
+
     .navBarRight {
         background-color: red;
         min-height: 400px;
         max-height: 1000px;
     }
 }
+*/
