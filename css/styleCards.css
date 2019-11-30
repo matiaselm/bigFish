@@ -27,9 +27,9 @@
     padding:1ch;
     overflow: hidden;
 
-    -webkit-transition: height 0.2s;
+    -webkit-transition: height 0.5s;
     /* For Safari 3.1 to 6.0 */
-    transition: width 0.1s, height 0.1s, top 0.1s;
+    transition: width 0.5s, height 0.5s, top 0.5s;
 
     color: var(--text-col1);
     height: var(--card-main-size);
@@ -39,4 +39,37 @@
 
 #postImage{
     max-width: 50%;
+}
+/*
+BigCard is the cardView-class that gets loaded when user clicks to open a card
+ */
+
+.bigCard{
+
+}
+
+/*
+Below are all the styles for different classes that are held inside bigCards
+ */
+
+.postTitle{
+    color: var(--text-col1);
+    font-size: var(--text-title2-size);
+}
+
+
+
+.postImage{
+    position: absolute;
+    max-width: 50%;
+    right:2ch;
+    display: inline-block;
+}
+
+.mainText{
+    position: absolute;
+    max-width: 50%;
+    max-height: 50%;
+    overflow: hidden;
+    display: inline-block;
 }

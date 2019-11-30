@@ -5,10 +5,11 @@
     overflow: hidden;
     top: 0;
     width: 100%;
-    background-color: var(--secondary-col2);
     z-index: 1;
     margin: 0;
     box-sizing: border-box;
+    
+    background-color: var(--main-col1);
     height: var(--header-height);
 }
 
@@ -22,20 +23,31 @@
     margin: 0;
     padding: 10px;
     height: var(--header-height);
+    
+        
+    -webkit-transition: width 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: width 0.2s, height 0.2s, top 0.2s;
 }
 
 #headerLeft {
     box-sizing: border-box;
-    background-color: var(--main-col1);
     left: 0;
     align-content: center;
+    background-image: url('../img/siika_large.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: var(--main-col1);
+
+    
 }
 
 #headerRight {
     box-sizing: border-box;
-    background-color: var(--main-col2);
     right: 0;
     align-content: center;
+    background-color: var(--main-col1);
 }
 
 .header {
@@ -60,8 +72,12 @@
     height: 7ch;
     border-radius: 7ch;
     border: none;
-    background-color: var(--contrast-col1);
+    background-image: url("../img/profile_ph_large.png");
+    background-position: center;
+    background-size: cover;
+    background-color: var(--contrast-col2);
 }
+
 #userIcon:hover {
 
     position: absolute;
@@ -71,7 +87,8 @@
     height: 7ch;
     border-radius: 3ch;
     border: none;
-    background-color: var(--contrast-col1);
+    
+    background-color: var(--contrast-col2);
     color: var(--text-col1);
 }
 
@@ -100,7 +117,7 @@ input[type=checkbox]:checked + label {
 
 #menuButton {
     overflow: hidden;
-    color: var(--text-col1);
+    
     position: absolute;
     right: 10ch;
     top: 1.5ch;
@@ -108,7 +125,13 @@ input[type=checkbox]:checked + label {
     height: 7ch;
     border-radius: 10ch;
     border: none;
-    background-color: var(--contrast-col1);
+
+    background-color: var(--contrast-col2);
+    background-image: url("../img/search_icon_xlarge.png");
+    background-position: center;
+    background-size: cover;
+    
+    color: var(--text-col1);
     -webkit-transition: width 0.5s;
     /* For Safari 3.1 to 6.0 */
     transition: width 0.2s, height 0.2s, top 0.2s;
@@ -118,25 +141,28 @@ input[type=checkbox]:checked + label {
 
 #menuButton:hover {
     overflow: hidden;
-    color: var(--text-col1);
     position: absolute;
     right: 10ch;
     top: 1.5ch;
     width: 7ch;
     height: 7ch;
-    border-radius: 14ch;
-    background-color: var(--contrast-col1);
+    border-radius: 3ch;
+    
+    color: var(--text-col1);
+    background-color: var(--contrast-col2);
 }
 
 #menuButton:active {
     overflow: hidden;
-    color: var(--text-col1);
     position: absolute;
     right: 10ch;
     top: 1.5ch;
     width: 7ch;
     height: 7ch;
-    border-radius: 14ch;
+    border-radius: 3ch;
+    background-image: none;
+    
+    color: var(--text-col1);
 }
 
 #menuField input:checked + #menuButton {
@@ -145,9 +171,10 @@ input[type=checkbox]:checked + label {
     /*border: solid white 1px;*/
     right: 10ch;
     top: 1.5ch;
-    width: 40ch;
+    width: 100%;
     height: 7ch;
-    border-radius: 14ch;
+    border-radius: 3ch;
+    background-image: none;
 
     color: var(--text-col2);
 }

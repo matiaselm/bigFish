@@ -6,6 +6,8 @@ const menuButton = document.getElementById('menuButton');
 const checkBox1 = document.getElementById('toggle-1');
 const logo = document.getElementById('mainTitle');
 const searchField = document.getElementById('searchField');
+const headerLeft = document.getElementById('headerLeft');
+const headerRight = document.getElementById('headerRight');
 
 const checkIfTrue = (checkBox) => {
     if(checkBox){
@@ -23,9 +25,13 @@ menuButton.onclick=()=>{
         logo.style.fontSize=('0');
         searchField.style.visibility=('initial');
         searchField.style.width=('90%');
+        headerLeft.style.width=('30%');
+        headerRight.style.width=('70%');
     }else{
         logo.style.fontSize=('var(--text-title-size)');
         searchField.style.visibility=('hidden');
+        headerLeft.style.width=('50%');
+        headerRight.style.width=('50%');
     }
 };
 

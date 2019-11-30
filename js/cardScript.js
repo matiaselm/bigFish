@@ -5,16 +5,25 @@ console.log('cardScript loaded');
 let cardsOpen = false;
 let cardId;
 
-let cardList = [
+const cardList = [
     {
-        title: 'some title here',
-        picture: 'picture maybe?',
+        title: 'Title placeholder',
+        picture: 'img/placeholder.png',
+        maintext: 'Lorem ipsum dolor sit amet, ' +
+            'consectetur adipiscing elit. Donec porttitor ut ipsum mollis pretium. ' +
+            'Donec auctor mollis urna vitae facilisis. Sed at accumsan mauris. ' +
+            'Proin molestie augue ac ipsum tempus, ac facilisis tellus sodales. ' +
+            'Vivamus fermentum nulla ac scelerisque dapibus. Praesent sodales molestie nulla, ' +
+            'vitae elementum diam interdum sed. Suspendisse ut magna turpis. ',
         likes: 'likes here',
         dislikes: 'dislikes here',
         post_id: 'post-id here',
-        username: 'username here'
+        username: 'username here',
+        comment_link: 'html/comments.html'
     }
 ];
+
+console.log(cardList);
 
 const card = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
@@ -46,14 +55,18 @@ const openFunction = (e) => {
     }
 };
 
+// In bigPost() replace 1 with e when cardList is ready
+
 const bigPost = (e) => {
     return `<a class="bigCard" id=${e.target.id}> 
-                            <p>title here</p>
-                            <img id="postImage" src="img/placeholder.png">
-                            <p>I got a big fish today! Wow!</p>
-                            <p class="username">username here</p>
-                            <div class="votes">likes here</div>
-                            <a href="html/comments.html">comments</a>
+                            <div id="postMeat">
+                                <p class="postTitle">${cardList[0].title}</p>
+                                <img class="postImage" src=${cardList[0].picture}>
+                                <p class="mainText">${cardList[0].maintext}</p>
+                            </div>
+                            <p class="username">${cardList[0].username}</p>
+                            <div class="votes">${cardList[0].likes}</div>
+                            <a class="commentsLink" href=${cardList[0].comment_link}>comments</a>
 </div>`;
 };
 
