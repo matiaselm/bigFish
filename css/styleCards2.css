@@ -1,24 +1,3 @@
-:root{
-    --main-col1: #e1ffa0;
-    --main-col2: #85ff7a;
-    --secondary-col1: #49527f;
-    --secondary-col2: #658f9e;
-    --contrast-col1: #596300;
-    --contrast-col2: #492e3e;
-    --text-col1: black;
-    --text-col2: darkgrey;
-    --text-col3: white;
-
-    --header-height: 12ch;
-
-    --text-title1-size: 4ch;
-    --text-title2-size: 3ch;
-    --text-bread-size: 2ch;
-
-    --card-main-size: 7ch;
-    --card-open-size: 60ch;
-}
-
 /*postCards holds all our posts as a list inside it */
 
 #postCards {
@@ -81,62 +60,84 @@ BigCard is the cardView-class that gets loaded when user clicks to open a card
     background-color: var(--secondary-col2);
     border: var(--secondary-col2) solid 2px;
     height: 100%;
-    padding:1ch;
+    padding:0;
 }
 
 /*
 Below are all the styles for different classes that are held inside bigCards
  */
 
+.pictureContainer{
+    position: absolute;
+    width: 100%;
+    top:0;
+    height:20%;
+    overflow: hidden;
+    display: block;
+    left:0;
+    right: 0;
+    margin: 0;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    background-color: var(--contrast-col2);
+    border: var(--secondary-col1) solid 1px;
+}
+
+/* Not currently in use, image loaded as background for pictureContainer
+.postImageThumb{
+    position: absolute;
+    width:100%;
+    left:0;
+    right:0;
+    margin: 0;
+    display: block;
+}
+*/
+
 .postTitle{
     position: absolute;
     width: 70%;
     left: 2ch;
-    top:0ch;
     color: var(--text-col1);
     font-size: var(--text-title2-size);
     padding: 0;
-    margin: 1ch 0 0 0;
+    margin: 24% 0 0 0;
     display: inline-block;
 }
 
 .username {
     position: absolute;
     width: 30%;
-    top: 1ch;
+    top: 24%;
     right: 2ch;
     padding: 0;
     display: inline-block;
 }
 
-.postImageThumb{
-    position: absolute;
-    max-width: 40%;
-    right: 1ch;
-    margin-left: 50%;
-    display: inline-block;
-    margin-top: 5ch;
-}
-
 .mainText{
     position: absolute;
-    max-width: 55%;
-    max-height: 75%;
+    max-height: 60%;
+    width:95%;
     overflow-y: scroll;
     overflow-x: hidden;
     display: inline-block;
     left: 1ch;
-    
-    margin-top: 5ch;
+    right:1ch;
+    top: 25%;
+
+    margin-top:2ch;
     padding: 1ch;
     box-sizing: border-box;
-    
+
     --webkit-box-orient: vertical;
     --webkit-line-clamp: 2; /* number of lines to show */
     line-height: 2.4ch;        /* fallback */
 
-    background-color: var(--text-col3);
-    border: var(--secondary-col1) solid 2px;
+    /*background-color: var(--text-col3);
+    border: var(--secondary-col1) solid 2px;*/
 }
 
 .votes{
