@@ -39,8 +39,6 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: var(--main-col1);
-
-    
 }
 
 #headerRight {
@@ -79,7 +77,6 @@
 }
 
 #userIcon:hover {
-
     position: absolute;
     right: 1.5ch;
     top: 1.5ch;
@@ -111,12 +108,53 @@ input[type=checkbox]:checked + label {
     font-style: normal;
 }*/
 
-#searchField{
-    visibility: hidden;
+/*
+menuField holds the inputField and searchButton inside it
+ */
+
+#menuField{
+    width: 70%;
 }
 
-#menuButton {
+#searchField{
+    position:absolute;
+    z-index: 0;
+    visibility: hidden;
+    right: 15ch;
+    margin-top:1.8ch;
+    height: 3ch;
+    border: var(--secondary-col1) solid 2px;
+    border-radius: 2ch 0 0 2ch;
+    padding-left: 1ch;
+    width: 0;
+
+    -webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.4s, height 0.4s, top 0.4s;
+}
+
+#searchFieldExpander{
     overflow: hidden;
+
+    position: absolute;
+    right: 18ch;
+    top: 3.7ch;
+    width: 3ch;
+    height: 3ch;
+    border: none;
+
+    background-color: transparent;
+    background-image: url("../img/arrow_xlarge.png");
+    background-position: center;
+    background-size: cover;
+
+    -webkit-transition: width 0.5s;
+    /* For Safari 3.1 to 6.0 */
+    transition: width 0.2s, height 0.2s, top 0.2s, transform 0.4s;
+}
+
+#searchButton {
+    overflow: hidden;
+    z-index: 1;
     
     position: absolute;
     right: 10ch;
@@ -132,14 +170,13 @@ input[type=checkbox]:checked + label {
     background-size: cover;
     
     color: var(--text-col1);
-    -webkit-transition: width 0.5s;
-    /* For Safari 3.1 to 6.0 */
-    transition: width 0.2s, height 0.2s, top 0.2s;
+    -webkit-transition: width 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s, height 0.5s, top 0.5s;
 }
 
 /*Old method to working with searchbar, supposed to widen up when clicked, transforming into a searchbar*/
 
-#menuButton:hover {
+#searchButton:hover {
     overflow: hidden;
     position: absolute;
     right: 10ch;
@@ -152,7 +189,7 @@ input[type=checkbox]:checked + label {
     background-color: var(--contrast-col2);
 }
 
-#menuButton:active {
+#searchButton:active {
     overflow: hidden;
     position: absolute;
     right: 10ch;
@@ -165,10 +202,9 @@ input[type=checkbox]:checked + label {
     color: var(--text-col1);
 }
 
-#menuField input:checked + #menuButton {
+#menuField input:checked + #searchFieldExpander {
     overflow: hidden;
     position: absolute;
-    /*border: solid white 1px;*/
     right: 10ch;
     top: 1.5ch;
     width: 100%;

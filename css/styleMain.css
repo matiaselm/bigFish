@@ -28,7 +28,7 @@ body {
 h1 {
     text-align: center;
     color: var(--text-col1);
-    font-size: var(--text-title-size);
+    font-size: var(--text-title1-size);
 }
 
 p {
@@ -49,4 +49,3 @@ li {
 }
 
 @media only screen and (max-width: 20in) {}
-

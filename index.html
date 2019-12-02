@@ -16,20 +16,21 @@
         </div>
         <div class="headerBox" id=headerRight>
             <!-- Usersettings to userIcon -->
-            <button id="userIcon"></button>
-            <div id="menuField">
-                <!-- Checkbox is hidden away, pressing the menuButton activates it.
-                Don't remove -->
-                <input type="checkbox" id="toggle-1" name="toggle-1">
-                <button for="toggle-1" id="menuButton">
-                    <!--Search to searchbutton-->
+
+                <div id="menuField">
+                    <!-- Checkbox is hidden away, pressing the menuButton activates it.
+                    Don't remove. Commented out because we're going to do this with js.
+                    -->
+
+                    <button id="searchButton"></button>
+
+                    <button id="searchFieldExpander" for="toggle-1"></button>
+                    <input type="checkbox" id="toggle-1" name="toggle-1">
+                        <!--Search to searchbutton-->
                     <input type="text" id="searchField">
-                    
-                </button>
-
+                    <button id="userIcon"></button>
+                </div>
             </div>
-
-        </div>
     </div>
 
     <div class="mainFeedBG">

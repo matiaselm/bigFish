@@ -27,7 +27,8 @@
     overflow-y: scroll;
     top: var(--header-height);
 }
-/*postCard is just one little post-element in the site list*/
+
+/* postCard is just one little post-element in the site list */
 
 .postCard {
     position: relative;
@@ -170,6 +171,7 @@ Below styles for smallCards
 .littleUsername{
     display: inline-block;
     position: absolute;
+    height: 1ch;
     right: 0;
     top: 0;
     margin: 1ch;
