@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BigFish0.01</title>
+    <link rel="stylesheet" type="text/css" href="css/styleMain.css">
+    <link rel="stylesheet" type="text/css" href="css/styleNavBar.css">
+    <link rel="stylesheet" type="text/css" href="css/styleCards.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="headerBox" id=headerLeft>
+            <h1 id="mainTitle">BigFish</h1>
+        </div>
+        <div class="headerBox" id=headerRight>
+            <!-- Usersettings to userIcon -->
+
+                <div id="menuField">
+                    <!-- Checkbox is hidden away, pressing the menuButton activates it.
+                    Don't remove. Commented out because we're going to do this with js.
+                    -->
+
+                    <button id="searchButton"></button>
+
+                    <button id="searchFieldExpander" for="toggle-1"></button>
+                    <input type="checkbox" id="toggle-1" name="toggle-1">
+                        <!--Search to searchbutton-->
+                    <input type="text" id="searchField">
+                    <button id="userIcon"></button>
+                </div>
+            </div>
+    </div>
+
+    <div class="mainFeedBG">
+        <ul id="postCards">
+
+        </ul>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/cardScript.js"></script>
+
+</body></html>

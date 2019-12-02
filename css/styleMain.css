@@ -1,0 +1,51 @@
+:root{
+    --main-col1: lightgrey;
+    --main-col2: grey;
+    --main-col3: #85ff7a;
+    --secondary-col1: white;
+    --secondary-col2: lightgrey;
+    --contrast-col1: #596300;
+    --contrast-col2: #492e3e;
+    --text-col1: black;
+    --text-col2: darkgrey;
+    --text-col3: white;
+
+    --header-height: 12ch;
+
+    --text-title1-size: 4ch;
+    --text-title2-size: 3ch;
+    --text-bread-size: 2ch;
+
+    --card-main-size: 7ch;
+    --card-open-size: 50ch;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: var(--text-col1);
+    font-size: var(--text-title1-size);
+}
+
+p {
+    font-size: var(--text-bread-size);
+    color: var(--text-col1);
+}
+
+li {
+    font-size: var(--text-bread-size);
+    color: var(--text-col1);
+    margin: 2%;
+}
+
+.mainFeedBG {
+    z-index: -1;
+    margin: fill;
+    overflow-y: scroll;
+}
+
+@media only screen and (max-width: 20in) {}
