@@ -1,8 +1,9 @@
 :root{
-    --main-col1: #e1ffa0;
-    --main-col2: #85ff7a;
-    --secondary-col1: #49527f;
-    --secondary-col2: #658f9e;
+    --main-col1: lightgrey;
+    --main-col2: grey;
+    --main-col3: #85ff7a;
+    --secondary-col1: white;
+    --secondary-col2: lightgrey;
     --contrast-col1: #596300;
     --contrast-col2: #492e3e;
     --text-col1: black;
@@ -14,7 +15,6 @@
     --text-title1-size: 4ch;
     --text-title2-size: 3ch;
     --text-bread-size: 2ch;
-
 
     --card-main-size: 7ch;
     --card-open-size: 50ch;
