@@ -10,6 +10,6 @@ const postRoute = require('./routes/postRoute');
 app.use('/user',userRoute);
 app.use('/post',postRoute);
 
-
+app.use(express.static('uploads'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
