@@ -18,6 +18,8 @@
 
     --card-main-size: 7ch;
     --card-open-size: 50ch;
+
+    --tran-speed: 0.4s;
 }
 
 body {

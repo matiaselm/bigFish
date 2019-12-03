@@ -4,11 +4,15 @@ console.log('script loaded');
 
 const searchButton = document.getElementById('searchButton');
 const arrowButton = document.getElementById('searchFieldExpander');
+const userButton = document.getElementById('userIcon');
+const userMenu = document.getElementById('dropDownMenu');
 const checkBox1 = document.getElementById('toggle-1');
+const checkBox2 = document.getElementById('toggle-2');
 const logo = document.getElementById('mainTitle');
 const searchField = document.getElementById('searchField');
 const headerLeft = document.getElementById('headerLeft');
 const headerRight = document.getElementById('headerRight');
+
 
 //only a debugging function
 const checkIfTrue = (checkBox) => {
@@ -39,7 +43,7 @@ arrowButton.onclick=()=>{
         headerRight.style.width=('50%');
         arrowButton.style.right=('18ch');
         arrowButton.style.left=('');
-        arrowButton.style.transform='';
+        arrowButton.style.transform=('');
     }
 };
 
@@ -47,6 +51,19 @@ searchButton.onclick=()=>{
     const searchParams = searchField.value;
     console.log(searchParams);
     searchField.value=('');
+};
+
+let bool = true;
+userButton.onclick=()=>{
+    if (bool) {
+        userMenu.style.height = ('0');
+        userMenu.style.visibility = ('hidden');
+        bool = false;
+    } else {
+        userMenu.style.visibility = ('visible');
+        userMenu.style.height = ('11ch');
+        bool = true;
+    }
 };
 
 //.addClass
