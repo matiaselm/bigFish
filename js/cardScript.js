@@ -137,7 +137,7 @@ const bigPost = (e) => {
 //smallPost is what's created when a bigCard is clicked into a small one again. e.target.id is the same as when they're made in the for loop below
 //don't touch pls
 const smallPost = (e) => {
-    return `<div class="postCard" id=${e.target.id}>
+    return `<div id=${e.target.id}>
                 <p class="littleTitle">These are some fine cards mmHmmHHmmm</p>
                 <a href="../html/userpage.html" class="littleUsername">username</a>
                 <a href="../html/comments.html" class="littleComments">comments</a>

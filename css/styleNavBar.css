@@ -7,10 +7,14 @@
     width: 100%;
     z-index: 1;
     margin: 0;
-    box-sizing: border-box;
     
     background-color: var(--main-col1);
     height: var(--header-height);
+
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+
 }
 
 /* Class .headerBox splits header into inline-parts, currently left and right */
@@ -28,6 +32,7 @@
     -webkit-transition: width var(--tran-speed);
     /* For Safari 3.1 to 6.0 */
     transition: width var(--tran-speed), height var(--tran-speed), top var(--tran-speed);
+
 }
 
 #headerLeft {
@@ -58,6 +63,7 @@
     box-sizing: border-box;
     background-color: var(--contrast-col1);
     height: var(--header-height);
+
 }
 
 #userIcon {

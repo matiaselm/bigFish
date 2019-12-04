@@ -20,6 +20,16 @@
     --card-open-size: 50ch;
 
     --tran-speed: 0.4s;
+
+    --gradient-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.06) inset;
+}
+
+*,
+*:after,
+*:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {

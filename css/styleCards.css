@@ -2,7 +2,7 @@
 
 #postCards {
     position: absolute;
-    height: 100%;
+    height: 90%;
     right: 0;
     left: 0;
     background-color: var(--secondary-col1);
@@ -12,6 +12,7 @@
     padding: 0;
     overflow-y: scroll;
     top: var(--header-height);
+    z-index: -1;
 }
 
 #cardTest{
@@ -49,6 +50,9 @@
     color: var(--text-col1);
     /*height: var(--card-main-size);*/
     background-color: var(--secondary-col2);
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
 }
 
 
