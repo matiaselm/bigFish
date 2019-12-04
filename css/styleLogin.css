@@ -1,0 +1,17 @@
+#loginPage{
+    position: relative;
+    background-color: var(--main-col3);
+    margin: 1ch;
+    padding: 1ch;
+    box-sizing: border-box;
+}
+
+#loginButton{
+    position: absolute;
+    right: 1ch;
+    bottom: 1ch;
+}
+
+.loginInput{
+    margin-top: 1ch;
+}

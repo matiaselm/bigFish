@@ -25,9 +25,9 @@
     height: var(--header-height);
     
         
-    -webkit-transition: width 0.5s;
+    -webkit-transition: width var(--tran-speed);
     /* For Safari 3.1 to 6.0 */
-    transition: width 0.2s, height 0.2s, top 0.2s;
+    transition: width var(--tran-speed), height var(--tran-speed), top var(--tran-speed);
 }
 
 #headerLeft {
@@ -61,6 +61,7 @@
 }
 
 #userIcon {
+    z-index: 2;
     overflow: hidden;
     color: var(--text-col1);
     position: absolute;
@@ -89,12 +90,55 @@
     color: var(--text-col1);
 }
 
+/*
+Dropdownmenu is the actual box containing the list of elements
+remember that script.js manages the height
+ */
+
+#dropDownMenu{
+    visibility: hidden;
+
+    overflow: hidden;
+    position: absolute;
+    right: 1.5ch;
+    top: 1.5ch;
+    z-index: 1;
+    height: 13ch;
+    width: 15ch;
+    padding-top: 3ch;
+    padding-left: 0;
+    text-align: left;
+    background-color: var(--contrast-col2);
+    list-style-type: none;
+
+    border-radius: 2ch;
+
+    -webkit-transition: height var(--tran-speed);
+    /* For Safari 3.1 to 6.0 */
+    transition: height var(--tran-speed);
+}
+
+#dropDownList{
+    position: absolute;
+    right:0;
+    margin-left:0;
+    text-align: right;
+    list-style-type: none;
+    padding:1ch;
+}
+
 #toggle-1 {
     width: 0;
     height: 0;
     top: -9999px;
     left: -9999px;
     position: absolute;
+}
+
+.dropDown{
+    color: var(--text-col3);
+    text-decoration: none;
+    margin: 1ch 0;
 }
 
 /*
@@ -128,8 +172,8 @@ menuField holds the inputField and searchButton inside it
     padding-left: 1ch;
     width: 0;
 
-    -webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
-    transition: width 0.4s, height 0.4s, top 0.4s;
+    -webkit-transition: width var(--tran-speed); /* For Safari 3.1 to 6.0 */
+    transition: width var(--tran-speed), height var(--tran-speed), top var(--tran-speed);
 }
 
 #searchFieldExpander{
@@ -147,9 +191,9 @@ menuField holds the inputField and searchButton inside it
     background-position: center;
     background-size: cover;
 
-    -webkit-transition: width 0.5s;
+    -webkit-transition: width var(--tran-speed);
     /* For Safari 3.1 to 6.0 */
-    transition: width 0.2s, height 0.2s, top 0.2s, transform 0.4s;
+    transition: width var(--tran-speed), height var(--tran-speed), top var(--tran-speed), transform var(--tran-speed);
 }
 
 #searchButton {
@@ -170,8 +214,8 @@ menuField holds the inputField and searchButton inside it
     background-size: cover;
     
     color: var(--text-col1);
-    -webkit-transition: width 0.5s; /* For Safari 3.1 to 6.0 */
-    transition: width 0.5s, height 0.5s, top 0.5s;
+    -webkit-transition: width var(--tran-speed); /* For Safari 3.1 to 6.0 */
+    transition: width var(--tran-speed), height var(--tran-speed), top var(--tran-speed);
 }
 
 /*Old method to working with searchbar, supposed to widen up when clicked, transforming into a searchbar*/
@@ -213,4 +257,7 @@ menuField holds the inputField and searchButton inside it
     background-image: none;
 
     color: var(--text-col2);
+}
+#userCorner input:checked + #userIcon {
+
 }
