@@ -32,10 +32,11 @@
 
 .postCard {
     position: relative;
-    width: 100%;
-    left:0ch;
+    width: auto;
+    left:0;
     right:0;
-    margin: 1ch 0;
+    margin: 1ch;
+    border-radius: 3px;
     min-height: 60px;
     list-style-type: none;
     box-sizing: border-box;

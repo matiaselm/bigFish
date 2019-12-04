@@ -46,7 +46,7 @@ const openFunction = (e) => {
     //   - areCardsOpen = true
     //   - areCardsOpen can only be made false again by closing the opened card
 
-    if(!cardsOpen){
+    if(!cardsOpen && clickedId!=='postCards'){
         cardId = e.target.id;
         const post = document.getElementById(`${cardId}`);
 
