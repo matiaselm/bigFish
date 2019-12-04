@@ -14,7 +14,7 @@
 
 
 <h2>Register</h2>
-<form action="/user/register/" method="post">
+<form action="/user" method="post">
     <input type="text" name="username" placeholder="username" required>
     <input type="text" name="email" placeholder="email" required>
     <input type="text" name="passwd" placeholder="password" required>
@@ -22,12 +22,12 @@
 </form>
 
 <h2>POST</h2>
-<form action="/post/" method="post">
+<form action="/post" method="post" enctype="multipart/form-data">
     <input type="text" name="post_name" placeholder="Title" required>
     <input type="text" name="post_description" placeholder="Desc" required>
     <input type="text" name="post_creator" placeholder="Creator" required>
 
-    <input class="light-border" type="file" name="post_file">
+<input  type="file" name="post_filename">
     <input type="submit" value="Post">
 </form>
 
