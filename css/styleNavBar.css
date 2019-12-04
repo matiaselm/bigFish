@@ -92,6 +92,7 @@
 
 /*
 Dropdownmenu is the actual box containing the list of elements
+remember that script.js manages the height
  */
 
 #dropDownMenu{
@@ -102,9 +103,9 @@ Dropdownmenu is the actual box containing the list of elements
     right: 1.5ch;
     top: 1.5ch;
     z-index: 1;
-    height: 11ch;
+    height: 13ch;
     width: 15ch;
-    padding-top: 7ch;
+    padding-top: 3ch;
     padding-left: 0;
     text-align: left;
     background-color: var(--contrast-col2);
@@ -118,14 +119,12 @@ Dropdownmenu is the actual box containing the list of elements
 }
 
 #dropDownList{
-
     position: absolute;
     right:0;
     margin-left:0;
     text-align: right;
     list-style-type: none;
     padding:1ch;
-
 }
 
 #toggle-1 {

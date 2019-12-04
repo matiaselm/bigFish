@@ -65,7 +65,7 @@ userButton.onclick=()=>{
         bool = false;
     } else {
         userMenu.style.visibility = ('visible');
-        userMenu.style.height = ('11ch');
+        userMenu.style.height = ('13ch');
         bool = true;
     }
 };
