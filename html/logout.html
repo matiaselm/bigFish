@@ -5,6 +5,43 @@
     <title>logout</title>
 </head>
 <body>
+<div id="header">
+    <div class="headerBox" id=headerLeft>
+        <h1 id="mainTitle">BigFish</h1>
+    </div>
+    <div class="headerBox" id=headerRight>
+        <!-- Usersettings to userIcon -->
+
+        <div id="menuField">
+            <!-- Checkbox is hidden away, pressing the menuButton activates it.
+            Don't remove. Commented out because we're going to do this with js.
+            -->
+
+            <button id="searchButton"></button>
+
+            <button id="searchFieldExpander" for="toggle-1"></button>
+            <input type="checkbox" id="toggle-1" name="toggle-1">
+            <!--Search to searchbutton-->
+            <input type="text" id="searchField">
+
+            <div id="userCorner">
+                <button id="userIcon"></button>
+                <div id="dropDownMenu">
+                    <ul id="dropDownList">
+                        <a class="dropDown" href="html/login.html">Login</a>
+                        <br>
+                        <a class="dropDown" href="html/userSettings.html">Settings</a>
+                        <br>
+                        <a class="dropDown" href="html/submitPage.html">Create post</a>
+                        <br>
+                        <a class="dropDown" href="html/logout.html">Logout</a>
+                        <br>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>

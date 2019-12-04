@@ -13,6 +13,7 @@ const searchField = document.getElementById('searchField');
 const headerLeft = document.getElementById('headerLeft');
 const headerRight = document.getElementById('headerRight');
 
+let bool = true;
 
 //only a debugging function
 const checkIfTrue = (checkBox) => {
@@ -57,7 +58,6 @@ searchButton.onclick=()=>{
     searchField.value=('');
 };
 
-let bool = true;
 userButton.onclick=()=>{
     if (bool) {
         userMenu.style.height = ('0');
