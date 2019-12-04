@@ -1,0 +1,49 @@
+.submitPage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.submitCard{
+    position: absolute;
+    background-color: var(--main-col3);
+    left: 0;
+    right: 0;
+    top: 12ch;
+    margin: 1ch;
+    height: auto;
+    padding: 1ch;
+    border: var(--main-col2) solid 1px;
+}
+
+.input{
+    width: 40ch;
+    margin-top:1ch;
+    margin-bottom:1ch;
+
+    border: var(--main-col2) solid 1px;
+}
+
+#submitPageTitle{
+
+}
+
+#inputTitle{
+    height: 10ch;
+    max-height: 40ch;
+    max-width: 40ch;
+    resize: vertical;
+}
+
+#inputMainText{
+    height: 10ch;
+    max-height: 40ch;
+    max-width: 40ch;
+    resize: vertical;
+}
+
+#submitButton{
+    position: absolute;
+    right: 1ch;
+    bottom:1ch;
+}

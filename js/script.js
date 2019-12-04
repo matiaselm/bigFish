@@ -29,20 +29,24 @@ arrowButton.onclick=()=>{
 
     if(checkBox1.checked){
         logo.style.fontSize=('0');
+
         searchField.style.visibility=('initial');
         searchField.style.righ=('15ch');
         searchField.style.width=('35ch');
+
         headerLeft.style.width=('30%');
         headerRight.style.width=('70%');
+
         arrowButton.style.left=('0');
         arrowButton.style.transform='rotate(180deg)';
     }else{
         logo.style.fontSize=('var(--text-title1-size)');
         searchField.style.width=('0');
-        headerLeft.style.width=('50%');
-        headerRight.style.width=('50%');
+
+        headerLeft.style.width=('72%');
+        headerRight.style.width=('28%');
+
         arrowButton.style.right=('18ch');
-        arrowButton.style.left=('');
         arrowButton.style.transform=('');
     }
 };
