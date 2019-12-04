@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 console.log('script loaded');
 
 const searchButton = document.getElementById('searchButton');
