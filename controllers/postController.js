@@ -18,6 +18,7 @@ const posts_list_get = async (req, res) => {
 
 };
 */
+// cannot read property of post_filename
 const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
       req.body.post_description,
@@ -30,7 +31,7 @@ const post_create_post = async (req, res) => {
       req.body.post_name,
       req.body.post_description,
       req.body.post_creator,
-      req.file.post_filename
+     // req.file.post_filename
 
     ];
     const response = await postsModel.addPost(params);
