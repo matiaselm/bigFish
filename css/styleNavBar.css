@@ -19,7 +19,7 @@
 
 /* Class .headerBox splits header into inline-parts, currently left and right */
 .headerBox {
-    width: 50%;
+    /*width: 50%;*/
     z-index: 1;
     position: absolute;
     box-sizing: border-box;
@@ -44,13 +44,15 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-color: var(--main-col1);
+    width: 30ch;
 }
 
 #headerRight {
     box-sizing: border-box;
     right: 0;
     align-content: center;
-    background-color: var(--main-col1);
+    /*background-color: var(--main-col1);*/
+    width: 20ch;
 }
 
 .header {
