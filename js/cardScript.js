@@ -139,8 +139,8 @@ const bigPost = (e) => {
 const smallPost = (e) => {
     return `<div id=${e.target.id}>
                 <p class="littleTitle">These are some fine cards mmHmmHHmmm</p>
-                <a href="../html/userpage.html" class="littleUsername">username</a>
-                <a href="../html/comments.html" class="littleComments">comments</a>
+                <a href="html/userpage.html" class="littleUsername">username</a>
+                <a href="html/comments.html" class="littleComments">comments</a>
                 <p class="littleVotes">1248 likes</p>
             </div>`;
 };

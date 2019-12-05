@@ -116,7 +116,7 @@ Below are all the styles for different classes that are held inside bigCards
 
 .username {
     position: absolute;
-    width: 30%;
+    width: auto;
     top: 24%;
     right: 2ch;
     padding: 0;
@@ -166,23 +166,24 @@ Below styles for smallCards
  */
 
 .littleTitle{
-    width: 80%;
-    display: inline-block;
+    position:absolute;
+    width: 70%;
     left: 0;
     top: 0;
     margin: 1ch;
 }
 
 .littleUsername{
-    display: inline-block;
     position: absolute;
-    height: 1ch;
     right: 0;
     top: 0;
     margin: 1ch;
-    width: 20%;
-    bottom: 0;
-    text-align: right;
+    width: auto;
+    z-index: inherit;
+}
+
+.littleUsername:hover{
+    color: red;
 }
 
 .littleVotes{
