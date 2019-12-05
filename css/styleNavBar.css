@@ -47,6 +47,10 @@
     width: 30ch;
 }
 
+#headerLeft:hover {
+    cursor: pointer;
+}
+
 #headerRight {
     box-sizing: border-box;
     right: 0;

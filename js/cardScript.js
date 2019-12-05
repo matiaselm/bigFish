@@ -5,6 +5,7 @@ console.log('cardScript loaded');
 let cardsOpen = false;
 let cardId;
 
+
 const cardList = [
     {
         title: 'Title placeholder',
@@ -22,6 +23,21 @@ const cardList = [
         comment_link: 'html/comments.html'
     }
 ];
+
+const createElement=(id, name, desc, filename, likes, dislikes, creator)=>{
+    let post = {
+        'id': id,
+        'name': name,
+        'desc': desc,
+        'filename': filename,
+        'likes': likes,
+        'dislikes': dislikes,
+        'creator': creator
+    };
+    return post;
+};
+
+console.log(cardList[0].username);
 
 const smallCard = (i) => {
     return `<div class="postCard" id='post${i}'>
