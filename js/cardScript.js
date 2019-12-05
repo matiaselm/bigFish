@@ -13,7 +13,7 @@ const createElement=(id, name, desc, filename, creator)=>{
         'desc': desc,
         'filename': filename,
         // 'likes': likes,
-        //  'dislikes': dislikes,
+        // 'dislikes': dislikes,
         'creator': creator
     };
     return post;
@@ -24,7 +24,7 @@ const getPost = async () => {
     const response = await fetch(url + '/post');
     const posts = await response.json();
     for (let i of posts) {
-        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator);
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post);
 
         testlist.push(post);
     }
@@ -34,8 +34,8 @@ const getPost = async () => {
 
 console.log(testlist.length);
 
-//console.log(testlist[0].post_name);
-const cardList = [
+
+/*const cardList = [
     {
         title: 'Title placeholder',
         picture: 'img/placeholder.png',
@@ -51,7 +51,7 @@ const cardList = [
         username: 'username here',
         comment_link: 'html/comments.html'
     }
-];
+]; */
 
 const smallCard = (i) => {
     return `<div class="postCard" id='post${i}'>
@@ -62,7 +62,7 @@ const smallCard = (i) => {
             </div>`;
 };
 
-console.log(cardList);
+//console.log(cardList);
 
 const card = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');

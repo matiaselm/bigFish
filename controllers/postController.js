@@ -1,5 +1,5 @@
 const postsModel = require('../model/postModel');
-
+const resize = require('../utils/resize');
 
 const posts_list_get = async (req, res) => {
   const posts = await postsModel.getAllPosts();
@@ -24,9 +24,14 @@ const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
       req.body.post_description,
       req.body.post_creator,
-    //  req.file.post_filename
+      req.file.filename
     );
   try {
+    // Make thumbnail
+    resize.makeThumbnail(req.file.path,
+        'thumbnails/'+ req.file.filename,
+        {width: 160,height: 160});
+
     // add to db
     console.log('request?', req);
     const params = [
