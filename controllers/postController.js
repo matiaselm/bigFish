@@ -6,6 +6,7 @@ const posts_list_get = async (req, res) => {
   await res.json(posts);
 };
 
+
 /*const post_create_post = async (req,res)=>{
 
 //  const post = await postModel.addPost(req.body.post_name, req.body.post_description, req.body.post_creator, req.body.post_file);
@@ -27,11 +28,12 @@ const post_create_post = async (req, res) => {
     );
   try {
     // add to db
+    console.log('request?', req);
     const params = [
       req.body.post_name,
       req.body.post_description,
       req.body.post_creator,
-     // req.file.post_filename
+      req.file.filename
 
     ];
     const response = await postsModel.addPost(params);

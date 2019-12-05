@@ -20,11 +20,6 @@ app.use(express.urlencoded({extended: true}));
 
 
 
-
-
-
-
-
 const userRoute = require('./routes/userRoute');
 const postRoute = require('./routes/postRoute');
 app.use('/user',userRoute);
