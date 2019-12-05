@@ -1,10 +1,40 @@
 'use strict';
-
+const url = 'http://localhost:3000';
 console.log('cardScript loaded');
 
 let cardsOpen = false;
 let cardId;
+let testlist= [];
 
+const createElement=(id, name, desc, filename, creator)=>{
+    let post = {
+        'id': id,
+        'name': name,
+        'desc': desc,
+        'filename': filename,
+       // 'likes': likes,
+      //  'dislikes': dislikes,
+        'creator': creator
+    };
+    return post;
+};
+
+
+const getPost = async () => {
+    const response = await fetch(url + '/post');
+    const posts = await response.json();
+    for (let i of posts) {
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator);
+
+        testlist.push(post);
+    }
+    createCards(testlist.length);
+    console.log(testlist);
+};
+
+console.log(testlist.length);
+
+//console.log(testlist[0].post_name);
 const cardList = [
     {
         title: 'Title placeholder',
@@ -25,10 +55,10 @@ const cardList = [
 
 const smallCard = (i) => {
     return `<div class="postCard" id='post${i}'>
-                <p class="littleTitle">These are some fine cards mmHmmHHmmm</p>
-                <a href="html/userpage.html" class="littleUsername">username</a>
+                <p class="littleTitle">${testlist[i].name}</p>
+                <a href="html/userpage.html" class="littleUsername">${testlist[i].creator}</a>
                 <a href="html/comments.html" class="littleComments">comments</a>
-                <p class="littleVotes">1248 likes</p>
+                <p class="littleVotes">${testlist[i].id}</p>
             </div>`;
 };
 
@@ -72,7 +102,7 @@ const bigPost = (e) => {
 
     if(true){
     return`<div class="bigCard" id=${e.target.id}>
-        <div class="pictureContainer" style='background-image: url("img/placeholder.png")'>
+        <div class="pictureContainer" style='background-image: url("img/placeholder.png")>
             <!--<img class="postImageThumb" src="../img/placeholder.png"> -->
         </div>
         <div id="postMeat">
@@ -144,11 +174,12 @@ const smallPost = (e) => {
                 <p class="littleVotes">1248 likes</p>
             </div>`;
 };
-
-for(let i = 0; i<25; i++) {
-    //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
-    cardView.innerHTML += smallCard(i);
-}
+const createCards=(length)=> {
+    for (let i = 0; i < length; i++) {
+        //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
+        cardView.innerHTML += smallCard(i);
+    }
+};
 
 console.log(cardView);
 console.log(card);
@@ -156,5 +187,5 @@ console.log(card);
 cardView.onclick = (e) => {
     openFunction(e)
 };
-
+getPost();
 //.addClass
