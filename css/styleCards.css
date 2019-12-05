@@ -167,10 +167,14 @@ Below styles for smallCards
 
 .littleTitle{
     position:absolute;
+    display:inline;
+    white-space: nowrap;
     width: 70%;
     left: 0;
     top: 0;
     margin: 1ch;
+    overflow: hidden;
+    text-overflow:ellipsis
 }
 
 .littleUsername{

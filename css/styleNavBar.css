@@ -47,12 +47,17 @@
     width: 30ch;
 }
 
+#headerLeft:hover {
+    cursor: pointer;
+}
+
 #headerRight {
     box-sizing: border-box;
     right: 0;
     align-content: center;
     /*background-color: var(--main-col1);*/
     width: 20ch;
+    max-width: 100%;
 }
 
 .header {
@@ -174,7 +179,7 @@ menuField holds the inputField and searchButton inside it
     visibility: hidden;
     right: 15ch;
     margin-top:1.8ch;
-    height: 3ch;
+    height: 4ch;
     border: var(--secondary-col1) solid 2px;
     border-radius: 2ch 0 0 2ch;
     padding-left: 1ch;

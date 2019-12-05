@@ -29,7 +29,7 @@ arrowButton.onclick=()=>{
     checkBox1.checked = !checkBox1.checked;
 
     if(checkBox1.checked){
-        //logo.style.fontSize=('0');
+        logo.style.fontSize=('0');
 
         searchField.style.visibility=('initial');
         searchField.style.righ=('15ch');
