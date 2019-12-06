@@ -2,29 +2,42 @@
 const url = 'http://localhost:3000';
 console.log('cardScript loaded');
 
+//Getting references to all elements inside posts
+
+const postImg = document.getElementsByClassName('postImg');
+const postTitle = document.getElementsByClassName('postTitle');
+const userName = document.getElementsByClassName('username');
+
 let cardsOpen = false;
 let cardId;
 let testlist= [];
 
-const createElement=(id, name, desc, filename, creator)=>{
-    let post = {
-        'id': id,
-        'name': name,
-        'desc': desc,
-        'filename': filename,
-        // 'likes': likes,
-        //  'dislikes': dislikes,
-        'creator': creator
-    };
-    return post;
+const createElement=(id, name, desc, filename, creator, likes, dislikes)=>{
+        const imagePost = {
+            'id': id,
+            'name': name,
+            'desc': desc,
+            'filename': filename,
+            'likes': likes,
+            'dislikes': dislikes,
+            'creator': creator,
+        };
+        return imagePost;
 };
 
+const findPost = (id, list) => {
+    for (let i=0; i < list.length; i++) {
+        if (list[i].id === id) {
+            return list[i];
+        }
+    }
+};
 
 const getPost = async () => {
     const response = await fetch(url + '/post');
     const posts = await response.json();
     for (let i of posts) {
-        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator);
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post_likes, i.post_dislikes);
 
         testlist.push(post);
     }
@@ -54,11 +67,14 @@ const cardList = [
 ];
 
 const smallCard = (i) => {
-    return `<div class="postCard" id='post${i}'>
-                <p class="littleTitle">${testlist[i].name}</p>
-                <a href="html/userpage.html" class="littleUsername">${testlist[i].creator}</a>
-                <a href="html/comments.html" class="littleComments">comments</a>
-                <p class="littleVotes">${testlist[i].id}</p>
+    console.log('filename: ' + testlist[i].filename);
+    return `<div class="postCard" id=${testlist[i].id}>
+                <img src="uploads/${testlist[i].filename}" alt="" class="postImg">
+                <p class="postTitle">${testlist[i].name}</p>
+                <a href="html/userpage.html" class="postUsername">${testlist[i].creator}</a>
+                <p class="mainText">${testlist[i].desc}</p>
+                <a href="html/comments.html" class="postComments">comments</a>
+                <p class="postVotes">${testlist[i].id}</p>
             </div>`;
 };
 
@@ -66,6 +82,53 @@ console.log(cardList);
 
 const card = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
+
+const enhanceStyle = (post) => {
+
+    post.style.height=('var(--card-open-size)');
+    console.log('post card: ', post);
+
+    /*
+    childNodes: NodeList(11)
+​​
+    0: #text "
+                    "​​
+    1: <img class="postImg" src="uploads/f9c1e3c798fa37ce56869f230a230187" alt="" style="width: 100%; max-width: 100%;">​​
+    2: #text "
+                    "​​
+    3: <p class="postTitle" style="background-color: white;">​​
+    4: #text "
+                    "​​
+    5: <a class="postUsername" href="html/userpage.html">​​
+    6: #text "
+                    "​​
+    7: <a class="postComments" href="html/comments.html">​​
+    8: #text "
+                    "​​
+    9: <p class="postVotes">​​
+    10: #text
+
+    */
+
+    const imgChild = post.firstElementChild.style;
+    const titleChild = post.childNodes[3].style;
+    const userChild = post.childNodes[5].style;
+    const descChild = post.childNodes[7].style;
+    const commentChild = post.childNodes[9].style;
+    const votesChild = post.childNodes[12].style;
+
+    //console.log('titleChild: ', titleChild);
+
+    imgChild.width=('100%');
+    imgChild.top=('0');
+    imgChild.height=('20%');
+    imgChild.overflow=('hidden');
+    imgChild.display=('block');
+    imgChild.left=('0');
+    imgChild.maxWidth=('100%');
+
+    titleChild.backgroundColor=('white');
+};
 
 // openFuntion is called when a card is pressed, it makes it bigger and calls loadPost(), showing the whole post
 const openFunction = (e) => {
@@ -78,30 +141,38 @@ const openFunction = (e) => {
 
     if(!cardsOpen && clickedId!=='postCards'){
         cardId = e.target.id;
-        const post = document.getElementById(`${cardId}`);
-
+        //const post = document.getElementById(`${findPost(cardId, testlist).id}`);
+        const post = document.getElementById(cardId);
         console.log(`card ${e.target.id} clicked`);
 
-        post.style.height=('var(--card-open-size)');
-        post.innerHTML = bigPost(e);
+        enhanceStyle(post);
         cardsOpen = true;
+
     }else if(cardsOpen && clickedId===cardId){
+        //const post = document.getElementById(`${findPost(cardId, testlist).id}`);
         const post = document.getElementById(`${cardId}`);
         console.log(`card ${e.target.id} clicked`);
         document.getElementById(`${e.target.id}`).style.height=('var(--card-main-size)');
-        post.innerHTML = smallPost(e);
+        post.style.height=('var(--card-main-size)');
         cardsOpen=false;
     }
 };
 
-// In bigPost() replace 0 with e when cardList is ready
+const createCards= (length)=> {
+    for (let i = 0; i < length; i++) {
+        //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
+        cardView.innerHTML += smallCard(i);
+    }
+};
 
-const bigPost = (e) => {
+// In bigPost() replace 0 with e when cardList is ready
+//bigPost is supposed to make a new HTML element inside opened card, disabled at least for now
+/*const bigPost = (e) => {
 
     //if-else statement meant to check what kind of content is there on cardList and load specific type of HTML depending on that
-
-    if(true){
-        return`<div class="bigCard" id=${e.target.id}>
+        console.log(e.target.id);
+        const targetId = e.target.id;
+        return `<div class="bigCard" id=${targetId}>
         <div class="pictureContainer" style='background-image: url("img/placeholder.png")>
             <!--<img class="postImageThumb" src="../img/placeholder.png"> -->
         </div>
@@ -150,36 +221,24 @@ const bigPost = (e) => {
         <div class="votes">1248 likes</div>
         <a class="commentsLink" href="html/comments.html">comments</a>
     </div>`;
-    }else{
-        return`<div class="bigCard" id=${e.target.id}> 
-                            <div id="postMeat">
-                                <p class="postTitle">${cardList[0].title}</p>
-                                <img class="postImageThumb" src=${cardList[0].picture}>
-                                <p class="mainText">${cardList[0].maintext}</p>
-                            </div>
-                            <p class="username">${cardList[0].username}</p>
-                            <div class="votes">${cardList[0].likes}</div>
-                            <a class="commentsLink" href=${cardList[0].comment_link}>comments</a>
-                            </div>`;
-    }
-};
+};*/
 
+/*
 //smallPost is what's created when a bigCard is clicked into a small one again. e.target.id is the same as when they're made in the for loop below
 //don't touch pls
 const smallPost = (e) => {
-    return `<div id=${e.target.id}>
-                <p class="littleTitle">These are some fine cards mmHmmHHmmm</p>
-                <a href="html/userpage.html" class="littleUsername">username</a>
+    const targetId = e.target.id;
+    return `<div id=${targetId}>
+                <p class="littleTitle">${findPost(targetId, testlist).title}</p>
+                <a href="html/userpage.html" class="littleUsername">${findPost(targetId, testlist).creator}</a>
                 <a href="html/comments.html" class="littleComments">comments</a>
-                <p class="littleVotes">1248 likes</p>
+                <p class="littleVotes">${findPost(targetId, testlist).id}</p>
             </div>`;
 };
-const createCards=(length)=> {
-    for (let i = 0; i < length; i++) {
-        //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
-        cardView.innerHTML += smallCard(i);
-    }
-};
+
+*/
+
+
 
 console.log(cardView);
 console.log(card);
@@ -187,5 +246,10 @@ console.log(card);
 cardView.onclick = (e) => {
     openFunction(e)
 };
+
 getPost();
+
+console.log(testlist);
+
+console.log('findpost: '+ findPost(9, testlist));
 //.addClass
