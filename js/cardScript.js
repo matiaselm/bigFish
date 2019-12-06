@@ -12,31 +12,18 @@ let cardsOpen = false;
 let cardId;
 let testlist= [];
 
-<<<<<<< HEAD
-const createElement=(id, name, desc, filename, creator, likes, dislikes)=>{
-        const imagePost = {
-            'id': id,
-            'name': name,
-            'desc': desc,
-            'filename': filename,
-            'likes': likes,
-            'dislikes': dislikes,
-            'creator': creator,
-        };
-        return imagePost;
-=======
-const createElement=(id, name, desc, filename, creator)=>{
-    let post = {
+
+const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
+    const imagePost = {
         'id': id,
         'name': name,
         'desc': desc,
         'filename': filename,
-        // 'likes': likes,
-        // 'dislikes': dislikes,
-        'creator': creator
+        'likes': likes,
+        'dislikes': dislikes,
+        'creator': creator,
     };
-    return post;
->>>>>>> d8c6c086f87ce0970da99b6361e888fba30562a5
+    return imagePost;
 };
 
 const findPost = (id, list) => {
@@ -51,11 +38,9 @@ const getPost = async () => {
     const response = await fetch(url + '/post');
     const posts = await response.json();
     for (let i of posts) {
-<<<<<<< HEAD
         const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post_likes, i.post_dislikes);
-=======
-        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post);
->>>>>>> d8c6c086f87ce0970da99b6361e888fba30562a5
+
+        //const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post);
 
         testlist.push(post);
     }
@@ -269,5 +254,5 @@ getPost();
 
 console.log(testlist);
 
-console.log('findpost: '+ findPost(9, testlist));
+//console.log('findpost: '+ findPost(9, testlist));
 //.addClass
