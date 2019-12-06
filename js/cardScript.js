@@ -30,6 +30,7 @@ let cardId;
 let btnId;
 let postList= [];
 
+
 const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
     const imagePost = {
         'id': id,

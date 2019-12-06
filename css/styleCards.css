@@ -90,7 +90,7 @@ Below styles for smallCards
     top: 0;
     margin: 1ch;
     overflow: hidden;
-    text-overflow:ellipsis
+    text-overflow:ellipsis;
 }
 
 .username {
