@@ -50,7 +50,6 @@ const getPost = async () => {
 
 console.log(testlist.length);
 
-
 /*const cardList = [
     {
         title: 'Title placeholder',
