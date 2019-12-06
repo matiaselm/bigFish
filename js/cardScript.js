@@ -12,6 +12,7 @@ let cardsOpen = false;
 let cardId;
 let testlist= [];
 
+<<<<<<< HEAD
 const createElement=(id, name, desc, filename, creator, likes, dislikes)=>{
         const imagePost = {
             'id': id,
@@ -23,6 +24,19 @@ const createElement=(id, name, desc, filename, creator, likes, dislikes)=>{
             'creator': creator,
         };
         return imagePost;
+=======
+const createElement=(id, name, desc, filename, creator)=>{
+    let post = {
+        'id': id,
+        'name': name,
+        'desc': desc,
+        'filename': filename,
+        // 'likes': likes,
+        // 'dislikes': dislikes,
+        'creator': creator
+    };
+    return post;
+>>>>>>> d8c6c086f87ce0970da99b6361e888fba30562a5
 };
 
 const findPost = (id, list) => {
@@ -37,7 +51,11 @@ const getPost = async () => {
     const response = await fetch(url + '/post');
     const posts = await response.json();
     for (let i of posts) {
+<<<<<<< HEAD
         const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post_likes, i.post_dislikes);
+=======
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post);
+>>>>>>> d8c6c086f87ce0970da99b6361e888fba30562a5
 
         testlist.push(post);
     }
@@ -47,8 +65,8 @@ const getPost = async () => {
 
 console.log(testlist.length);
 
-//console.log(testlist[0].post_name);
-const cardList = [
+
+/*const cardList = [
     {
         title: 'Title placeholder',
         picture: 'img/placeholder.png',
@@ -64,7 +82,7 @@ const cardList = [
         username: 'username here',
         comment_link: 'html/comments.html'
     }
-];
+]; */
 
 const smallCard = (i) => {
     console.log('filename: ' + testlist[i].filename);
@@ -78,7 +96,7 @@ const smallCard = (i) => {
             </div>`;
 };
 
-console.log(cardList);
+//console.log(cardList);
 
 const card = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
