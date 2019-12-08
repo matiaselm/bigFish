@@ -10,14 +10,14 @@
     --text-col2: darkgrey;
     --text-col3: white;
 
-    --header-height: 12ch;
+    --header-height: 10vh;
 
     --text-title1-size: 4ch;
     --text-title2-size: 3ch;
     --text-bread-size: 2ch;
 
     --card-main-size: 7ch;
-    --card-open-size: 50ch;
+    --card-open-size: 14ch;
 
     --tran-speed: 0.4s;
 
@@ -60,4 +60,17 @@ li {
     overflow-y: scroll;
 }
 
-@media only screen and (max-width: 20in) {}
+@media only screen and (min-width: 8in) {
+    #commentPage{
+        max-width: 70ch;
+        width: 60%;
+        left: 4ch;
+    }
+
+    #postCards{
+        position: absolute;
+        max-width: 70ch;
+        width: 60%;
+        left: 4ch;
+    }
+}

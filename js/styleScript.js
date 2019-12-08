@@ -2,7 +2,7 @@
 
 const bigCard = (post) => {
 
-    post.style.height=('var(--card-open-size)');
+    post.style.minHeight=('var(--card-open-size)');
     console.log('post card: ', post);
 
     /*
@@ -41,10 +41,11 @@ const bigCard = (post) => {
     const votes = post.childNodes[13].style;
 
     const imgStyle = (el) => {
-        el.position=('absolute');
+        el.position=('relative');
         el.maxWidth=('100%');
-        el.Width=('100%');
-        el.height=('20%');
+        el.minWidth=('40%');
+        el.minHeight=('20ch');
+        el.marginBottom=('4ch');
     };
 
     const descStyle = (el) => {
@@ -62,7 +63,7 @@ const bigCard = (post) => {
 };
 
 const smallCard = (post) => {
-    post.style.height=('var(--card-main-size)');
+    post.style.minHeight=('var(--card-main-size)');
 
     const img = post.firstElementChild.style;
     const title = post.childNodes[3].style;
@@ -74,7 +75,9 @@ const smallCard = (post) => {
 
     const imgStyle = (el) => {
         el.maxWidth=('20%');
-        el.height=('100%');
+        el.minWidth=('');
+        el.minHeight=('100%');
+        el.marginBottom=('');
     };
 
     const descStyle = (el) => {
