@@ -1,0 +1,108 @@
+#header{
+    position: fixed;
+}
+
+#commentBody{
+    position: relative;
+    height: 100vh;
+}
+
+#commentPage{
+    position: relative;
+    overflow-y: scroll;
+    margin-top: 11vh;
+    height: 89vh;
+}
+
+#mainPost{
+    position: relative;
+    display: block;
+
+    width: 100%;
+    min-height: 10ch;
+    background-color: var(--main-col1);
+    padding: 1ch;
+}
+
+.imgContainer{
+    position: relative;
+    width: 100%;
+    min-height: 20ch;
+    background-color: #492e3e;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.postImg{
+    max-width: 100%;
+    min-height: 10ch;
+}
+
+.postTitle{
+    position: relative;
+    display: inline-block;
+    top: 1ch;
+    margin: 0;
+}
+
+.postUsername{
+    position: relative;
+    display: inline-block;
+    bottom: 0;
+    right: 0;
+    margin: 1ch;
+    text-align: right;
+}
+
+.mainText{
+    position: relative;
+    min-height: 10ch;
+}
+
+.postVotes{
+    position: relative;
+    display: inline-block;
+    bottom: 0;
+    left: 0;
+    margin: 1ch;
+}
+
+/*
+ Below styles for comments
+*/
+
+#commentList{
+    position: relative;
+    width: 100%;
+}
+
+.commentCard{
+    padding: 1ch;
+    position: relative;
+    margin: 1ch;
+    background-color: var(--secondary-col2);
+    min-height: 10ch;
+}
+
+.commentUsername{
+    display: inline-block;
+    right: 1ch;
+    bottom: 1ch;
+    margin: 0;
+}
+
+.commentText{
+    min-height: 2ch;
+    left: 1ch;
+    width: 90%;
+}
+
+.commentVotes{
+    position: absolute;
+    right: 1ch;
+    bottom: 1ch;
+}
