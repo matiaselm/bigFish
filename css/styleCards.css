@@ -72,6 +72,11 @@ BigCard is the cardView-class that gets loaded when user clicks to open a card
 Below are all the styles for different classes that are held inside bigCards
  */
 
+.postImg{
+    max-width: 20%;
+    height: 100%;
+}
+
 .pictureContainer{
     position: absolute;
     width: 100%;
@@ -165,7 +170,7 @@ Below are all the styles for different classes that are held inside bigCards
 Below styles for smallCards
  */
 
-.littleTitle{
+.postTitle{
     position:absolute;
     display:inline;
     white-space: nowrap;
@@ -177,7 +182,7 @@ Below styles for smallCards
     text-overflow:ellipsis
 }
 
-.littleUsername{
+.postUsername{
     position: absolute;
     right: 0;
     top: 0;
@@ -186,11 +191,11 @@ Below styles for smallCards
     z-index: inherit;
 }
 
-.littleUsername:hover{
+.postUsername:hover{
     color: red;
 }
 
-.littleVotes{
+.postVotes{
     position: absolute;
     box-sizing: border-box;
     right: 0;
@@ -198,7 +203,7 @@ Below styles for smallCards
     bottom: 0;
 }
 
-.littleComments{
+.postComments{
     position: absolute;
     left: 0;
     bottom: 0;

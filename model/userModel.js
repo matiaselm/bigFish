@@ -1,4 +1,4 @@
-const pool = require('../database/db');
+const pool = require('../database/db.js');
 const promisePool = pool.promise();
 //const bcrypt = require('bcryptjs');
 
