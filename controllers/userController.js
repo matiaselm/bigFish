@@ -1,6 +1,5 @@
 const userModel = require('../model/userModel');
 
-
 const user_list_get = async (req, res) => {
   const users = await userModel.getAllUsers();
   await res.json(users);
