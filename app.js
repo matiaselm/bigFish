@@ -9,15 +9,9 @@ const localStrategy = require('passport-local').Strategy;
 const app = express();
 
 
-
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(cors());
-
-/*app.use(require('express-session')(
-    {secret: 'keyboard cat', resave: true, saveUninitialized: true}));
-app.use(express.urlencoded({extended: true}));
-*/
 
 
 app.use(express.static('uploads'));

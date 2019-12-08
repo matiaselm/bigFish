@@ -11,8 +11,15 @@ const getAllPosts = async () => {
   }
 };
 
-//const getPostByUser
-
+// SELECT * from residents INNER JOIN animal on residents.type = animal.name where family_id =1
+const getAllPostsByUser = async () => {
+  try {
+    const [rows] = await promisePool.query('SELECT * FROM posts');
+    return rows;
+  } catch (e) {
+    console.log('error', e.message);
+  }
+};
 
 const addPost = async (params) => {
   try {
@@ -27,17 +34,7 @@ const addPost = async (params) => {
   }
 };
 
-/*const addPost = async (post_name, post_description, post_creator, post_file) => {
-  try {
-    const  [row]= await promisePool.execute(
-        'INSERT INTO posts(post_name, post_description, post_creator,post_filename)' +
-        ' Values("'+post_name+'", "'+post_description+'", "'+post_creator+'", "'+post_file+'")');
-    return row;
-  } catch (e) {
-    console.error(e);
-    return {error: 'error in db'};
-  }
-};*/
+
 
 
 module.exports = {
