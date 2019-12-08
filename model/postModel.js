@@ -11,6 +11,8 @@ const getAllPosts = async () => {
   }
 };
 
+//const getPostByUser
+
 
 const addPost = async (params) => {
   try {

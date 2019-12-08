@@ -5,7 +5,7 @@ const port = 3000;
 const cors = require('cors');
 /*const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
-const bcrypt = require('bcryptjs'); */
+*/
 const app = express();
 
 
