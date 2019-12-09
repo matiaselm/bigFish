@@ -22,10 +22,16 @@ const posts_list_get = async (req, res) => {
 */
 
 const post_get = async (req, res) =>{
-  const params = [req.params.id];
-  const post = await postsModel.getPost(params);
-  //console.log(res.json(post[0]));
-  //await res.json(post[0]);
+ try {
+   const params = [req.params.id];
+   const post = await postsModel.getPost(params);
+   console.log(res.json(post));
+   await res.json(post);
+ }catch (e) {
+   console.log('error', e.message);
+   return {error: 'error in database query'};
+ }
+
 };
 
 // cannot read property of post_filename

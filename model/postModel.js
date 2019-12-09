@@ -26,6 +26,7 @@ const getPost = async (params) => {
         'SELECT * FROM posts WHERE post_id=?;',
         params
     );
+    return rows;
   } catch (e) {
     console.log('error', e.message);
     return {error: 'error in database query'};
@@ -44,18 +45,6 @@ const addPost = async (params) => {
     return {error: 'error in database query'};
   }
 };
-
-/*const addPost = async (post_name, post_description, post_creator, post_file) => {
-  try {
-    const  [row]= await promisePool.execute(
-        'INSERT INTO posts(post_name, post_description, post_creator,post_filename)' +
-        ' Values("'+post_name+'", "'+post_description+'", "'+post_creator+'", "'+post_file+'")');
-    return row;
-  } catch (e) {
-    console.error(e);
-    return {error: 'error in db'};
-  }
-};*/
 
 
 module.exports = {
