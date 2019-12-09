@@ -36,6 +36,7 @@ const addPost = async (params) => {
   }
 };
 
+
 const deletePost = async (id) => {
   try {
     await promisePool.execute('DELETE FROM posts WHERE post_id = ?', id);
@@ -53,20 +54,11 @@ const deletePost = async (id) => {
   }
 }; */
 
-const likePost = async (params) => {
-  try {
-    await promisePool.execute('UPDATE posts SET post_likes = ? WHERE post_id = ?', params);
-    console.log('Post liked');
-  } catch (e) {
-    return {error: 'error in database query'};
-  }
-};
 
 module.exports = {
   getAllPosts,
   addPost,
   getAllPostsByUser,
   deletePost,
-//  modifyPost,
-  likePost
+
 };

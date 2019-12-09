@@ -17,7 +17,6 @@ const post_user_get = async(req,res) =>{
 const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
       req.body.post_description,
-      req.body.post_creator,
       req.file.filename
     );
   try {
@@ -31,7 +30,6 @@ const post_create_post = async (req, res) => {
     const params = [
       req.body.post_name,
       req.body.post_description,
-      req.body.post_creator,
       req.file.filename
 
     ];
@@ -63,15 +61,10 @@ const post_update_put = async (req, res) => {
 };
 */
 
-const post_like_put = async (req,res) =>{
-  const param = [req.body.jotain, req.body.jotain];
-  const post = await postsModel.likePost(param);
-  await res.json(post)
-};
+
 module.exports ={
   posts_list_get,
   post_create_post,
   post_user_get,
   post_delete,
-  post_like_put
 };
