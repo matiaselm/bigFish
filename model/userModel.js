@@ -23,9 +23,19 @@ const getUser = async (id) => {
   }
 };
 
+const findUser = async (name) => {
+  try {
+    const [row] = await promisePool.execute('SELECT * FROM user WHERE user_name = ?', name);
+    console.log('User found');
+    return row;
+  } catch (e) {
+    console.log('error', e.message);
+    return {error: 'No such user in database'};
+  }
+};
+
 const addUser = async (username, email, passwd,) => {
   try {
-     // bcrypt.passHash(passwd);
     const  [row]= await promisePool.execute(
         'INSERT INTO user(user_name, user_email, user_passwd) Values("'+username+'", "'+email+'", "'+bcrypt.passHash(passwd)+'")');
     return row;
@@ -36,6 +46,7 @@ const addUser = async (username, email, passwd,) => {
 };
 
 module.exports = {
+  findUser,
   getAllUsers,
   getUser,
   addUser
