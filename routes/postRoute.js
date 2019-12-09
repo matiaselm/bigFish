@@ -11,5 +11,7 @@ router.get('/u/',postController.post_user_get);
 
 router.post('/',upload.single('post_filename'), postController.post_create_post);
 
+router.delete('/:id', postController.post_delete);
+
 
 module.exports = router;

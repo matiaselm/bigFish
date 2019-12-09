@@ -22,8 +22,15 @@ const postRoute = require('./routes/postRoute');
 
 app.use('/user',userRoute);
 app.use('/post',postRoute);
-
-
+/*
+if (process.env.SERVER === 'dev_localhost') {
+  require('./secure/localhost')(app);
+} else {
+  require('./secure/server');
+  app.listen(3000, () =>
+      console.log('server start'));
+}
+*/
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

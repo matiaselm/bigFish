@@ -8,7 +8,8 @@ const posts_list_get = async (req, res) => {
 
 const post_user_get = async(req,res) =>{
 
-  const param = [req.body.searchField];
+  const param = searchField.value;
+  console.log(param);
   const  posts = await  postsModel.getAllPostsByUser(param);
   await res.json(posts);
 };
@@ -45,9 +46,32 @@ const post_create_post = async (req, res) => {
 
 };
 
+const post_delete = async (req) => {
+  const params = [req.params.id];
+  await postsModel.deletePost(params);
+};
+/*
+const post_update_put = async (req, res) => {
+  const params = [
+    req.body.,
+    req.body.,
+    req.body.
+  ];
+  console.log('update', params);
+  const post = await postsModel.modifyPost(params);
+  await res.json(post);
+};
+*/
 
+const post_like_put = async (req,res) =>{
+  const param = [req.body.jotain, req.body.jotain];
+  const post = await postsModel.likePost(param);
+  await res.json(post)
+};
 module.exports ={
   posts_list_get,
   post_create_post,
-  post_user_get
+  post_user_get,
+  post_delete,
+  post_like_put
 };

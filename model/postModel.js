@@ -26,7 +26,7 @@ const getAllPostsByUser = async (uName) => {
 const addPost = async (params) => {
   try {
     const [rows] = await promisePool.execute(
-        'INSERT INTO posts (post_name, post_description ,post_creator, post_filename) VALUES (?, ?, ?, ?);',
+        'INSERT INTO posts (post_name, post_description, post_filename) VALUES (?, ?, ?);',
         params,
     );
     return rows;
@@ -36,11 +36,37 @@ const addPost = async (params) => {
   }
 };
 
+const deletePost = async (id) => {
+  try {
+    await promisePool.execute('DELETE FROM posts WHERE post_id = ?', id);
+    console.log('Post deleted from database');
+  } catch (e) {
+    return {error: 'error in database query'};
+  }
+};
 
+/*const modifyPost = async (params) =>{
+  try {
+    const [rows] = await promisePool.execute(
+        'UPDATE posts SET  post_name = ?, post_description = ?, post_filename = ? WHERE wop_cat.cat_id = ?',[params]);
+  }catch (e) {
+  }
+}; */
 
+const likePost = async (params) => {
+  try {
+    await promisePool.execute('UPDATE posts SET post_likes = ? WHERE post_id = ?', params);
+    console.log('Post liked');
+  } catch (e) {
+    return {error: 'error in database query'};
+  }
+};
 
 module.exports = {
   getAllPosts,
   addPost,
   getAllPostsByUser,
+  deletePost,
+//  modifyPost,
+  likePost
 };
