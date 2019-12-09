@@ -18,7 +18,16 @@ const posts_list_get = async (req, res) => {
   console.log('post filename',req.file.post_file);
 
 };
+
 */
+
+const post_get = async (req, res) =>{
+  const params = [req.params.id];
+  const post = await postsModel.getPost(params);
+  //console.log(res.json(post[0]));
+  //await res.json(post[0]);
+};
+
 // cannot read property of post_filename
 const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
@@ -55,5 +64,6 @@ const post_create_post = async (req, res) => {
 
 module.exports ={
   posts_list_get,
-  post_create_post
+  post_create_post,
+  post_get
 };

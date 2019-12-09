@@ -11,6 +11,26 @@ const getAllPosts = async () => {
   }
 };
 
+/*const getPostComments = async (id) =>{
+  try{
+    const [rows] = await promisePool.query(`SELECT * FROM comments INNER JOIN posts ON comments_post=post_id WHERE post_id=?;`, [id]);
+    return rows
+  } catch {
+
+  }
+};*/
+
+const getPost = async (params) => {
+  try {
+    const [rows] = await promisePool.execute(
+        'SELECT * FROM posts WHERE post_id=?;',
+        params
+    );
+  } catch (e) {
+    console.log('error', e.message);
+    return {error: 'error in database query'};
+  }
+};
 
 const addPost = async (params) => {
   try {
@@ -41,4 +61,5 @@ const addPost = async (params) => {
 module.exports = {
   getAllPosts,
   addPost,
+  getPost,
 };

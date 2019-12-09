@@ -34,7 +34,7 @@ const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
     return imagePost;
 };
 
-const getPost = async (id) => {
+const getPostById = async (id) => {
     const response = await fetch(url + '/post/' + id);
     const postID = await response.json();
 
@@ -82,12 +82,11 @@ const createComments = (length) => {
 for (let i = 0; i<length; i++){
     //commentList.innerHTML+=card(i)}
     commentList.innerHTML+=`<div class="commentCard" id="comment${i}">
-                <a href="userpage.html" class="commentUsername">user ${i}</a>
-                <p class="commentText">comment ${i}</p>
-                <p class="commentVotes">${i} likes</p>
-            </div>`}
+                                 <a href="userpage.html" class="commentUsername">user ${i}</a>
+                                 <p class="commentText">comment ${i}</p>
+                                 <p class="commentVotes">${i} likes</p>
+                             </div>`}
 };
-
 
 createComments(25);
 postField.innerHTML=(mainPost());
