@@ -13,6 +13,7 @@ const postCard = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
 const cardOpener = document.getElementsByClassName('cardArrow');
 
+/*
 const getComments = () => {
     const fetchOptions = {
       method: 'GET',
@@ -21,11 +22,11 @@ const getComments = () => {
       },
     };
     try{
-        const response = await fetch(url + '/user/' + )
+        //const response = await fetch(url + '/user/' + )
     }
-};
+};*/
 
-const delButton = document.createElement('button');
+/*const delButton = document.createElement('button');
 delButton.innerHTML = 'Delete';
 delButton.addEventListener('click', async () => {
     const fetchOptions = {
@@ -43,7 +44,7 @@ delButton.addEventListener('click', async () => {
     catch (e) {
         console.log(e.message());
     }
-});
+});*/
 
 const card = (i) => {
     //console.log('filename: ' + postList[i].filename);
@@ -53,7 +54,7 @@ const card = (i) => {
                 <a href="html/userpage.html" class="postUsername">${postList[i].creator}</a>
                 <p class="mainText">${postList[i].desc}</p>
                 <input type="button" class="cardArrow" id="btn${postList[i].id}">
-                <a href="html/comments.html" class="postComments" name="postComments" onclick="">comments</a>
+                <a href="html/comments.html" class="postComments" name="postComments" onclick="sessionStorage.setItem('id','${postList[i].id}')">comments</a>
                 <p class="postVotes">${postList[i].id}</p>
             </div>`;
 };
@@ -153,10 +154,6 @@ getPost().then(r => {
 });
 
 console.log(postList);
-
-postComments.onClick = (e) => {
-
-};
 
 //console.log('findpost: '+ findPost(9, testlist));
 //.addClass

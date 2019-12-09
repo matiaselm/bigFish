@@ -7,9 +7,9 @@ const upload = multer({dest: 'uploads/'});
 
 router.get('/', postController.posts_list_get);
 
-//router.get('/comments', postController.post_commment_get);
-
 router.get('/:id', postController.post_get);
+
+router.get('/:id/comments', postController.post_get_comments);
 
 router.post('/',upload.single('post_filename'), postController.post_create_post);
 
