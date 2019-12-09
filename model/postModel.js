@@ -47,7 +47,6 @@ const addPost = async (params) => {
   }
 };
 
-
 module.exports = {
   getAllPosts,
   addPost,
