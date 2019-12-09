@@ -1,4 +1,5 @@
 'use strict';
+const url = 'http://localhost:3000';
 
 const postField = document.getElementById('mainPost');
 const commentList = document.getElementById('commentList');
@@ -10,6 +11,42 @@ const card = (i) => {
                 <p class="mainText">comment ${i}</p>
                 <p class="postVotes">${i} likes</p>
             </div>`;
+};
+
+const comment = (i) => {
+    return `<div class="commentCard" id="comment${i}">
+        <a href="userpage.html" class="commentUsername"></a>
+        <p class="commentText">comment ${i}</p>
+        <p class="commentVotes">${i} likes</p>
+        </div>`;
+};
+
+const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
+    const imagePost = {
+        'id': id,
+        'name': name,
+        'desc': desc,
+        'filename': filename,
+        'likes': likes,
+        'dislikes': dislikes,
+        'creator': creator,
+    };
+    return imagePost;
+};
+
+const getPost = async (id) => {
+    const response = await fetch(url + '/post/' + id);
+    const postID = await response.json();
+
+    return createElement(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.post_creator, postID.post_likes, postID.post_dislikes);
+    //console.log(postList);
+};
+
+const createComments = (length)=> {
+    for (let i = 0; i < length; i++) {
+        //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
+        commentList.innerHTML += comment(i);
+    }
 };
 
 /*use this when db connection is ready
