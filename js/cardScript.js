@@ -7,10 +7,44 @@ console.log('cardScript loaded');
 const postImg = document.getElementsByClassName('postImg');
 const postTitle = document.getElementsByClassName('postTitle');
 const userName = document.getElementsByClassName('username');
+const comment = document.querySelectorAll('.postComments');
 
 const postCard = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
 const cardOpener = document.getElementsByClassName('cardArrow');
+
+/*
+const getComments = () => {
+    const fetchOptions = {
+      method: 'GET',
+      headers: {
+          'Authorization': 'Bearer' + sessionStorage.getItem('token'),
+      },
+    };
+    try{
+        //const response = await fetch(url + '/user/' + )
+    }
+};*/
+
+/*const delButton = document.createElement('button');
+delButton.innerHTML = 'Delete';
+delButton.addEventListener('click', async () => {
+    const fetchOptions = {
+        method: 'DELETE',
+        headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem('token'),
+        },
+    };
+    try {
+        const response = await fetch(url + '/cat/' + cat.cat_id, fetchOptions);
+        const json = await response.json();
+        console.log('delete response', json);
+        getCat();
+    }
+    catch (e) {
+        console.log(e.message());
+    }
+});*/
 
 const card = (i) => {
     //console.log('filename: ' + postList[i].filename);
@@ -20,7 +54,7 @@ const card = (i) => {
                 <a href="html/userpage.html" class="postUsername">${postList[i].creator}</a>
                 <p class="mainText">${postList[i].desc}</p>
                 <input type="button" class="cardArrow" id="btn${postList[i].id}">
-                <a href="html/comments.html" class="postComments">comments</a>
+                <a href="html/comments.html" class="postComments" name="postComments" onclick="sessionStorage.setItem('id','${postList[i].id}')">comments</a>
                 <p class="postVotes">${postList[i].id}</p>
             </div>`;
 };
@@ -55,6 +89,8 @@ const getPost = async () => {
     createCards(postList.length);
     //console.log(postList);
 };
+
+
 
 const createCards = (length)=> {
     for (let i = 0; i < length; i++) {

@@ -11,21 +11,24 @@ const getAllPosts = async () => {
   }
 };
 
+
 // SELECT * from residents INNER JOIN animal on residents.type = animal.name where family_id =1
 const getAllPostsByUser = async () => {
   try {
     const [rows] = await promisePool.query('SELECT * FROM posts');
     return rows;
+
   } catch (e) {
     console.log('error', e.message);
   }
 };
 
-const addPost = async (params) => {
+const getPost = async (params) => {
   try {
+    console.log('params',params);
     const [rows] = await promisePool.execute(
-        'INSERT INTO posts (post_name, post_description ,post_creator, post_filename) VALUES (?, ?, ?, ?);',
-        params,
+        'SELECT * FROM posts WHERE post_id=?;',
+        params
     );
     return rows;
   } catch (e) {
@@ -35,9 +38,9 @@ const addPost = async (params) => {
 };
 
 
-
-
 module.exports = {
   getAllPosts,
   addPost,
+  getPost,
+  getPostComments
 };
