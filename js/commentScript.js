@@ -1,18 +1,25 @@
 'use strict';
 const url = 'http://localhost:3000';
 
-const postField = document.getElementById('mainPost');
-const commentList = document.getElementById('commentList');
+const postView = document.getElementById('mainPost');
+const commentView = document.getElementById('commentList');
+
+let id = localStorage.getItem('bigfish_post_id');
+console.log('localstorage: ',id);
+console.log('localstorage: ',localStorage.getItem('meme'));
+id = parseInt(id);
+
+let commentList = [];
 
 const comment = (i) => {
-    return `<div class="commentCard" id="comment${i}">
-        <a href="userpage.html" class="commentUsername"></a>
-        <p class="commentText">comment ${i}</p>
-        <p class="commentVotes">${i} likes</p>
-        </div>`;
+    return `<div class="commentCard" id="${commentList[i].id}">
+                <a href="userpage.html" class="commentUsername">${commentList[i].username}</a>
+                <p class="commentText">${commentList[i].desc}</p>
+                <p class="commentVotes">${commentList[i].likes-commentList[i].dislikes}</p>
+            </div>`;
 };
 
-const mainPost1 = (id, title,  mainText, image, username, likes, dislikes) => {
+const createPost = (id, title, mainText, image, username, likes, dislikes) => {
     return `<div class="postCard" id=${id}>
             <img src="../uploads/${image}" alt="placeholder" class="postImg">
                 <h2 class="postTitle">${title}</h2>
@@ -22,39 +29,51 @@ const mainPost1 = (id, title,  mainText, image, username, likes, dislikes) => {
             </div>`;
 };
 
-const createElement=(id, title, desc, filename, username, likes, dislikes)=> {
+const createComment=(id, desc, username, likes, dislikes)=> {
     //let's keep this for commentCards
     return {
         'id': id,
-        'title': title,
+        'username': username,
         'desc': desc,
-        'filename': filename,
         'likes': likes,
         'dislikes': dislikes,
-        'username': username,
     };
 };
 
-const makePostById = async (id) => {
+const getPostById = async (id) => {
     try {
         const response = await fetch(url + '/post/' + id);
         const postID = await response.json();
 
         console.log(postID);
-        postField.innerHTML=(mainPost1(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.post_creator, postID.post_likes, postID.post_dislikes));
-
+        postView.innerHTML=(createPost(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.post_creator, postID.post_likes, postID.post_dislikes));
 
         }catch (e){
         console.log(e.message);
     }
-    //return createElement(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.post_creator, postID.post_likes, postID.post_dislikes);
-    //console.log(postList);
+};
+
+const getComments = async (id)=> {
+    try{
+        const response = await fetch(url + '/post/' + id + '/comments');
+        const comment = await response.json();
+        await console.log('comments: ', comment);
+        for (let i of comment) {
+            const comment = await createComment(i.comment_id, i.comment_text, i.comment_creator, i.comment_likes, i.comment_dislikes);
+
+            commentList.push(comment);
+            console.log(commentList);
+        }
+        createComments(commentList.length);
+    }catch (e){
+        console.log('error: ',e.message);
+    }
 };
 
 const createComments = (length)=> {
     for (let i = 0; i < length; i++) {
         //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
-        commentList.innerHTML += comment(i);
+        commentView.innerHTML += comment(i);
     }
 };
 
@@ -68,7 +87,9 @@ for (let i = 0; i<length; i++){
                                  <p class="commentVotes">${i} likes</p>
                              </div>`}
 };*/
-
-createComments(25);
-
-makePostById(11);
+try {
+    getPostById(id);
+    getComments(id);
+}catch (e) {
+    console.log('site not loaded', e);
+}

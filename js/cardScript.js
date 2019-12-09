@@ -13,6 +13,8 @@ const postCard = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
 const cardOpener = document.getElementsByClassName('cardArrow');
 
+localStorage.setItem('meme', ':DD');
+
 /*
 const getComments = () => {
     const fetchOptions = {
@@ -54,7 +56,7 @@ const card = (i) => {
                 <a href="html/userpage.html" class="postUsername">${postList[i].creator}</a>
                 <p class="mainText">${postList[i].desc}</p>
                 <input type="button" class="cardArrow" id="btn${postList[i].id}">
-                <a href="html/comments.html" class="postComments" name="postComments" onclick="sessionStorage.setItem('id','${postList[i].id}')">comments</a>
+                <a onclick="localStorage.setItem('bigfish_post_id',${postList[i].id})" href="html/comments.html" class="postComments" name="postComments">comments</a>
                 <p class="postVotes">${postList[i].id}</p>
             </div>`;
 };
@@ -81,6 +83,7 @@ const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
 const getPost = async () => {
     const response = await fetch(url + '/post');
     const posts = await response.json();
+
     for (let i of posts) {
         const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post_likes, i.post_dislikes);
 
@@ -98,8 +101,6 @@ const createCards = (length)=> {
         cardView.innerHTML += card(i);
     }
 };
-
-
 
 // openFuntion is called when a card is pressed,
 // it makes it bigger and calls loadPost(), showing the whole post

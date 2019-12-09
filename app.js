@@ -8,7 +8,8 @@ const localStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs'); */
 const app = express();
 
-
+app.use(require('express-session')(
+    {secret: 'keyboard cat', resave: true, saveUninitialized: true}));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));

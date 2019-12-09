@@ -13,9 +13,8 @@ const getAllPosts = async () => {
 
 const getPostComments = async (params) =>{
   try{
-    const [rows] = await promisePool.query(`SELECT * FROM comments INNER JOIN posts ON comment_post=post_id WHERE post_id=?;`, [params]);
-    console.log('comments: ', rows);
-    return rows
+    const [rows] = await promisePool.query(`SELECT * FROM comments INNER JOIN posts ON comment_post=post_id WHERE post_id=?;`,  [params]);
+    return rows;
   } catch (e) {
     console.log('error', e.message);
   }
@@ -38,7 +37,7 @@ const getPost = async (params) => {
 const addPost = async (params) => {
   try {
     const [rows] = await promisePool.execute(
-        'INSERT INTO posts (post_name, post_description ,post_creator, post_filename) VALUES (?, ?, ?, ?);',
+        'INSERT INTO posts (post_name, post_description, post_filename) VALUES (?, ?, ?);',
         params,
     );
     return rows;
