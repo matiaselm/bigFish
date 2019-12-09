@@ -1,21 +1,6 @@
-/*postCards holds all our posts as a list inside it */
-
-#postCards {
-    position: absolute;
-    height: 90%;
-    right: 0;
-    left: 0;
-    background-color: var(--secondary-col1);
-    box-shadow: -5px 0 var(--secondary-col2);
-    margin: 0;
-    box-sizing: border-box;
-    padding: 0;
-    overflow-y: scroll;
-    top: var(--header-height);
-    z-index: -1;
-}
-
-/* postCard is just one little post-element in the site list */
+/*
+    Only for testing css-layouts for cards
+*/
 
 .postCard {
     position: relative;
@@ -27,7 +12,7 @@
     min-height: var(--card-main-size);
     list-style-type: none;
     box-sizing: border-box;
-    /*overflow: hidden;
+    overflow: hidden;
 
     -webkit-transition: height 0.5s;
     /* For Safari 3.1 to 6.0 */
@@ -41,24 +26,6 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
 }
 
-/*
-BigCard is the cardView-class that gets loaded when user clicks to open a card
-
-
-.bigCard{
-    position: relative;
-    background-color: var(--secondary-col2);
-    border: var(--secondary-col2) solid 2px;
-    height: 100%;
-    padding:0;
-}
-
-*/
-
-/*
-Below are all the styles for different classes that are held inside bigCards
- */
-
 .postImg{
     position: absolute;
     max-width: 20%;
@@ -69,52 +36,43 @@ Below are all the styles for different classes that are held inside bigCards
     border-radius: 3px;
 }
 
-/* Not currently in use, image loaded as background for pictureContainer
-.postImageThumb{
-    position: absolute;
-    width:100%;
-    left:0;
-    right:0;
-    margin: 0;
-    display: block;
-}
-*/
-
-/*
-Below styles for smallCards
- */
-
 .postTitle{
     position:absolute;
     display:inline;
     white-space: nowrap;
     width: 60%;
-    left: 20%;
+    left: 1ch;
     top: 0;
     margin: 1ch;
-    overflow: hidden;
     text-overflow:ellipsis;
+
+    font-size: var(--text-title2-size);
+}
+
+.postUsername {
+    position: absolute;
+    width: auto;
+    top: 24%;
+    right: 2ch;
+    padding: 0;
+    display: inline-block;
 }
 
 .mainText{
-    position: absolute;
-    visibility: hidden;
-    max-height: 60%;
+    position: relative;
     width:95%;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    min-height: 2ch;
     display: inline-block;
     left: 1ch;
     right:1ch;
-    top: 25%;
 
     margin-top:2ch;
     padding: 1ch;
     box-sizing: border-box;
-
+/*
     --webkit-box-orient: vertical;
     --webkit-line-clamp: 2; /* number of lines to show */
-    line-height: 2.4ch;        /* fallback */
+  /*  line-height: 2.4ch;        /* fallback */
 
     /*background-color: var(--text-col3);
     border: var(--secondary-col1) solid 2px;*/
@@ -141,44 +99,9 @@ Below styles for smallCards
     transition: transform var(--tran-speed);
 }
 
-.cardArrow:hover{
-    background-color: rgba(255,255,255,0.2);
-}
-.cardArrow:active{
-    background-color: rgba(255,255,255,0.4);
-}
-
-.votes{
-    position: absolute;
-    bottom: 1ch;
-    left: 2ch;
-    margin: 0 0 2ch;
-}
-
-.postUsername{
-    position: absolute;
-    right: 0;
-    top: 0;
-    margin: 1ch;
-    width: auto;
-    z-index: inherit;
-}
-
-.postUsername:hover{
-    color: red;
-}
-
 .postComments{
     position: absolute;
     left: 20%;
     bottom: 0;
     margin: 1ch;
-}
-
-.postVotes{
-    position: absolute;
-    box-sizing: border-box;
-    right: 0;
-    margin: 1ch;
-    bottom: 0;
 }

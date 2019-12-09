@@ -43,7 +43,7 @@
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: var(--main-col1);
+    /*background-color: var(--main-col1);*/
     width: 30ch;
 }
 
