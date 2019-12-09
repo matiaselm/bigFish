@@ -23,9 +23,9 @@ const getUser = async (id) => {
   }
 };
 
-const addUser = async (username, email, passwd,) => {
+const addUser = async (username, email, passwd) => {
   try {
-     // bcrypt.passHash(passwd);
+
     const  [row]= await promisePool.execute(
         'INSERT INTO user(user_name, user_email, user_passwd) Values("'+username+'", "'+email+'", "'+bcrypt.passHash(passwd)+'")');
     return row;

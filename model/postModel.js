@@ -11,10 +11,12 @@ const getAllPosts = async () => {
   }
 };
 
-// SELECT * from residents INNER JOIN animal on residents.type = animal.name where family_id =1
-const getAllPostsByUser = async () => {
+
+
+const getAllPostsByUser = async (uName) => {
+
   try {
-    const [rows] = await promisePool.query('SELECT * FROM posts');
+    const [rows] = await promisePool.query(' SELECT * FROM  posts  INNER JOIN user ON post_creator_id = user_id WHERE username = ?, [uName];',[uName]);
     return rows;
   } catch (e) {
     console.log('error', e.message);
@@ -40,4 +42,5 @@ const addPost = async (params) => {
 module.exports = {
   getAllPosts,
   addPost,
+  getAllPostsByUser,
 };

@@ -6,19 +6,12 @@ const posts_list_get = async (req, res) => {
   await res.json(posts);
 };
 
-
-/*const post_create_post = async (req,res)=>{
-
-//  const post = await postModel.addPost(req.body.post_name, req.body.post_description, req.body.post_creator, req.body.post_file);
-  const post = await postsModel.addPost(req.body.post_name, req.body.post_description, req.body.post_creator, req.file.post_file );
-  await res.json(post);
-  console.log('post name', req.body.post_name);
-  console.log('post description', req.body.post_description);
-  console.log('post creator', req.body.post_creator);
-  console.log('post filename',req.file.post_file);
-
+const post_user_get = async(req,res) =>{
+// tähä search bar haku uname
+  //const params = [req.params.id];
+  const  posts = await  postsModel.getAllPostsByUser();
+  await res.json(posts);
 };
-*/
 
 const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
