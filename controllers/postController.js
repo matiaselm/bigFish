@@ -24,8 +24,7 @@ const post_get = async (req, res) =>{
  try {
    const params = [req.params.id];
    const post = await postsModel.getPost(params);
-   console.log(res.json(post));
-   await res.json(post);
+   return await res.json(post[0]);
  }catch (e) {
    console.log('error', e.message);
    return {error: 'error in database query'};
