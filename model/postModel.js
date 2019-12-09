@@ -48,18 +48,6 @@ const addPost = async (params) => {
   }
 };
 
-/*const addPost = async (post_name, post_description, post_creator, post_file) => {
-  try {
-    const  [row]= await promisePool.execute(
-        'INSERT INTO posts(post_name, post_description, post_creator,post_filename)' +
-        ' Values("'+post_name+'", "'+post_description+'", "'+post_creator+'", "'+post_file+'")');
-    return row;
-  } catch (e) {
-    console.error(e);
-    return {error: 'error in db'};
-  }
-};*/
-
 
 module.exports = {
   getAllPosts,
