@@ -37,7 +37,7 @@ const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
       req.body.post_description,
       req.file.filename
-    );
+  );
   try {
     // Make thumbnail
     resize.makeThumbnail(req.file.path,
@@ -63,6 +63,18 @@ const post_create_post = async (req, res) => {
 
 };
 
+const post_like_put = async (req,res) =>{
+  const param = [req.params.id];
+  const post = await postsModel.likePost(param);
+  await res.json(post)
+};
+
+const post_dislike_put = async (req,res) =>{
+  const param = [req.params.id];
+  const post = await postsModel.dislikePost(param);
+  await res.json(post)
+};
+
 const post_get_comments = async (req, res) => {
   const params = [req.params.id];
   const comments = await postModel.getPostComments(params);
@@ -70,6 +82,8 @@ const post_get_comments = async (req, res) => {
 };
 
 module.exports ={
+  post_dislike_put,
+  post_like_put,
   posts_list_get,
   post_create_post,
   post_get,

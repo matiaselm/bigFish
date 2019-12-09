@@ -18,7 +18,6 @@ const user_create_post = async (req,res)=>{
   console.log('username', req.body.username);
   console.log('email', req.body.email);
   console.log('passwd', req.body.passwd);
-
 };
 
 
