@@ -22,13 +22,17 @@
             <!-- Checkbox is hidden away, pressing the menuButton activates it.
             Don't remove. Commented out because we're going to do this with js.
             -->
+            <form action="/post" method="get">
 
-            <button id="searchButton"></button>
+                <button id="searchButton"></button>
+                <button id="searchFieldExpander" for="toggle-1"></button>
+                <input type="checkbox" id="toggle-1" name="toggle-1">
+                <!--Search to searchbutton-->
+                <input type="text" name="searchField" id="searchField">
 
-            <button id="searchFieldExpander" for="toggle-1"></button>
-            <input type="checkbox" id="toggle-1" name="toggle-1">
-            <!--Search to searchbutton-->
-            <input type="text" id="searchField">
+                <input type="submit" value="Login">
+            </form>
+
 
             <div id="userCorner">
                 <button id="userIcon"></button>

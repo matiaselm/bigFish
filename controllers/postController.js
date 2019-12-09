@@ -7,9 +7,9 @@ const posts_list_get = async (req, res) => {
 };
 
 const post_user_get = async(req,res) =>{
-// tähä search bar haku uname
-  //const params = [req.params.id];
-  const  posts = await  postsModel.getAllPostsByUser();
+
+  const param = [req.body.searchField];
+  const  posts = await  postsModel.getAllPostsByUser(param);
   await res.json(posts);
 };
 
@@ -48,5 +48,6 @@ const post_create_post = async (req, res) => {
 
 module.exports ={
   posts_list_get,
-  post_create_post
+  post_create_post,
+  post_user_get
 };

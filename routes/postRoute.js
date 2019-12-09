@@ -7,6 +7,9 @@ const upload = multer({dest: 'uploads/'});
 
 router.get('/', postController.posts_list_get);
 
+router.get('/U',postController.post_user_get);
+
 router.post('/',upload.single('post_filename'), postController.post_create_post);
+
 
 module.exports = router;

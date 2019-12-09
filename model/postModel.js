@@ -16,7 +16,7 @@ const getAllPosts = async () => {
 const getAllPostsByUser = async (uName) => {
 
   try {
-    const [rows] = await promisePool.query(' SELECT * FROM  posts  INNER JOIN user ON post_creator_id = user_id WHERE username = ?, [uName];',[uName]);
+    const [rows] = await promisePool.query(' SELECT * FROM  posts  INNER JOIN user ON post_creator_id = user_id WHERE user_name = ?;',[uName]);
     return rows;
   } catch (e) {
     console.log('error', e.message);
