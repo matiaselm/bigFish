@@ -22,15 +22,15 @@
             <!-- Checkbox is hidden away, pressing the menuButton activates it.
             Don't remove. Commented out because we're going to do this with js.
             -->
-            <form action="/post" method="get">
+            <button id="searchFieldExpander" for="toggle-1"></button>
+            <input type="checkbox" id="toggle-1" name="toggle-1">
 
-                <button id="searchButton"></button>
-                <button id="searchFieldExpander" for="toggle-1"></button>
-                <input type="checkbox" id="toggle-1" name="toggle-1">
+            <form action="/post/u" method="get">
+
+                <button id="searchButton" type="submit"></button>
                 <!--Search to searchbutton-->
                 <input type="text" name="searchField" id="searchField">
 
-                <input type="submit" value="Login">
             </form>
 
 
@@ -53,13 +53,8 @@
     </div>
 </div>
 
-<<<<<<< HEAD
-<div id="mainPage">
-    <ul id="postCards">
-=======
     <div id="mainPage">
         <ul id="postCards">
->>>>>>> css/html
 
     </ul>
 </div>
@@ -67,15 +62,4 @@
 <script src="js/navbarScriptMainPage.js"></script>
 <script src="js/styleScript.js"></script>
 <script src="js/cardScript.js"></script>
-
-<<<<<<< HEAD
-
 </body></html>
-=======
-    <script src="js/navbarScriptMainPage.js"></script>
-    <script src="js/styleScript.js"></script>
-    <script src="js/cardScript.js"></script>
-
-
-</body></html>
->>>>>>> css/html
