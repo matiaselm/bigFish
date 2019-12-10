@@ -160,13 +160,13 @@ Below styles for smallCards
 
 .postVoteBlock{
     padding: 1ch;
-    top: 0;
     bottom: 0;
     z-index: 2;
     position: absolute;
-    right: 2ch;
-    min-height: 10ch;
+    right: 1ch;
+    max-height: 90%;
     min-width: 3ch;
+    margin: 1ch;
 }
 
 .upvoteButton{

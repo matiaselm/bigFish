@@ -51,13 +51,20 @@ const bigCard = (post) => {
     const imgStyle = (el) => {
         el.position = ('relative');
         el.maxWidth = ('100%');
-        el.minWidth = ('40%');
+        el.minWidth = ('100%');
         el.minHeight = ('20ch');
-        el.marginBottom = ('4ch');
+        el.marginBottom = ('0');
+    };
+
+    const userStyle = (el) => {
+        el.position = ('relative');
+        el.left = ('0');
+        el.right = ('');
     };
 
     const titleStyle = (el) => {
         el.position = ('relative');
+        el.left = ('0');
         //el.backgroundColor=('white');
     };
 
@@ -69,6 +76,7 @@ const bigCard = (post) => {
         el.transform = ('rotate(180deg)');
     };
 
+    userStyle(user);
     descStyle(desc);
     imgStyle(img);
     titleStyle(title);
@@ -91,11 +99,18 @@ const smallCard = (post) => {
         el.maxWidth = ('20%');
         el.minWidth = ('');
         el.minHeight = ('100%');
-        el.marginBottom = ('');
+        el.marginBottom = ('0');
+    };
+
+    const userStyle = (el) => {
+        el.position = ('absolute');
+        el.right = ('10ch');
+        el.left = ('');
     };
 
     const titleStyle = (el) => {
         el.position = ('absolute');
+        el.left = ('20%');
     };
 
     const descStyle = (el) => {
@@ -106,6 +121,7 @@ const smallCard = (post) => {
         el.transform = ('rotate(0deg)');
     };
 
+    userStyle(user);
     descStyle(desc);
     titleStyle(title);
     imgStyle(img);

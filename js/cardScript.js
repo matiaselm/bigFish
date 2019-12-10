@@ -55,8 +55,8 @@ const card = (i) => {
 
     return `<div class="postCard" id=${postList[i].id}>
                 <img src="uploads/${postList[i].filename}" alt="" class="postImg">
-                <p class="postTitle">${postList[i].name}</p>
                 <a href="html/userpage.html" class="postUsername">${postList[i].creator}</a>
+                <p class="postTitle">${postList[i].name}</p>
                 <p class="mainText">${postList[i].desc}</p>
                 <br>
                 
