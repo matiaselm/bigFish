@@ -13,6 +13,9 @@ const postCard = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
 const cardOpener = document.getElementsByClassName('cardArrow');
 
+const upvoteButton = document.querySelector(".upvoteButton");
+const downvoteButton = document.querySelector(".downvoteButton");
+
 //localStorage.setItem('meme', ':DD');
 
 /*
@@ -104,7 +107,15 @@ const getPost = async () => {
     //console.log(postList);
 };
 
+const upvote = async (e) => {
+    console.log('upvote',e);
+    await fetch(url + `/post/${e}/like`, {method:'PUT'});
+};
 
+const downvote = async (e) => {
+    console.log(e);
+    await fetch(url + `/post/${e}/dislike`,  {method:'PUT'});
+};
 
 const createCards = (length)=> {
     for (let i = 0; i < length; i++) {
@@ -117,12 +128,27 @@ const createCards = (length)=> {
 // it makes it bigger and calls loadPost(), showing the whole post
 
 //e is only a child-element of the card,
-// whose id we get for clickedParent and give that to bagCard()
+// whose id we get for clickedParent and give that to bigCard()
 const openFunction = (e) => {
     const clickedId = e.target.id;
-    const clickedParent = e.target.parentNode.id;
+    const clickedParentId = e.target.parentNode.id;
+    const clickedParent = e.target.parentNode;
+    const voteButtonCardParent = clickedParent.parentNode;
     const clickedClass = e.target.className;
-    console.log('clickedCardId: ',clickedParent);
+
+    console.log('clicked class', clickedClass);
+    console.log('clicked parent parent', voteButtonCardParent.id);
+    console.log('parentnode.id: ', e.target.parentNode.id);
+
+    if(clickedClass==='upvoteButton') {
+        upvote(voteButtonCardParent.id);
+    }
+
+    if(clickedClass==='downvoteButton') {
+        downvote(voteButtonCardParent.id)
+    }
+
+    console.log('clickedCardId: ',clickedParentId);
 
     console.log('cardPost', e.target.parentNode);
 
@@ -132,7 +158,7 @@ const openFunction = (e) => {
     //   - areCardsOpen can only be made false again by closing the opened card
 
     if(!cardsOpen && clickedClass === 'cardArrow'){
-        cardId = clickedParent;
+        cardId = clickedParentId;
         btnId = clickedId;
         //const post = document.getElementById(`${findPost(cardId, testlist).id}`);
         const post = document.getElementById(cardId);
@@ -166,6 +192,13 @@ cardOpener.onClick = (e) => {
 getPost().then(r => {
     console.log('then: ',r);
 });
+
+upvote.onClick = (e) =>{
+  const clickedID = e.target.id;
+  const clickedParent = e.target.parentNode.id;
+
+  console.log('upvoted: ', clickedParent);
+};
 
 console.log(postList);
 

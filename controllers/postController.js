@@ -57,13 +57,13 @@ const post_create_post = async (req, res) => {
 
 const post_like_put = async (req,res) =>{
   const param = [req.params.id];
-  const post = await postsModel.likePost(param);
+  const post = await postModel.likePost(param);
   await res.json(post)
 };
 
 const post_dislike_put = async (req,res) =>{
   const param = [req.params.id];
-  const post = await postsModel.dislikePost(param);
+  const post = await postModel.dislikePost(param);
   await res.json(post)
 };
 
