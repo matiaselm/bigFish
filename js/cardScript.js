@@ -85,7 +85,7 @@ const getPost = async () => {
     const posts = await response.json();
 
     for (let i of posts) {
-        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post_likes, i.post_dislikes);
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.user_name, i.post_likes, i.post_dislikes);
 
         postList.push(post);
     }

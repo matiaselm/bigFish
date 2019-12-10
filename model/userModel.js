@@ -45,9 +45,23 @@ const addUser = async (username, email, passwd,) => {
   }
 };
 
+const changeUserPic = async (params) => {
+  try {
+    const [row] = await promisePool.execute(
+        'UPDATE user SET user_filename = ? WHERE user_id =?', [params],
+    );
+    return row;
+
+  } catch (e) {
+    console.error(e);
+    return {error: 'error in db'};
+  }
+};
+
 module.exports = {
   findUser,
   getAllUsers,
   getUser,
-  addUser
+  addUser,
+  changeUserPic
 };

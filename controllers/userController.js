@@ -20,9 +20,16 @@ const user_create_post = async (req,res)=>{
   console.log('passwd', req.body.passwd);
 };
 
+const user_change_put = async (req, res) => {
+
+  const params = [req.file.filename,req.params.id];
+  const user = await userModel.changeUserPic(params);
+  res.json(user)
+};
 
 module.exports ={
   user_get,
   user_list_get,
-  user_create_post
+  user_create_post,
+  user_change_put
 };
