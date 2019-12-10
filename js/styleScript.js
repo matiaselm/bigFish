@@ -2,7 +2,7 @@
 
 const bigCard = (post) => {
 
-    post.style.minHeight=('var(--card-open-size)');
+    post.style.minHeight = ('var(--card-open-size)');
     console.log('post card: ', post);
 
     /*
@@ -32,63 +32,82 @@ const bigCard = (post) => {
 
     */
 
-    const img = post.firstElementChild.style;
+    const title = post.querySelector(".postTitle").style;
+    const img = post.querySelector(".postImg").style;
+    const user = post.querySelector(".postUsername").style;
+    const desc = post.querySelector(".mainText").style;
+    const button = post.querySelector(".cardArrow").style;
+    const comment = post.querySelector(".postComments").style;
+    const votes = post.querySelector(".postVotes").style;
+    console.log(post.querySelector(".postTitle"));
+    /*const img = post.firstElementChild.style;
     const title = post.childNodes[3].style;
     const user = post.childNodes[5].style;
     const desc = post.childNodes[7].style;
     const button = post.childNodes[9].style;
     const comment = post.childNodes[11].style;
-    const votes = post.childNodes[13].style;
+    const votes = post.childNodes[13].style;*/
 
     const imgStyle = (el) => {
-        el.position=('relative');
-        el.maxWidth=('100%');
-        el.minWidth=('40%');
-        el.minHeight=('20ch');
-        el.marginBottom=('4ch');
+        el.position = ('relative');
+        el.maxWidth = ('100%');
+        el.minWidth = ('40%');
+        el.minHeight = ('20ch');
+        el.marginBottom = ('4ch');
+    };
+
+    const titleStyle = (el) => {
+        el.position = ('relative');
+        //el.backgroundColor=('white');
     };
 
     const descStyle = (el) => {
-      el.visibility=('visible');
+        el.visibility = ('visible');
     };
 
     const btnStyle = (el) => {
-      el.transform =('rotate(180deg)');
+        el.transform = ('rotate(180deg)');
     };
 
     descStyle(desc);
     imgStyle(img);
+    titleStyle(title);
     btnStyle(button);
 
 };
 
 const smallCard = (post) => {
-    post.style.minHeight=('var(--card-main-size)');
+    post.style.minHeight = ('var(--card-main-size)');
 
-    const img = post.firstElementChild.style;
-    const title = post.childNodes[3].style;
-    const user = post.childNodes[5].style;
-    const desc = post.childNodes[7].style;
-    const button = post.childNodes[9].style;
-    const comment = post.childNodes[11].style;
-    const votes = post.childNodes[13].style;
+    const title = post.querySelector(".postTitle").style;
+    const img = post.querySelector(".postImg").style;
+    const user = post.querySelector(".postUsername").style;
+    const desc = post.querySelector(".mainText").style;
+    const button = post.querySelector(".cardArrow").style;
+    const comment = post.querySelector(".postComments").style;
+    const votes = post.querySelector(".postVotes").style;
 
     const imgStyle = (el) => {
-        el.maxWidth=('20%');
-        el.minWidth=('');
-        el.minHeight=('100%');
-        el.marginBottom=('');
+        el.maxWidth = ('20%');
+        el.minWidth = ('');
+        el.minHeight = ('100%');
+        el.marginBottom = ('');
+    };
+
+    const titleStyle = (el) => {
+        el.position = ('absolute');
     };
 
     const descStyle = (el) => {
-        el.visibility=('hidden');
+        el.visibility = ('hidden');
     };
 
     const btnStyle = (el) => {
-        el.transform =('rotate(0deg)');
+        el.transform = ('rotate(0deg)');
     };
 
     descStyle(desc);
+    titleStyle(title);
     imgStyle(img);
     btnStyle(button);
 

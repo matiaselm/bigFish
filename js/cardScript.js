@@ -50,14 +50,24 @@ delButton.addEventListener('click', async () => {
 
 const card = (i) => {
     //console.log('filename: ' + postList[i].filename);
+
+    console.log('imgFilename',postList[i].filename);
+
     return `<div class="postCard" id=${postList[i].id}>
                 <img src="uploads/${postList[i].filename}" alt="" class="postImg">
                 <p class="postTitle">${postList[i].name}</p>
                 <a href="html/userpage.html" class="postUsername">${postList[i].creator}</a>
                 <p class="mainText">${postList[i].desc}</p>
-                <input type="button" class="cardArrow" id="btn${postList[i].id}">
+                <br>
+                
+                <div class="postVoteBlock">
+                    <input type="button" class="upvoteButton" id="upBtn${postList[i].id}">
+                    <p class="postVotes">${postList[i].likes-postList[i].dislikes}</p>
+                    <input type="button" class="downvoteButton" id="downBtn${postList[i].id}">
+                </div>
+                
                 <a onclick="localStorage.setItem('bigfish_post_id',${postList[i].id})" href="html/comments.html" class="postComments" name="postComments">comments</a>
-                <p class="postVotes">${postList[i].id}</p>
+                <input type="button" class="cardArrow" id="btn${postList[i].id}">
             </div>`;
 };
 
@@ -85,7 +95,7 @@ const getPost = async () => {
     const posts = await response.json();
 
     for (let i of posts) {
-        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.post_creator, i.post_likes, i.post_dislikes);
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.user_name, i.post_likes, i.post_dislikes);
 
         postList.push(post);
     }
@@ -112,6 +122,8 @@ const openFunction = (e) => {
     const clickedParent = e.target.parentNode.id;
     const clickedClass = e.target.className;
     console.log('clickedCardId: ',clickedParent);
+
+    console.log('cardPost', e.target.parentNode);
 
     // If areCardsOpen === false, open card
     //   - mark in areCardsOpen, that card has been opened
