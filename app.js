@@ -3,12 +3,11 @@
 const express = require('express');
 const port = 3000;
 const cors = require('cors');
+const app = express();
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-const app = express();
 const bcrypt = require('bcryptjs');
-app.use(require('express-session')(
-    {secret: 'keyboard cat', resave: true, saveUninitialized: true}));
+const userModel = require('./model/userModel');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -25,19 +24,32 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(
-    (username, password, done) => {
+    async (username, password, done) => {
         console.log('trying to login', username);
 
-        if (!bcrypt.compareSync(password, '$2a$12$JjWvzbyNZazQQehMU2LGgusUnBGRJ.SRjBeI8bRN3PCT60bvRXl2C')) {
-            console.log('login', 'wrong username or password');
-            return done(null, false);
+        const params = [username];
+
+        try {
+            const [user] = await userModel.getUserLogin(params);
+            if (user === undefined) {
+                console.log("Incorrect username");
+                return done(null, false);
+            }
+            if (!bcrypt.compareSync(password, user.user_passwd)) {
+                console.log("Incorrect password");
+                return done(null, false);
+            }
+            delete user.password;
+            console.log("Login succesful");
+            return done(null, {...user});
+
+        } catch (err) {
+            return done(err);
         }
-        return done(null, {username: username});
-        console.log('login', 'username and password correct');
     }
 ));
 passport.serializeUser((user, done) => {
-    done(null, user.username);
+    done(null, user.user_name);
 });
 
 passport.deserializeUser((username, done) => {
@@ -63,4 +75,4 @@ const postRoute = require('./routes/postRoute');
 app.use('/user', userRoute);
 app.use('/post', postRoute);
 
-app.listen(port, () => console.log(`App listening on port ${port}!`));
+app.listen(port, () => console.log(`\nApp listening on port ${port}!`));
