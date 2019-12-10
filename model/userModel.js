@@ -1,5 +1,6 @@
 const pool = require('../database/db.js');
 const promisePool = pool.promise();
+const bcrypt = require('../utils/bcrypt');
 
 const getAllUsers = async () => {
   try {
@@ -13,7 +14,8 @@ const getAllUsers = async () => {
 const getUser = async (id) => {
   try {
     const [row] = await promisePool.execute(
-        'SELECT * FROM user WHERE user_id = ?;', id);
+        'SELECT * FROM user WHERE user_id = ?', id
+    );
     return row;
   } catch (e) {
     console.log('error', e.message);
@@ -21,10 +23,21 @@ const getUser = async (id) => {
   }
 };
 
-const addUser = async (username, email, passwd) => {
+const findUser = async (name) => {
+  try {
+    const [row] = await promisePool.execute('SELECT * FROM user WHERE user_name = ?', name);
+    console.log('User found');
+    return row;
+  } catch (e) {
+    console.log('error', e.message);
+    return {error: 'No such user in database'};
+  }
+};
+
+const addUser = async (username, email, passwd,) => {
   try {
     const  [row]= await promisePool.execute(
-        'INSERT INTO user(user_name, user_email, user_passwd) Values("'+username+'", "'+email+'", "'+passwd+'")');
+        'INSERT INTO user(user_name, user_email, user_passwd) Values("'+username+'", "'+email+'", "'+bcrypt.passHash(passwd)+'")');
     return row;
   } catch (e) {
     console.error(e);
@@ -32,8 +45,23 @@ const addUser = async (username, email, passwd) => {
   }
 };
 
+const changeUserPic = async (params) => {
+  try {
+    const [row] = await promisePool.execute(
+        'UPDATE user SET user_filename = ? WHERE user_id =?', [params],
+    );
+    return row;
+
+  } catch (e) {
+    console.error(e);
+    return {error: 'error in db'};
+  }
+};
+
 module.exports = {
+  findUser,
   getAllUsers,
   getUser,
-  addUser
+  addUser,
+  changeUserPic
 };
