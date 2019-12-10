@@ -15,61 +15,74 @@ app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
 app.use(require('express-session')({
-  secret: 'keyboard cat',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {secure: false}
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true,
+    cookie: {secure: false}
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
+let id = "";
+
 passport.use(new LocalStrategy(
     async (username, password, done) => {
-      console.log('trying to login', username);
+        console.log('trying to login', username);
 
-      const params = [username];
+        const params = [username];
 
-      try {
-        const [user] = await userModel.getUserLogin(params);
-        if (user === undefined) {
-          console.log("Incorrect username");
-          return done(null, false);
+        try {
+            const [user] = await userModel.getUserLogin(params);
+            id = user.user_id;
+            console.log( id);
+
+            if (user === undefined) {
+                console.log("Incorrect username");
+                return done(null, false);
+            }
+            if (!bcrypt.compareSync(password, user.user_passwd)) {
+                console.log("Incorrect password");
+                return done(null, false);
+            }
+            delete user.user_password;
+            console.log("Login succesful");
+
+            return done(null, {...user});
+
+        } catch (err) {
+            return done(err);
         }
-        if (!bcrypt.compareSync(password, user.user_passwd)) {
-          console.log("Incorrect password");
-          return done(null, false);
-        }
-        delete user.password;
-        console.log("Login succesful");
-        return done(null, {...user});
-
-      } catch (err) {
-        return done(err);
-      }
     }
 ));
+
 passport.serializeUser((user, done) => {
-  done(null, user.user_name);
+    done(null, user.user_id);
 });
 
-passport.deserializeUser((username, done) => {
-  done(null, {username: username});
+passport.deserializeUser((user_id, done) => {
+/*    id = user_id;
+    console.log(id);*/
+    done(null, {user_id: user_id});
 });
 
 app.post('/login',
     passport.authenticate('local', {
-      successRedirect: '/',
-      failureRedirect: '/loginError'
+        successRedirect: '/loginSuccess',
+        failureRedirect: '/loginError'
     })
 );
+
+app.get('/loginSuccess', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
 
 app.get('/loginError', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/html/login.html'));
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/public/index.html'));
+    res.sendFile(path.join(__dirname + '/public/html/login.html'));
 });
 
 app.use(express.static('public'));
@@ -77,7 +90,6 @@ app.use('thumbnails', express.static('thumbnails'));
 
 const userRoute = require('./routes/userRoute');
 const postRoute = require('./routes/postRoute');
-
 
 app.use('/user', userRoute);
 app.use('/post', postRoute);
