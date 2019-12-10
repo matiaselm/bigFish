@@ -4,12 +4,39 @@ const promisePool = pool.promise();
 // ''
 const getAllPosts = async () => {
   try {
-    const [rows] = await promisePool.query('SELECT posts.*, user.user_name from posts INNER JOIN user ON post_creator_id=user.user_id');
+    const [rows] = await promisePool.query('SELECT posts.*, user.user_name, user.user_id  from posts INNER JOIN user ON post_creator_id=user.user_id');
     return rows;
   } catch (e) {
     console.log('error', e.message);
   }
 };
+
+const getPost = async (params) => {
+  try {
+    console.log('params',params);
+    const [rows] = await promisePool.execute(
+        'SELECT posts.*, user.user_name, user.user_id from posts INNER JOIN user ON post_creator_id=user.user_id WHERE post_id=?;',
+        params
+    );
+    return rows;
+  } catch (e) {
+    console.log('error', e.message);
+    return {error: 'error in database query'};
+  }
+};
+
+const getAllPostsByUser = async (id) => {
+
+  try {
+    const [rows] = await promisePool.query(
+        ' SELECT * FROM  posts  INNER JOIN user ON post_creator_id = user_id WHERE user_id = ?;', id);
+    return rows;
+  } catch (e) {
+    console.log('error', e.message);
+    return {error: 'error id db query'};
+  }
+};
+
 
 const likePost = async (id) => {
   try {
@@ -47,19 +74,6 @@ const getPostComments = async (params) =>{
   }
 };
 
-const getPost = async (params) => {
-  try {
-    console.log('params',params);
-    const [rows] = await promisePool.execute(
-        'SELECT posts.*, user.user_name from posts INNER JOIN user ON post_creator_id=user.user_id WHERE post_id=?;',
-        params
-    );
-    return rows;
-  } catch (e) {
-    console.log('error', e.message);
-    return {error: 'error in database query'};
-  }
-};
 
 const addPost = async (params) => {
   try {
@@ -80,5 +94,6 @@ module.exports = {
   getAllPosts,
   addPost,
   getPost,
-  getPostComments
+  getPostComments,
+  getAllPostsByUser
 };

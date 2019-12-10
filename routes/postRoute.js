@@ -11,6 +11,8 @@ router.get('/:id', postController.post_get);
 
 router.get('/:id/comments', postController.post_get_comments);
 
+router.get('/u/:id',postController.post_user_get);
+
 router.put('/:id/like', postController.post_like_put);
 
 router.put('/:id/dislike', postController.post_dislike_put);

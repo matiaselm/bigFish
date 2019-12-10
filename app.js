@@ -66,11 +66,11 @@ app.post('/login',
 
 app.get('/error', (req, res) => {
     alert('Error logging in');
-    res.sendFile(path.join(__dirname+'/html/login.html'));
+    res.sendFile(path.join(__dirname + '/html/login.html'));
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname+'/index.html'));
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.use(express.static('uploads'));
@@ -78,6 +78,7 @@ app.use('thumbnails', express.static('thumbnails'));
 
 const userRoute = require('./routes/userRoute');
 const postRoute = require('./routes/postRoute');
+
 
 app.use('/user', userRoute);
 app.use('/post', postRoute);
