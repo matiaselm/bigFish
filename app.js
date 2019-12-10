@@ -8,6 +8,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const userModel = require('./model/userModel');
+const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -58,13 +59,19 @@ passport.deserializeUser((username, done) => {
 
 app.post('/login',
     passport.authenticate('local', {
-        successRedirect: '/success',
+        successRedirect: '/',
         failureRedirect: '/error'
     })
 );
 
-app.get('/success', (req, res) => res.send("Welcome!!"));
-app.get('/error', (req, res) => res.send("Error logging in"));
+app.get('/error', (req, res) => {
+    alert('Error logging in');
+    res.sendFile(path.join(__dirname+'/html/login.html'));
+});
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname+'/index.html'));
+});
 
 app.use(express.static('uploads'));
 app.use('thumbnails', express.static('thumbnails'));
