@@ -2,7 +2,6 @@
 
 #header {
     position: static;
-    overflow: hidden;
     top: 0;
     width: 100%;
     z-index: 1;
@@ -62,7 +61,6 @@
 
 .header {
     position: -webkit-sticky;
-    overflow: hidden;
     top: 0;
     width: 100%;
     z-index: 1;
@@ -113,22 +111,20 @@ remember that navbarScript.js manages the height
 
     overflow: hidden;
     position: absolute;
-    right: 1.5ch;
-    top: 1.5ch;
+    right: 0;
+    top: 0;
     z-index: 1;
-    height: 13ch;
-    width: 15ch;
-    padding-top: 3ch;
+    height: 100vh;
+    width: 0;
+    padding-top: 10ch;
     padding-left: 0;
     text-align: left;
     background-color: var(--contrast-col2);
     list-style-type: none;
 
-    border-radius: 2ch;
-
-    -webkit-transition: height var(--tran-speed);
+    -webkit-transition: width var(--tran-speed);
     /* For Safari 3.1 to 6.0 */
-    transition: height var(--tran-speed);
+    transition: width var(--tran-speed);
 }
 
 #dropDownList{
@@ -150,8 +146,9 @@ remember that navbarScript.js manages the height
 
 .dropDown{
     color: var(--text-col3);
+    font-size: var(--text-title2-size);
     text-decoration: none;
-    margin: 1ch 0;
+    margin: 1ch;
 }
 
 /*

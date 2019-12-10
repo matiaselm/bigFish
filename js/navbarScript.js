@@ -66,12 +66,13 @@ searchButton.onclick=()=>{
 
 userButton.onclick=()=>{
     if (bool) {
-        userMenu.style.height = ('0');
-        userMenu.style.visibility = ('hidden');
+        userMenu.style.width =('0');
+        setTimeout(()=> {userMenu.style.visibility = ('hidden')}, 200);
         bool = false;
     } else {
+        userMenu.style.width = ('25ch');
         userMenu.style.visibility = ('visible');
-        userMenu.style.height = ('13ch');
+
         bool = true;
     }
 };
