@@ -124,7 +124,7 @@ Below styles for smallCards
     border-radius: 1ch;
 
     background-color: transparent;
-    background-image: url("../img/arrow_down_xlarge.png");
+    background-image: url("../public/img/arrow_down_xlarge.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -175,7 +175,7 @@ Below styles for smallCards
 
     border: none;
     background-color: transparent;
-    background-image: url("../img/votearrow_up_xlarge.png");
+    background-image: url("../public/img/votearrow_up_xlarge.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -206,7 +206,7 @@ Below styles for smallCards
 
     border: none;
     background-color: transparent;
-    background-image: url("../img/votearrow_down_xlarge.png");
+    background-image: url("../public/img/votearrow_down_xlarge.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

@@ -38,7 +38,7 @@
     box-sizing: border-box;
     left: 0;
     align-content: center;
-    background-image: url('../img/siika_large.png');
+    background-image: url('../public/img/siika_large.png');
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -82,7 +82,7 @@
     height: 7ch;
     border-radius: 7ch;
     border: none;
-    background-image: url("../img/profile_ph_large.png");
+    background-image: url("../public/img/profile_ph_large.png");
     background-position: center;
     background-size: cover;
     background-color: var(--contrast-col2);
@@ -197,7 +197,7 @@ menuField holds the inputField and searchButton inside it
     border: none;
 
     background-color: transparent;
-    background-image: url("../img/arrow_xlarge.png");
+    background-image: url("../public/img/arrow_xlarge.png");
     background-position: center;
     background-size: cover;
 
@@ -219,7 +219,7 @@ menuField holds the inputField and searchButton inside it
     border: none;
 
     background-color: var(--contrast-col2);
-    background-image: url("../img/search_icon_xlarge.png");
+    background-image: url("../public/img/search_icon_xlarge.png");
     background-position: center;
     background-size: cover;
     
