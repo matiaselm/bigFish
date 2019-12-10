@@ -1,29 +1,15 @@
-
-
-
 /*postCards holds all our posts as a list inside it */
 
 #postCards {
     position: absolute;
     height: 90%;
-    right: 0;
-    left: 30%;
+
     background-color: transparent;
     margin: 0;
     padding: 0;
-    overflow-y: hidden;
+    overflow-y: scroll;
     /*top: var(--header-height);*/
     z-index: 0;
-}
-
-#postCards:hover{
-    box-sizing: content-box;
-    overflow-y: scroll;
-}
-
-#postCards:active{
-    box-sizing: content-box;
-    overflow-y: scroll;
 }
 
 /* postCard is just one little post-element in the site list */
@@ -33,7 +19,7 @@
     width: auto;
     left: 0;
     right: 0;
-    margin: 1ch;
+    margin: 1ch 2ch 2ch 1ch;
     border-radius: 3px;
     min-height: var(--card-main-size);
     list-style-type: none;
@@ -46,7 +32,8 @@
 
     color: var(--text-col1);
     /*height: var(--card-main-size);*/
-    background-color: var(--secondary-col2);
+    //background-color: var(--secondary-col2);
+    background-color: rgba(255,255,255,0.8);
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.40), 0 0 40px rgba(0, 0, 0, 0.06) inset;
@@ -161,12 +148,16 @@ Below styles for smallCards
 }
 
 .postUsername:hover {
-    color: red;
+    color: var(--main-col1);
 }
 
 .postComments {
     position: relative;
     display: inline-block;
+}
+
+.postComments:hover {
+    color: var(--main-col1);
 }
 
 .postVoteBlock{
@@ -196,10 +187,6 @@ Below styles for smallCards
     top: 1ch;
 }
 
-.upvoteButton:hover{
-    background-color: rgba(255,0,255,0.5);
-}
-
 .upvoteButton:active{
     background-color: rgba(255,255,255,0.8);
 }
@@ -225,10 +212,6 @@ Below styles for smallCards
     display: block;
     position: relative;
     bottom: 1ch;
-}
-
-.downvoteButton:hover{
-    background-color: rgba(255,0,255,0.5);
 }
 
 .downvoteButton:active{

@@ -3,18 +3,18 @@
 }
 
 :root{
-    --main-col1: #bcffd7;
-    --main-col2: #62d6ea;
-    --main-col3: #0dcfdd;
+    --main-col1: #627488;
+    --main-col2: #58544c;
+    --main-col3: #a5a293;
     --secondary-col1: lightgrey;
     --secondary-col2: white;
-    --contrast-col1: #c6d175;
-    --contrast-col2: #367580;
+    --contrast-col1: #22200b;
+    --contrast-col2: #fff5ae;
     --text-col1: black;
     --text-col2: darkgrey;
     --text-col3: white;
 
-    --header-height: 10vh;
+    --header-height: 10ch;
 
     --text-title1-size: 4ch;
     --text-title2-size: 3ch;
@@ -26,6 +26,9 @@
     --tran-speed: 0.4s;
 
     --gradient-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 0 10px rgba(0, 0, 0, 0.06) inset;
+
+
+    --font-main: "Georgia";
 }
 /*
 *,
@@ -39,23 +42,35 @@
 body {
     margin: 0;
     overflow: hidden;
+    font-family: var(--font-main);
+
 }
 
 h1 {
     text-align: center;
-    color: var(--text-col1);
+    color: var(--text-col3);
     font-size: var(--text-title1-size);
+    font-family: var(--font-main)
 }
 
 p {
     font-size: var(--text-bread-size);
     color: var(--text-col1);
+    font-family: var(--font-main)
 }
 
 li {
     font-size: var(--text-bread-size);
     color: var(--text-col1);
     margin: 2%;
+    font-family: var(--font-main)
+}
+
+a{
+    font-size: var(--text-bread-size);
+    color: var(--text-col1);
+    margin: 2%;
+    font-family: var(--font-main)
 }
 
 .mainFeedBG {
@@ -83,10 +98,18 @@ li {
         left: 4ch;
     }
 
-    #postCards{
+    #postCards {
         position: absolute;
+
         max-width: 70ch;
-        width: 60%;
-        left: 4ch;
+        min-width: 50ch;
+        left: 30%;
+        right: 30%;
+        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        /*top: var(--header-height);*/
+        z-index: 0;
     }
 }
