@@ -21,6 +21,7 @@ const getUserLogin = async (name) => {
     }
 };
 
+
 const getUser = async (id) => {
     try {
         const [row] = await promisePool.execute(
@@ -62,7 +63,4 @@ module.exports = {
     addUser,
     changeUserPic,
     getUserLogin,
-    getAllUsers,
-    getUser,
-    addUser
 };

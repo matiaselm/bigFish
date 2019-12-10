@@ -64,9 +64,9 @@
     </div>
     -->
 
-    <form action="/post/" method="post" class="submitCard">
+    <form action="/post/" method="post" class="submitCard" enctype="multipart/form-data">
 
-        <input type="text" name="post_creator" placeholder="Creator" id="inputCreator" class="input" required>
+
         <br>
         <textarea type="text" name="post_name" placeholder="Title*" id="inputTitle" class="input"
                   required></textarea>
@@ -75,7 +75,7 @@
                   class="input" required></textarea>
         <br>
 
-        <input class="input" type="file" name="post_file" id="inputImage">
+        <input class="input" type="file" name="filename" id="inputImage">
         <input type="submit" value="Post" id="submitButton">
     </form>
 

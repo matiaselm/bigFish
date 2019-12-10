@@ -41,6 +41,7 @@ passport.use(new LocalStrategy(
           return done(null, false);
         }
         delete user.password;
+
         console.log("Login succesful");
         return done(null, {...user});
 
@@ -50,7 +51,9 @@ passport.use(new LocalStrategy(
     }
 ));
 passport.serializeUser((user, done) => {
+
   done(null, user.user_name);
+
 });
 
 passport.deserializeUser((username, done) => {

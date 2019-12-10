@@ -32,6 +32,8 @@ const post_create_post = async (req, res) => {
   );
   try {
     // Make thumbnail
+    console.log(res.user.user_name);
+
     resize.makeThumbnail(req.file.path,
         'thumbnails/'+ req.file.filename,
         {width: 160,height: 160});
@@ -42,7 +44,6 @@ const post_create_post = async (req, res) => {
       req.body.post_name,
       req.body.post_description,
       req.file.filename
-
     ];
     const response = await postModel.addPost(params);
     await res.json(response);
