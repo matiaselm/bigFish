@@ -1,18 +1,29 @@
+
+
+
 /*postCards holds all our posts as a list inside it */
 
 #postCards {
     position: absolute;
     height: 90%;
     right: 0;
-    left: 0;
-    background-color: var(--secondary-col1);
-    box-shadow: -5px 0 var(--secondary-col2);
+    left: 30%;
+    background-color: transparent;
     margin: 0;
-    box-sizing: border-box;
     padding: 0;
+    overflow-y: hidden;
+    /*top: var(--header-height);*/
+    z-index: 0;
+}
+
+#postCards:hover{
+    box-sizing: content-box;
     overflow-y: scroll;
-    top: var(--header-height);
-    z-index: -1;
+}
+
+#postCards:active{
+    box-sizing: content-box;
+    overflow-y: scroll;
 }
 
 /* postCard is just one little post-element in the site list */
