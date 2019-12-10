@@ -60,12 +60,12 @@ passport.deserializeUser((username, done) => {
 app.post('/login',
     passport.authenticate('local', {
       successRedirect: '/',
-      failureRedirect: '/error'
+      failureRedirect: '/loginError'
     })
 );
 
-app.get('/error', (req, res) => {
-  res.sendFile(path.join(__dirname + '/public/html/login.html'));
+app.get('/loginError', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/html/login.html'));
 });
 
 app.get('/', (req, res) => {
