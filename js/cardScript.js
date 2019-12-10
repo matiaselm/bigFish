@@ -13,7 +13,7 @@ const postCard = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
 const cardOpener = document.getElementsByClassName('cardArrow');
 
-localStorage.setItem('meme', ':DD');
+//localStorage.setItem('meme', ':DD');
 
 /*
 const getComments = () => {
@@ -49,11 +49,12 @@ delButton.addEventListener('click', async () => {
 });*/
 
 const card = (i) => {
+    console.log(postList[i].user_id);
     //console.log('filename: ' + postList[i].filename);
     return `<div class="postCard" id=${postList[i].id}>
                 <img src="uploads/${postList[i].filename}" alt="" class="postImg">
                 <p class="postTitle">${postList[i].name}</p>
-                <a href="html/userpage.html" class="postUsername">${postList[i].creator}</a>
+                <a href="/post/u/${postList[i].user_id}" class="postUsername">${postList[i].creator}</a>
                 <p class="mainText">${postList[i].desc}</p>
                 <input type="button" class="cardArrow" id="btn${postList[i].id}">
                 <a onclick="localStorage.setItem('bigfish_post_id',${postList[i].id})" href="html/comments.html" class="postComments" name="postComments">comments</a>
@@ -67,7 +68,7 @@ let btnId;
 let postList= [];
 
 
-const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
+const createElement=(id, name, desc, filename, creator, likes, dislikes,user_id)=> {
     const imagePost = {
         'id': id,
         'name': name,
@@ -76,6 +77,7 @@ const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
         'likes': likes,
         'dislikes': dislikes,
         'creator': creator,
+        'user_id': user_id
     };
     return imagePost;
 };
@@ -85,8 +87,7 @@ const getPost = async () => {
     const posts = await response.json();
 
     for (let i of posts) {
-        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.user_name, i.post_likes, i.post_dislikes);
-
+        const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.user_name, i.post_likes, i.post_dislikes,i.user_id);
         postList.push(post);
     }
     createCards(postList.length);

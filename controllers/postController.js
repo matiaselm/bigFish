@@ -17,6 +17,13 @@ const post_get = async (req, res) =>{
  }
 };
 
+const post_user_get = async (req, res) => {
+
+  const param = [req.params.id];
+  console.log(param);
+  const posts = await postModel.getAllPostsByUser(param);
+  await res.json(posts);
+};
 
 const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
@@ -73,4 +80,5 @@ module.exports ={
   post_create_post,
   post_get,
   post_get_comments,
+  post_user_get
 };

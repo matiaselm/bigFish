@@ -32,8 +32,9 @@ passport.use(new LocalStrategy(
             console.log('login', 'wrong username or password');
             return done(null, false);
         }
+      console.log('login', 'username and password correct');
         return done(null, {username: username});
-        console.log('login', 'username and password correct');
+
     }
 ));
 passport.serializeUser((user, done) => {
@@ -59,6 +60,7 @@ app.use('thumbnails', express.static('thumbnails'));
 
 const userRoute = require('./routes/userRoute');
 const postRoute = require('./routes/postRoute');
+
 
 app.use('/user', userRoute);
 app.use('/post', postRoute);
