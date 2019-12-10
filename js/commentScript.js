@@ -5,8 +5,8 @@ const postField = document.getElementById('mainPost');
 const commentList = document.getElementById('commentList');
 
 const card = (i) => {
-    //console.log('filename: ' + postList[i].filename);
-    return `<div class="cardComment" id="comment${i}">
+  //console.log('filename: ' + postList[i].filename);
+  return `<div class="cardComment" id="comment${i}">
                 <a href="userpage.html" class="postUsername">user ${i}</a>
                 <p class="mainText">comment ${i}</p>
                 <p class="postVotes">${i} likes</p>
@@ -14,39 +14,41 @@ const card = (i) => {
 };
 
 const comment = (i) => {
-    return `<div class="commentCard" id="comment${i}">
+  return `<div class="commentCard" id="comment${i}">
         <a href="userpage.html" class="commentUsername"></a>
         <p class="commentText">comment ${i}</p>
         <p class="commentVotes">${i} likes</p>
         </div>`;
 };
 
-const createElement=(id, name, desc, filename, creator, likes, dislikes)=> {
-    const imagePost = {
-        'id': id,
-        'name': name,
-        'desc': desc,
-        'filename': filename,
-        'likes': likes,
-        'dislikes': dislikes,
-        'creator': creator,
-    };
-    return imagePost;
+const createElement = (id, name, desc, filename, creator, likes, dislikes) => {
+  const imagePost = {
+    'id': id,
+    'name': name,
+    'desc': desc,
+    'filename': filename,
+    'likes': likes,
+    'dislikes': dislikes,
+    'creator': creator,
+  };
+  return imagePost;
 };
 
 const getPost = async (id) => {
-    const response = await fetch(url + '/post/' + id);
-    const postID = await response.json();
+  const response = await fetch(url + '/post/' + id);
+  const postID = await response.json();
 
-    return createElement(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.post_creator, postID.post_likes, postID.post_dislikes);
-    //console.log(postList);
+  return createElement(postID.post_id, postID.post_name,
+      postID.post_description, postID.post_filename, postID.post_creator,
+      postID.post_likes, postID.post_dislikes);
+  //console.log(postList);
 };
 
-const createComments = (length)=> {
-    for (let i = 0; i < length; i++) {
-        //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
-        commentList.innerHTML += comment(i);
-    }
+const createComments = (length) => {
+  for (let i = 0; i < length; i++) {
+    //cardView.innerHTML += `<div class="postCard" id='post${i}'>These are some fine cards mmHmmHHmmm</div>`
+    commentList.innerHTML += comment(i);
+  }
 };
 
 /*use this when db connection is ready
@@ -62,8 +64,8 @@ const mainPost = (i) => {
 };*/
 
 const mainPost = (i) => {
-    //console.log('filename: ' + postList[i].filename);
-    return `<div class="postCard" id=card>
+  //console.log('filename: ' + postList[i].filename);
+  return `<div class="postCard" id=card>
 
             <img src="../img/placeholder.png" alt="placeholder" class="postImg">
             <!--<div class="imgContainer" style="background-image:url(../img/placeholder.png)"></div>-->
@@ -79,15 +81,15 @@ const mainPost = (i) => {
 };
 
 const createComments = (length) => {
-for (let i = 0; i<length; i++){
+  for (let i = 0; i < length; i++) {
     //commentList.innerHTML+=card(i)}
-    commentList.innerHTML+=`<div class="commentCard" id="comment${i}">
+    commentList.innerHTML += `<div class="commentCard" id="comment${i}">
                 <a href="userpage.html" class="commentUsername">user ${i}</a>
                 <p class="commentText">comment ${i}</p>
                 <p class="commentVotes">${i} likes</p>
-            </div>`}
+            </div>`;
+  }
 };
 
-
 createComments(25);
-postField.innerHTML=(mainPost());
+postField.innerHTML = (mainPost());

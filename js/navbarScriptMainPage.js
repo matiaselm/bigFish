@@ -17,57 +17,57 @@ let bool = true;
 
 //only a debugging function
 const checkIfTrue = (checkBox) => {
-    if(checkBox){
-        return true
-    }else{
-        return false
-    }
+  if (checkBox) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
-arrowButton.onclick=()=>{
-    console.log(checkIfTrue(checkBox1.checked));
-    checkBox1.checked = !checkBox1.checked;
+arrowButton.onclick = () => {
+  console.log(checkIfTrue(checkBox1.checked));
+  checkBox1.checked = !checkBox1.checked;
 
-    if(checkBox1.checked){
-        logo.style.fontSize=('0');
+  if (checkBox1.checked) {
+    logo.style.fontSize = ('0');
 
-        searchField.style.visibility=('initial');
-        searchField.style.righ=('15ch');
-        searchField.style.width=('35ch');
+    searchField.style.visibility = ('initial');
+    searchField.style.righ = ('15ch');
+    searchField.style.width = ('35ch');
 
-        //headerLeft.style.width=('10ch');
-        headerRight.style.width=('48ch');
+    //headerLeft.style.width=('10ch');
+    headerRight.style.width = ('48ch');
 
-        arrowButton.style.left=('0');
-        arrowButton.style.transform='rotate(180deg)';
-    }else{
-        logo.style.fontSize=('var(--text-title1-size)');
-        searchField.style.width=('0');
+    arrowButton.style.left = ('0');
+    arrowButton.style.transform = 'rotate(180deg)';
+  } else {
+    logo.style.fontSize = ('var(--text-title1-size)');
+    searchField.style.width = ('0');
 
-        //headerLeft.style.width=('25ch');
-        headerRight.style.width=('20ch');
+    //headerLeft.style.width=('25ch');
+    headerRight.style.width = ('20ch');
 
-        arrowButton.style.right=('18ch');
-        arrowButton.style.transform=('');
-    }
+    arrowButton.style.right = ('18ch');
+    arrowButton.style.transform = ('');
+  }
 };
 
-searchButton.onclick=()=>{
-    const searchParams = searchField.value;
-    console.log(searchParams);
-    searchField.value=('');
+searchButton.onclick = () => {
+  const searchParams = searchField.value;
+  console.log(searchParams);
+  searchField.value = ('');
 };
 
-userButton.onclick=()=>{
-    if (bool) {
-        userMenu.style.height = ('0');
-        userMenu.style.visibility = ('hidden');
-        bool = false;
-    } else {
-        userMenu.style.visibility = ('visible');
-        userMenu.style.height = ('13ch');
-        bool = true;
-    }
+userButton.onclick = () => {
+  if (bool) {
+    userMenu.style.height = ('0');
+    userMenu.style.visibility = ('hidden');
+    bool = false;
+  } else {
+    userMenu.style.visibility = ('visible');
+    userMenu.style.height = ('13ch');
+    bool = true;
+  }
 };
 
 //.addClass

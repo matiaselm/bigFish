@@ -2,95 +2,95 @@
 
 const bigCard = (post) => {
 
-    post.style.minHeight=('var(--card-open-size)');
-    console.log('post card: ', post);
+  post.style.minHeight = ('var(--card-open-size)');
+  console.log('post card: ', post);
 
-    /*
-        childNodes: NodeList(15)
-        ​​
-        0: #text ""​​
-        1: <img class="postImg" src="uploads/85576b3fa9d9a2494688518ad1a92170" alt="">​​
-        2: #text ""​​
+  /*
+      childNodes: NodeList(15)
+      ​​
+      0: #text ""​​
+      1: <img class="postImg" src="uploads/85576b3fa9d9a2494688518ad1a92170" alt="">​​
+      2: #text ""​​
 
-        3: <p class="postTitle">​​
-        4: #text ""​​
+      3: <p class="postTitle">​​
+      4: #text ""​​
 
-        5: <a class="postUsername" href="html/userpage.html">​​
-        6: #text ""​​
+      5: <a class="postUsername" href="html/userpage.html">​​
+      6: #text ""​​
 
-        7: <p class="mainText">​​
-        8: #text ""​​
+      7: <p class="mainText">​​
+      8: #text ""​​
 
-        9: <input id="btn9" class="cardArrow" type="button">​​
-        10: #text ""​​
+      9: <input id="btn9" class="cardArrow" type="button">​​
+      10: #text ""​​
 
-        11: <a class="postComments" href="html/comments.html">​​
-        12: #text ""​​
+      11: <a class="postComments" href="html/comments.html">​​
+      12: #text ""​​
 
-        13: <p class="postVotes">​​
-        14: #text ""
+      13: <p class="postVotes">​​
+      14: #text ""
 
-    */
+  */
 
-    const img = post.firstElementChild.style;
-    const title = post.childNodes[3].style;
-    const user = post.childNodes[5].style;
-    const desc = post.childNodes[7].style;
-    const button = post.childNodes[9].style;
-    const comment = post.childNodes[11].style;
-    const votes = post.childNodes[13].style;
+  const img = post.firstElementChild.style;
+  const title = post.childNodes[3].style;
+  const user = post.childNodes[5].style;
+  const desc = post.childNodes[7].style;
+  const button = post.childNodes[9].style;
+  const comment = post.childNodes[11].style;
+  const votes = post.childNodes[13].style;
 
-    const imgStyle = (el) => {
-        el.position=('relative');
-        el.maxWidth=('100%');
-        el.minWidth=('40%');
-        el.minHeight=('20ch');
-        el.marginBottom=('4ch');
-    };
+  const imgStyle = (el) => {
+    el.position = ('relative');
+    el.maxWidth = ('100%');
+    el.minWidth = ('40%');
+    el.minHeight = ('20ch');
+    el.marginBottom = ('4ch');
+  };
 
-    const descStyle = (el) => {
-      el.visibility=('visible');
-    };
+  const descStyle = (el) => {
+    el.visibility = ('visible');
+  };
 
-    const btnStyle = (el) => {
-      el.transform =('rotate(180deg)');
-    };
+  const btnStyle = (el) => {
+    el.transform = ('rotate(180deg)');
+  };
 
-    descStyle(desc);
-    imgStyle(img);
-    btnStyle(button);
+  descStyle(desc);
+  imgStyle(img);
+  btnStyle(button);
 
 };
 
 const smallCard = (post) => {
-    post.style.minHeight=('var(--card-main-size)');
+  post.style.minHeight = ('var(--card-main-size)');
 
-    const img = post.firstElementChild.style;
-    const title = post.childNodes[3].style;
-    const user = post.childNodes[5].style;
-    const desc = post.childNodes[7].style;
-    const button = post.childNodes[9].style;
-    const comment = post.childNodes[11].style;
-    const votes = post.childNodes[13].style;
+  const img = post.firstElementChild.style;
+  const title = post.childNodes[3].style;
+  const user = post.childNodes[5].style;
+  const desc = post.childNodes[7].style;
+  const button = post.childNodes[9].style;
+  const comment = post.childNodes[11].style;
+  const votes = post.childNodes[13].style;
 
-    const imgStyle = (el) => {
-        el.maxWidth=('20%');
-        el.minWidth=('');
-        el.minHeight=('100%');
-        el.marginBottom=('');
-    };
+  const imgStyle = (el) => {
+    el.maxWidth = ('20%');
+    el.minWidth = ('');
+    el.minHeight = ('100%');
+    el.marginBottom = ('');
+  };
 
-    const descStyle = (el) => {
-        el.visibility=('hidden');
-    };
+  const descStyle = (el) => {
+    el.visibility = ('hidden');
+  };
 
-    const btnStyle = (el) => {
-        el.transform =('rotate(0deg)');
-    };
+  const btnStyle = (el) => {
+    el.transform = ('rotate(0deg)');
+  };
 
-    descStyle(desc);
-    imgStyle(img);
-    btnStyle(button);
+  descStyle(desc);
+  imgStyle(img);
+  btnStyle(button);
 
 };
 

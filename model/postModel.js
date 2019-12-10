@@ -1,7 +1,6 @@
 const pool = require('../database/db');
 const promisePool = pool.promise();
 
-
 const getAllPosts = async () => {
   try {
     const [rows] = await promisePool.query('SELECT * FROM posts');
@@ -11,12 +10,12 @@ const getAllPosts = async () => {
   }
 };
 
-
-
 const getAllPostsByUser = async (uName) => {
 
   try {
-    const [rows] = await promisePool.query(' SELECT * FROM  posts  INNER JOIN user ON post_creator_id = user_id WHERE user_name = ?;',[uName]);
+    const [rows] = await promisePool.query(
+        ' SELECT * FROM  posts  INNER JOIN user ON post_creator_id = user_id WHERE user_name = ?;',
+        [uName]);
     return rows;
   } catch (e) {
     console.log('error', e.message);
@@ -36,7 +35,6 @@ const addPost = async (params) => {
   }
 };
 
-
 const deletePost = async (id) => {
   try {
     await promisePool.execute('DELETE FROM posts WHERE post_id = ?', id);
@@ -53,7 +51,6 @@ const deletePost = async (id) => {
   }catch (e) {
   }
 }; */
-
 
 module.exports = {
   getAllPosts,

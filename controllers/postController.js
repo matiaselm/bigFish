@@ -6,38 +6,37 @@ const posts_list_get = async (req, res) => {
   await res.json(posts);
 };
 
-const post_user_get = async(req,res) =>{
+const post_user_get = async (req, res) => {
 
   const param = searchField.value;
   console.log(param);
-  const  posts = await  postsModel.getAllPostsByUser(param);
+  const posts = await postsModel.getAllPostsByUser(param);
   await res.json(posts);
 };
 
 const post_create_post = async (req, res) => {
   console.log(req.body.post_name,
       req.body.post_description,
-      req.file.filename
-    );
+      req.file.filename,
+  );
   try {
     // Make thumbnail
     resize.makeThumbnail(req.file.path,
-        'thumbnails/'+ req.file.filename,
-        {width: 160,height: 160});
+        'thumbnails/' + req.file.filename,
+        {width: 160, height: 160});
 
     // add to db
     console.log('request?', req);
     const params = [
       req.body.post_name,
       req.body.post_description,
-      req.file.filename
+      req.file.filename,
 
     ];
     const response = await postsModel.addPost(params);
     await res.json(response);
 
-  }
-  catch (e) {
+  } catch (e) {
     console.log('exif error', e);
     res.status(400).json({message: 'error'});
   }
@@ -61,8 +60,7 @@ const post_update_put = async (req, res) => {
 };
 */
 
-
-module.exports ={
+module.exports = {
   posts_list_get,
   post_create_post,
   post_user_get,
