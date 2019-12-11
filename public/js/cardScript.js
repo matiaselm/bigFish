@@ -6,6 +6,7 @@ console.log('cardScript loaded');
 
 const postImg = document.getElementsByClassName('postImg');
 const postTitle = document.getElementsByClassName('postTitle');
+
 const userName = document.getElementsByClassName('username');
 const comment = document.querySelectorAll('.postComments');
 
@@ -16,7 +17,11 @@ const cardOpener = document.getElementsByClassName('cardArrow');
 const upvoteButton = document.querySelector(".upvoteButton");
 const downvoteButton = document.querySelector(".downvoteButton");
 
+const user_id = document.getElementById('user_id');
+
 //localStorage.setItem('meme', ':DD');
+
+console.log('localstorage',localStorage.getItem('bigfish_username'));
 
 /*
 const getComments = () => {
@@ -51,11 +56,32 @@ delButton.addEventListener('click', async () => {
     }
 });*/
 
-const card = (i) => {
-    console.log(postList[i].user_id);
-    //console.log('filename: ' + postList[i].filename);
+const username = localStorage.getItem('bigfish_username');
 
-    console.log('imgFilename',postList[i].filename);
+const getUser = async (userName) => {
+    const response = await fetch(`${url}/user/current/${userName}`, {method: 'GET'});
+    const user = await response.json();
+
+    await console.log('Got user: ', user.user_id);
+    const userid = user.user_id;
+
+    user_id.innerText=userid;
+
+    //user_id.value=userid;
+    //console.log('user_id: ', user_id.value);
+
+    //user_id.value=11;
+
+    //console.log(postList);
+};
+
+getUser(username);
+//user_id.value = getUser(localStorage.getItem('bigfish_username'));
+
+const card = (i) => {
+    //console.log(postList[i].user_id);
+    //console.log('filename: ' + postList[i].filename);
+    //console.log('imgFilename',postList[i].filename);
 
     return `<div class="postCard" id=${postList[i].id}>
                 <img src="uploads/${postList[i].filename}" alt="" class="postImg">

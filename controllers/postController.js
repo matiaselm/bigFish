@@ -44,8 +44,9 @@ const post_create_post = async (req, res) => {
       req.body.post_name,
       req.body.post_description,
       req.file.filename,
-        id
+      req.body.user_id
     ];
+    //console.log(req.body.user_id);
     //res.sendFile(path.join(__dirname + '/../public/index.html'));
     res.redirect('/index');
     const response = await postModel.addPost(params);
