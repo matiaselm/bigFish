@@ -18,7 +18,9 @@ id = parseInt(id);
 let commentList = [];
 
 const comment = (i) => {
-    return `<div class="commentCard" id="${commentList[i].id}">
+    console.log(commentList[i]);
+
+    return `<div class="commentCard" id="${commentList[i].username}">
                 <a href="userpage.html" class="commentUsername">${commentList[i].username}</a>
                 <p class="commentText">${commentList[i].desc}</p>
                 <p class="commentVotes">${commentList[i].likes-commentList[i].dislikes}</p>
@@ -65,9 +67,10 @@ const getComments = async (id)=> {
         const comment = await response.json();
         await console.log('comments: ', comment);
         for (let i of comment) {
-            const comment = await createComment(i.comment_id, i.comment_text, i.comment_creator, i.comment_likes, i.comment_dislikes);
+            const comment = await createComment(i.comment_id, i.comment_text, i.user_name, i.comment_likes, i.comment_dislikes);
 
             commentList.push(comment);
+            commentList.reverse();
             console.log(commentList);
         }
         createComments(commentList.length);

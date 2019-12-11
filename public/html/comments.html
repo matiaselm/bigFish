@@ -61,9 +61,9 @@
 
     <ul id="commentList">
         <div class="commentCard" id="commentCards">
-            <form action="/comment/" method="post" class="submitCard" enctype="multipart/form-data">
-            <textarea type="text" name="comment_creator" id="comment_creator"></textarea>
-            <textarea type="text" name="comment_post" id="comment_post"></textarea>
+            <form action="/comment" method="post" class="submitCard">
+            <textarea type="text" name="comment_creator" id="comment_creator" style="visibility: hidden; position: absolute"></textarea>
+            <textarea type="text" name="comment_post" id="comment_post" style="visibility: hidden; position: absolute"></textarea>
             <textarea cols="40" rows="5" type="text" name="comment_text" placeholder="Comment here" id="inputMainText"
                       class="input" required></textarea>
                 <br>

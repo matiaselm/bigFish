@@ -9,8 +9,9 @@ const comment_create_post = async (req, res) => {
       req.body.comment_creator,
       req.body.comment_post
     ];
-    const response = await commentModel.addComment(params);
-    await res.json(response);
+    await commentModel.addComment(params);
+    ///await res.json(response);
+    await res.redirect('html/comments.html');
   }
   catch (e) {
     console.log('exif error', e);

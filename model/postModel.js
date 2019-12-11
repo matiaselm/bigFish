@@ -66,7 +66,7 @@ const dislikePost = async (id) => {
 
 const getPostComments = async (params) =>{
   try{
-    const [rows] = await promisePool.query(`SELECT * FROM comments INNER JOIN posts ON comment_post=post_id WHERE post_id=?;`, [params]);
+    const [rows] = await promisePool.query(`SELECT comments.*, user.user_name FROM ((comments INNER JOIN posts ON comment_post=post_id) INNER JOIN user on comments.comment_creator = user.user_id) WHERE post_id=?;`, [params]);
     console.log('comments: ', rows);
     return rows
   } catch (e) {
