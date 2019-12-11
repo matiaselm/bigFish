@@ -8,7 +8,6 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcryptjs');
 const userModel = require('./model/userModel');
-const path = require('path');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
@@ -24,8 +23,6 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session());
 
-let id = "";
-
 passport.use(new LocalStrategy(
     async (username, password, done) => {
         console.log('trying to login', username);
@@ -34,9 +31,6 @@ passport.use(new LocalStrategy(
 
         try {
             const [user] = await userModel.getUserLogin(params);
-            //id = user.user_id;
-            //console.log( id);
-
             if (user === undefined) {
                 console.log("Incorrect username");
                 return done(null, false);
@@ -62,8 +56,6 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user_id, done) => {
-    /*    id = user_id;
-        console.log(id);*/
     done(null, {user_id: user_id});
 });
 
@@ -75,19 +67,19 @@ app.post('/login',
 );
 
 app.get('/loginSuccess', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+    res.redirect('/index.html');
 });
 
 app.get('/index', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/index.html'));
+    res.redirect('/index.html');
 });
 
 app.get('/loginError', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/html/login.html'));
+    res.redirect('/html/login.html');
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/html/login.html'));
+    res.redirect('/html/login.html');
 });
 
 app.use(express.static('public'));

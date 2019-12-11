@@ -61,9 +61,10 @@
 
     <ul id="commentList">
         <div class="commentCard" id="${commentList[i].id}">
-            <form action="/" method="post" class="submitCard" enctype="multipart/form-data">
+            <form action="/comment/" method="post" class="submitCard" enctype="multipart/form-data">
             <textarea cols="40" rows="5" type="text" name="comment_text" placeholder="Desc" id="inputMainText"
                       class="input" required></textarea>
+                <br>
                 <br>
 
                 <input type="submit" value="comment" id="submitButton">

@@ -15,6 +15,7 @@ const user_get = async (req, res) => {
 const user_get_info = async (req, res) => {
   const params = [req.params.name];
   const user = await userModel.getUserInfo(params);
+  console.log('User_get_info loaded');
   await res.json(user[0]);
 };
 

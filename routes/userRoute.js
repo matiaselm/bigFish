@@ -7,7 +7,7 @@ router.get('/', userController.user_list_get);
 
 router.get('/:id', userController.user_get);
 
-router.get('/:name', userController.user_get_info)
+router.get('/current/:name', userController.user_get_info);
 
 router.post('/register', userController.user_create_post);
 

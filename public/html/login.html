@@ -61,27 +61,6 @@
 <a href="/html/register.html">register here</a>
 
 <script src="../js/navbarScript.js"></script>
+<script src="../js/loginScript.js"></script>
 
-<script>
-    'use strict';
-
-    const usernameForm = document.getElementById('username');
-    const submitbtn = document.getElementById('loginButton');
-
-    let username;
-
-    submitbtn.onclick = () => {
-        username = usernameForm.innerText;
-    };
-
-    const getUsername = async (userName) => {
-        const response = await fetch(`${url}user/${userName}`, {method: 'GET'});
-        const user = await response.json();
-
-
-        createCards(postList.length);
-        //console.log(postList);
-    };
-
-</script>
 </body></html>
