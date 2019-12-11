@@ -104,12 +104,6 @@ a{
         background-repeat: no-repeat;
     }
 
-    #commentPage{
-        max-width: 70ch;
-        width: 60%;
-        left: 4ch;
-    }
-
     #postCards {
         position: absolute;
 
