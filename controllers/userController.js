@@ -1,4 +1,5 @@
 const userModel = require('../model/userModel');
+const path = require('path');
 
 const user_list_get = async (req, res) => {
   const users = await userModel.getAllUsers();
@@ -13,11 +14,13 @@ const user_get = async (req, res) => {
 
 const user_create_post = async (req,res)=>{
 
-  const user = await userModel.addUser(req.body.username, req.body.email, req.body.passwd);
-  await res.json(user);
+  await userModel.addUser(req.body.username, req.body.email, req.body.passwd);
+  res.sendFile(path.join(__dirname + '/../public/html/login.html'));
+
   console.log('username', req.body.username);
   console.log('email', req.body.email);
   console.log('passwd', req.body.passwd);
+
 };
 
 const user_change_put = async (req, res) => {
