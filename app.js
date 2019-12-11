@@ -53,6 +53,7 @@ passport.use(new LocalStrategy(
         } catch (err) {
             return done(err);
         }
+
     }
 ));
 
