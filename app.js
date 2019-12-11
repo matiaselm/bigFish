@@ -100,3 +100,4 @@ app.use('/user', userRoute);
 app.use('/post', postRoute);
 
 app.listen(port, () => console.log(`\nApp listening on port ${port}!`));
+
