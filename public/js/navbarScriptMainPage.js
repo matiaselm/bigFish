@@ -13,7 +13,7 @@ const searchField = document.getElementById('searchField');
 const headerLeft = document.getElementById('headerLeft');
 const headerRight = document.getElementById('headerRight');
 
-let bool = true;
+let bool = false;
 
 //only a debugging function
 const checkIfTrue = (checkBox) => {
@@ -23,6 +23,8 @@ const checkIfTrue = (checkBox) => {
         return false
     }
 };
+
+/* Commented out these as they were related to search-things
 
 arrowButton.onclick=()=>{
     console.log(checkIfTrue(checkBox1.checked));
@@ -51,12 +53,15 @@ arrowButton.onclick=()=>{
         arrowButton.style.transform=('');
     }
 };
+ */
 
+/*
 searchButton.onclick=()=>{
     const searchParams = searchField.value;
     console.log(searchParams);
     searchField.value=('');
 };
+*/
 
 userButton.onclick=()=>{
     if (bool) {
@@ -66,7 +71,6 @@ userButton.onclick=()=>{
     } else {
         userMenu.style.width = ('25ch');
         userMenu.style.visibility = ('visible');
-
         bool = true;
     }
 };

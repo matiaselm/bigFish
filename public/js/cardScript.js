@@ -14,6 +14,8 @@ const postCard = document.getElementsByClassName('postCard');
 const cardView = document.getElementById('postCards');
 const cardOpener = document.getElementsByClassName('cardArrow');
 
+const userNameField = document.getElementById('userNameField');
+
 const upvoteButton = document.querySelector(".upvoteButton");
 const downvoteButton = document.querySelector(".downvoteButton");
 
@@ -57,7 +59,7 @@ delButton.addEventListener('click', async () => {
 });*/
 
 const username = localStorage.getItem('bigfish_username');
-
+userNameField.innerHTML='Welcome <br>' + username + '!';
 const getUser = async (userName) => {
     const response = await fetch(`${url}/user/current/${userName}`, {method: 'GET'});
     const user = await response.json();
@@ -87,7 +89,7 @@ const card = (i) => {
     return `<div class="postCard" id=${postList[i].id}>
                 <img src="uploads/${postList[i].filename}" alt="" class="postImg">
                 <p class="postTitle">${postList[i].name}</p>
-                <a href="/post/u/${postList[i].user_id}" class="postUsername">${postList[i].creator}</a>
+                <p href="/post/u/${postList[i].user_id}" class="postUsername">${postList[i].creator}</p>
                 <p class="mainText">${postList[i].desc}</p>
                 <br>
                 

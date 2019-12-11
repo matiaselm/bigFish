@@ -7,6 +7,8 @@ const commentView = document.getElementById('commentList');
 const comment_creator = document.getElementById('comment_creator');
 const comment_post_id = document.getElementById('comment_post');
 
+const userNameField = document.getElementById('userNameField');
+
 comment_creator.innerText=localStorage.getItem('bigfish_userid');
 comment_post_id.innerText= localStorage.getItem('bigfish_post_id');
 
@@ -15,15 +17,17 @@ console.log('localstorage: ',id);
 console.log('localstorage: ',localStorage.getItem('meme'));
 id = parseInt(id);
 
+userNameField.innerText=localStorage.getItem('bigfish_username');
+
 let commentList = [];
 
 const comment = (i) => {
     console.log(commentList[i]);
 
     return `<div class="commentCard" id="${commentList[i].username}">
-                <a href="userpage.html" class="commentUsername">${commentList[i].username}</a>
+                <p class="commentUsername">${commentList[i].username}</p>
                 <p class="commentText">${commentList[i].desc}</p>
-                <p class="commentVotes">${commentList[i].likes-commentList[i].dislikes}</p>
+                <p class="commentVotes" style="visibility: hidden">${commentList[i].likes-commentList[i].dislikes}</p>
             </div>`;
 };
 
@@ -32,8 +36,12 @@ const createPost = (id, title, mainText, image, username, likes, dislikes) => {
             <img src="../uploads/${image}" alt="placeholder" class="postImg">
                 <h2 class="postTitle">${title}</h2>
                 <p class="mainText">${mainText}</p> 
-                <p class="postVotes">${likes-dislikes}</p>
-                 <a href="userpage.html" class="postUsername">${username}</a>
+                <div class="postVoteBlock">
+                    <input type="button" class="upvoteButton" id="upBtn" onclick="upvote(${id})">
+                    <p class="postVotes">${likes-dislikes}</p>
+                    <input type="button" class="downvoteButton" id="downBtn" onclick="downvote(${id})">
+                </div>
+                <p class="postUsername">${username}</p>
             </div>`;
 };
 
@@ -53,8 +61,8 @@ const getPostById = async (id) => {
         const response = await fetch(url + '/post/' + id);
         const postID = await response.json();
 
-        console.log(postID);
-        postView.innerHTML=(createPost(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.post_creator, postID.post_likes, postID.post_dislikes));
+        console.log('postID',postID);
+        postView.innerHTML=(createPost(postID.post_id, postID.post_name, postID.post_description, postID.post_filename, postID.user_name, postID.post_likes, postID.post_dislikes));
 
         }catch (e){
         console.log(e.message);
@@ -86,6 +94,16 @@ const createComments = (length)=> {
     }
 };
 
+const upvote = async (e) => {
+    console.log('upvote',e);
+    await fetch(url + `/post/${e}/like`, {method:'PUT'});
+};
+
+const downvote = async (e) => {
+    console.log('downvote',e);
+    await fetch(url + `/post/${e}/dislike`,  {method:'PUT'});
+};
+
 /*
 const createComments = (length) => {
 for (let i = 0; i<length; i++){
@@ -95,7 +113,9 @@ for (let i = 0; i<length; i++){
                                  <p class="commentText">comment ${i}</p>
                                  <p class="commentVotes">${i} likes</p>
                              </div>`}
-};*/
+};
+*/
+
 try {
     getPostById(id);
     getComments(id);

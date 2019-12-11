@@ -1,6 +1,10 @@
 #commentBody{
     position: relative;
     height: 100vh;
+
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-position: left;
 }
 
 #commentPage{
@@ -17,7 +21,9 @@
 
     padding: 1ch;
     min-height: 10ch;
-    background-color: var(--main-col1);
+    /*background-color: var(--secondary-col2);*/
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 3px;
     margin: 1ch;
 }
 
@@ -36,15 +42,14 @@
 
 .postImg{
     max-width: 100%;
-    width: auto;
-    min-height: 10ch;
+    width: 100%;
+    min-height: 5ch;
 }
 
 .postTitle{
     position: relative;
     display: inline-block;
     top: 1ch;
-    margin: 0;
 }
 
 .postUsername{
@@ -52,13 +57,12 @@
     display: inline-block;
     bottom: 0;
     right: 0;
-    margin: 1ch;
     text-align: right;
 }
 
 .mainText{
     position: relative;
-    min-height: 10ch;
+    min-height: 0;
 }
 
 .postVotes{
@@ -84,13 +88,15 @@
     padding: 1ch;
     position: relative;
     margin: 1ch;
-    background-color: var(--secondary-col1);
+    background-color: rgba(255,255,255,0.6);
 
+    border-radius: 3px;
     min-height: 10ch;
 }
 
 .commentUsername{
     display: inline-block;
+    color: var(--main-col2);
     right: 1ch;
     bottom: 1ch;
     margin: 0;
@@ -108,6 +114,88 @@
     bottom: 1ch;
 }
 
-@media only screen and (min-width: 8in) {
+.postVoteBlock{
+    padding: 1ch;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    max-height: 90%;
+    min-width: 3ch;
+    margin: 1ch;
+}
 
+.upvoteButton{
+    width: 4ch;
+    height: 4ch;
+
+    border: none;
+    background-color: transparent;
+    background-image: url("../img/votearrow_up_xlarge.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: block;
+    position: relative;
+    top: 1ch;
+}
+
+.upvoteButton:active{
+    background-color: rgba(255,255,255,0.8);
+}
+
+
+.postVotes {
+    display: block;
+    position: relative;
+}
+
+.downvoteButton{
+    width: 4ch;
+    height: 4ch;
+
+    border: none;
+    background-color: transparent;
+    background-image: url("../img/votearrow_down_xlarge.png");
+    background-position: center;
+    background-size: cover;
+
+    display: block;
+    position: relative;
+    bottom: 1ch;
+}
+
+
+.downvoteButton:active{
+    background-color: rgba(255,255,255,0.8);
+}
+
+@media only screen and (min-width: 8in) {
+    #commentBody{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+        background-color: var(--secondary-col1);
+
+        background-image: url("../img/background.jpg");
+        background-size: cover;
+        background-position: bottom;
+        background-repeat: no-repeat;
+    }
+
+    #commentPage {
+        position: absolute;
+
+        max-width: 70ch;
+        min-width: 50ch;
+        left: 20%;
+        right: 20%;
+        /*background-color: transparent;*/
+        margin: 0;
+        padding: 0;
+        overflow-y: scroll;
+        /*top: var(--header-height);*/
+        z-index: 0;
+    }
 }
