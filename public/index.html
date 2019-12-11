@@ -39,7 +39,7 @@
                         <a class="dropDown" href="html/submitPage.html">Create post</a>
                         <br>
                         <br>-->
-                        <a class="dropDown" href="html/logout.html">Logout</a>
+                        <a class="dropDown" href="html/login.html">Logout</a>
                         <br>
                         <br>
                         <p style="text-align: left; color: var(--contrast-col2);">
@@ -60,7 +60,7 @@
     <ul id="postCards">
         <div class="postCard" id=submitCard>
             <h2>Create post</h2>
-            <form action="/post/" method="post" class="submitCard">
+            <form action="/post/" method="post" class="submitCard" enctype="multipart/form-data">
                 <textarea type="text" name="post_name" placeholder="Title*" id="inputTitle" class="input"
                           required></textarea>
                 <br>
@@ -68,7 +68,7 @@
                           class="input" required></textarea>
                 <br>
 
-                <input class="input" type="file" name="post_file" id="inputImage">
+                <input class="input" type="file" name="filename" id="inputImage">
                 <input type="submit" value="Post" id="submitButton">
             </form>
         </div>

@@ -61,8 +61,8 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((user_id, done) => {
-/*    id = user_id;
-    console.log(id);*/
+    /*    id = user_id;
+        console.log(id);*/
     done(null, {user_id: user_id});
 });
 

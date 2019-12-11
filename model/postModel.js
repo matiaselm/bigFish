@@ -1,7 +1,7 @@
 const pool = require('../database/db');
 const promisePool = pool.promise();
 
-// ''
+//SELECT posts.*, user.user_name, user.user_id  from posts INNER JOIN user ON post_creator_id=user.user_id
 const getAllPosts = async () => {
   try {
     const [rows] = await promisePool.query('SELECT posts.*, user.user_name, user.user_id  from posts INNER JOIN user ON post_creator_id=user.user_id');
@@ -77,9 +77,10 @@ const getPostComments = async (params) =>{
 
 const addPost = async (params) => {
   try {
+
     const [rows] = await promisePool.execute(
-        'INSERT INTO posts (post_name, post_description, post_filename) VALUES (?, ?, ?);',
-        params,
+        'INSERT INTO posts (post_name, post_description, post_filename, post_creator_id) VALUES (?, ?, ?, ?);',
+        params
     );
     return rows;
   } catch (e) {

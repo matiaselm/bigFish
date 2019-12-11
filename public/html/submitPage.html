@@ -44,11 +44,24 @@
     </div>
 </div>
 
-<!--
-<div class="submitPage">
-    <div class="submitCard">
-        <p id="submitPageTitle">Make your post</p>
-        <input type="text" id="inputTitle" class="input">
+
+
+    <!--
+    <div class="submitPage">
+        <div class="submitCard">
+            <p id="submitPageTitle">Make your post</p>
+            <input type="text" id="inputTitle" class="input">
+            <br>
+            <textarea cols="40" rows="5" type="text" id="inputMainText" class="input" ></textarea>
+            <br>
+            <input type="text" id="inputImage" class="input">
+            <br>
+            <button id="submitButton">Create post</button>
+        </div>
+    </div>
+
+
+    <form action="/post/" method="post" class="submitCard" enctype="multipart/form-data">
         <br>
         <textarea cols="40" rows="5" type="text" id="inputMainText" class="input" ></textarea>
         <br>
@@ -57,7 +70,6 @@
         <button id="submitButton">Create post</button>
     </div>
 </div>
--->
 
 <form action="/post/" method="post" class="submitCard">
 
@@ -70,10 +82,10 @@
               class="input" required></textarea>
     <br>
 
-    <input class="input" type="file" name="post_file" id="inputImage">
-    <input type="submit" value="Post" id="submitButton">
-</form>
-
+        <input class="input" type="file" name="filename" id="inputImage">
+        <input type="submit" value="Post" id="submitButton">
+    </form>
+-->
 <script src="../js/navbarScript.js"></script>
 
 </body>
