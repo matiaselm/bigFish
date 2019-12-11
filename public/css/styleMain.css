@@ -39,6 +39,18 @@
     box-sizing: border-box;
 }*/
 
+#mainPage{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+}
+
 body {
     margin: 0;
     overflow: hidden;

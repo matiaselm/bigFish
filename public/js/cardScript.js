@@ -102,6 +102,7 @@ const getPost = async () => {
     for (let i of posts) {
         const post = createElement(i.post_id, i.post_name, i.post_description, i.post_filename, i.user_name, i.post_likes, i.post_dislikes,i.user_id);
         postList.push(post);
+        postList.reverse();
     }
     createCards(postList.length);
     //console.log(postList);

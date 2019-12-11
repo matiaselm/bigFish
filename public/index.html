@@ -11,51 +11,75 @@
 </head>
 
 <body>
-    <div id="header">
-        <div class="headerBox" id=headerLeft>
-            <h1 id="mainTitle">BigFish</h1>
-        </div>
-        <div class="headerBox" id=headerRight>
-            <!-- Usersettings to userIcon -->
+<div id="header">
+    <div class="headerBox" id=headerLeft>
+        <h1 id="mainTitle">BigFish</h1>
+    </div>
+    <div class="headerBox" id=headerRight>
+        <!-- Usersettings to userIcon -->
 
-                <div id="menuField">
-                    <!-- Checkbox is hidden away, pressing the menuButton activates it.
-                    Don't remove. Commented out because we're going to do this with js.
-                    -->
+        <div id="menuField">
+            <!-- Checkbox is hidden away, pressing the menuButton activates it.
+            Don't remove. Commented out because we're going to do this with js.
+            -->
 
-                    <button id="searchButton"></button>
+            <button id="searchButton"></button>
 
-                    <button id="searchFieldExpander" for="toggle-1"></button>
-                    <input type="checkbox" id="toggle-1" name="toggle-1">
-                        <!--Search to searchbutton-->
-                    <input type="text" id="searchField">
+            <button id="searchFieldExpander" for="toggle-1"></button>
+            <input type="checkbox" id="toggle-1" name="toggle-1">
+            <!--Search to searchbutton-->
+            <input type="text" id="searchField">
 
-                    <div id="userCorner">
-                    <button id="userIcon"></button>
-                    <div id="dropDownMenu">
-                        <ul id="dropDownList">
-                            <a class="dropDown" href="html/submitPage.html">Create post</a>
+            <div id="userCorner">
+                <button id="userIcon"></button>
+                <div id="dropDownMenu">
+                    <ul id="dropDownList">
+
+                        <!--
+                        <a class="dropDown" href="html/submitPage.html">Create post</a>
+                        <br>
+                        <br>-->
+                        <a class="dropDown" href="html/logout.html">Logout</a>
+                        <br>
+                        <br>
+                        <p style="text-align: left; color: var(--contrast-col2);">
+                            BigFish is a site under development.
                             <br>
                             <br>
-                            <a class="dropDown" href="html/logout.html">Logout</a>
-                            <br>
-                            <br>
-                        </ul>
-                    </div>
-                    </div>
+                            Eventually from here you'll be able to access your settings,
+                            filter posts and access many more different parts of the site.
+                        </p>
+                    </ul>
                 </div>
             </div>
+        </div>
     </div>
+</div>
 
-    <div id="mainPage">
-        <ul id="postCards">
+<div id="mainPage">
+    <ul id="postCards">
+        <div class="postCard" id=submitCard>
+            <h2>Create post</h2>
+            <form action="/post/" method="post" class="submitCard">
+                <textarea type="text" name="post_name" placeholder="Title*" id="inputTitle" class="input"
+                          required></textarea>
+                <br>
+                <textarea cols="40" rows="5" type="text" name="post_description" placeholder="Desc" id="inputMainText"
+                          class="input" required></textarea>
+                <br>
 
-        </ul>
-    </div>
+                <input class="input" type="file" name="post_file" id="inputImage">
+                <input type="submit" value="Post" id="submitButton">
+            </form>
+        </div>
 
-    <script src="js/navbarScriptMainPage.js"></script>
-    <script src="js/styleScript.js"></script>
-    <script src="js/cardScript.js"></script>
+    </ul>
+</div>
+
+<script src="js/navbarScriptMainPage.js"></script>
+<script src="js/styleScript.js"></script>
+<script src="js/cardScript.js"></script>
 
 
-</body></html>
+</body>
+</html>

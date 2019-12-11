@@ -1,5 +1,20 @@
 /*postCards holds all our posts as a list inside it */
 
+*::-webkit-scrollbar {
+    display: none;
+}
+
+#submitCard{
+    position: relative;
+    padding: 1ch;
+}
+
+#submitButton{
+    position: absolute;
+    right: 1ch;
+    bottom:1ch;
+}
+
 #postCards {
     position: absolute;
     height: 90%;
