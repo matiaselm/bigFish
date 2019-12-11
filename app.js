@@ -1,3 +1,9 @@
+/*
+* Main script for the app backen. It defines dependencies and routing. It starts all main functions for backend.
+* Also functionality of passport authentication and user serialization is here.
+* */
+
+
 'use strict';
 
 const express = require('express');
