@@ -12,18 +12,18 @@
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
-    margin-top: 11vh;
-    height: 89vh;
+    height: 100%;
 }
 
 #mainPost{
     position: relative;
     display: block;
 
-    width: 100%;
+    top: var(--header-height);
+    min-width: 100%;
     min-height: 10ch;
     background-color: var(--main-col1);
-    padding: 1ch;
+    margin: 1ch;
 }
 
 .imgContainer{
@@ -78,6 +78,7 @@
 */
 
 #commentList{
+    top: 10ch;
     overflow-x: hidden;
     position: relative;
     padding: 0;

@@ -155,8 +155,8 @@ Below styles for smallCards
 
 .postUsername {
     position: absolute;
-    right: 10ch;
-    top: 1ch;
+    left: 20%;
+    top: 4ch;
     display: inline-block;
     margin: 1ch;
     width: auto;

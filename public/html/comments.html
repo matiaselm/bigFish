@@ -54,13 +54,21 @@
 
 </div>
 
-<div  id="commentPage">
+<div id="commentPage">
     <div id="mainPost">
 
     </div>
 
     <ul id="commentList">
-        
+        <div class="commentCard" id="${commentList[i].id}">
+            <form action="/" method="post" class="submitCard" enctype="multipart/form-data">
+            <textarea cols="40" rows="5" type="text" name="comment_text" placeholder="Desc" id="inputMainText"
+                      class="input" required></textarea>
+                <br>
+
+                <input type="submit" value="comment" id="submitButton">
+            </form>
+        </div>
     </ul>
 
     <script src="../js/navbarScript.js"></script>
