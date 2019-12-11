@@ -1,5 +1,5 @@
 'use strict';
-const url = 'http://localhost:3000';
+const url = '/app/';
 
 const postView = document.getElementById('mainPost');
 const commentView = document.getElementById('commentList');
