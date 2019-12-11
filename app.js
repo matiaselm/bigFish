@@ -77,6 +77,10 @@ app.get('/loginSuccess', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+app.get('/index', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
 app.get('/loginError', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/html/login.html'));
 });

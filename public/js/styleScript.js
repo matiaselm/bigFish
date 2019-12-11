@@ -58,17 +58,23 @@ const bigCard = (post) => {
 
     const userStyle = (el) => {
         el.position = ('relative');
+        el.display = ('block');
         el.left = ('0');
+        el.top=('0');
         el.right = ('');
     };
 
     const titleStyle = (el) => {
         el.position = ('relative');
+        el.display = ('block');
         el.left = ('0');
+        el.top=('');
+        el.right = ('');
         //el.backgroundColor=('white');
     };
 
     const descStyle = (el) => {
+        el.position=('relative');
         el.visibility = ('visible');
     };
 
@@ -104,6 +110,7 @@ const smallCard = (post) => {
 
     const userStyle = (el) => {
         el.position = ('absolute');
+        el.top=('4ch');
         el.right = ('10ch');
         el.left = ('');
     };
