@@ -1,6 +1,6 @@
 const postModel = require('../model/postModel');
 const resize = require('../utils/resize');
-const path = require('path');
+
 const posts_list_get = async (req, res) => {
   const posts = await postModel.getAllPosts();
   await res.json(posts);
