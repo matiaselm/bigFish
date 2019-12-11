@@ -13,10 +13,8 @@ const user_get = async (req, res) => {
 };
 
 const user_create_post = async (req,res)=>{
-
   await userModel.addUser(req.body.username, req.body.email, req.body.passwd);
   res.sendFile(path.join(__dirname + '/../public/html/login.html'));
-
   console.log('username', req.body.username);
   console.log('email', req.body.email);
   console.log('passwd', req.body.passwd);

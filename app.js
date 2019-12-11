@@ -54,19 +54,16 @@ passport.use(new LocalStrategy(
             return done(err);
         }
 
-
     }
 ));
 
 passport.serializeUser((user, done) => {
-
     done(null, user.user_id);
-
 });
 
 passport.deserializeUser((user_id, done) => {
-/*    id = user_id;
-    console.log(id);*/
+    /*    id = user_id;
+        console.log(id);*/
     done(null, {user_id: user_id});
 });
 

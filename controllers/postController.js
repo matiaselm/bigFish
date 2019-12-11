@@ -1,6 +1,6 @@
 const postModel = require('../model/postModel');
 const resize = require('../utils/resize');
-
+const path = require('path');
 const posts_list_get = async (req, res) => {
   const posts = await postModel.getAllPosts();
   await res.json(posts);
@@ -31,20 +31,23 @@ const post_create_post = async (req, res) => {
       req.file.filename
   );
   try {
-    // Make thumbnail
-    console.log(res.user.user_name);
+    // Make thumbnails
 
     resize.makeThumbnail(req.file.path,
         'thumbnails/'+ req.file.filename,
         {width: 160,height: 160});
 
+    const id = 6;
     // add to db
     console.log('request?', req);
     const params = [
       req.body.post_name,
       req.body.post_description,
-      req.file.filename
+      req.file.filename,
+        id
     ];
+    //res.sendFile(path.join(__dirname + '/../public/index.html'));
+    res.redirect('/index');
     const response = await postModel.addPost(params);
     await res.json(response);
 
