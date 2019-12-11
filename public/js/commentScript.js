@@ -4,6 +4,12 @@ const url = 'http://localhost:3000';
 const postView = document.getElementById('mainPost');
 const commentView = document.getElementById('commentList');
 
+const comment_creator = document.getElementById('comment_creator');
+const comment_post_id = document.getElementById('comment_post');
+
+comment_creator.innerText=localStorage.getItem('bigfish_userid');
+comment_post_id.innerText= localStorage.getItem('bigfish_post_id');
+
 let id = localStorage.getItem('bigfish_post_id');
 console.log('localstorage: ',id);
 console.log('localstorage: ',localStorage.getItem('meme'));

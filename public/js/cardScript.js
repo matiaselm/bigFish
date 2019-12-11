@@ -66,6 +66,7 @@ const getUser = async (userName) => {
     const userid = user.user_id;
 
     user_id.innerText=userid;
+    localStorage.setItem('bigfish_userid', userid);
 
     //user_id.value=userid;
     //console.log('user_id: ', user_id.value);

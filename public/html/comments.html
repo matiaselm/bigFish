@@ -60,9 +60,11 @@
     </div>
 
     <ul id="commentList">
-        <div class="commentCard" id="${commentList[i].id}">
+        <div class="commentCard" id="commentCards">
             <form action="/comment/" method="post" class="submitCard" enctype="multipart/form-data">
-            <textarea cols="40" rows="5" type="text" name="comment_text" placeholder="Desc" id="inputMainText"
+            <textarea type="text" name="comment_creator" id="comment_creator"></textarea>
+            <textarea type="text" name="comment_post" id="comment_post"></textarea>
+            <textarea cols="40" rows="5" type="text" name="comment_text" placeholder="Comment here" id="inputMainText"
                       class="input" required></textarea>
                 <br>
                 <br>
