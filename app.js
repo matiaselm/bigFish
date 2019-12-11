@@ -34,8 +34,8 @@ passport.use(new LocalStrategy(
 
         try {
             const [user] = await userModel.getUserLogin(params);
-            id = user.user_id;
-            console.log( id);
+            //id = user.user_id;
+            //console.log( id);
 
             if (user === undefined) {
                 console.log("Incorrect username");
@@ -74,6 +74,10 @@ app.post('/login',
 );
 
 app.get('/loginSuccess', (req, res) => {
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
+app.get('/index', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
