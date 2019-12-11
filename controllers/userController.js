@@ -12,7 +12,6 @@ const user_get = async (req, res) => {
 };
 
 const user_create_post = async (req,res)=>{
-
   const user = await userModel.addUser(req.body.username, req.body.email, req.body.passwd);
   await res.json(user);
   console.log('username', req.body.username);
