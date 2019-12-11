@@ -33,6 +33,19 @@ const getUser = async (id) => {
         return {error: 'error in db'};
     }
 };
+
+const getUserInfo = async (name) => {
+    try {
+        const [row] = await promisePool.execute(
+            'SELECT * FROM user WHERE user_name = ?', name
+        );
+        return row;
+    } catch (e) {
+        console.log('error', e.message);
+        return {error: 'error in db'};
+    }
+};
+
 const addUser = async (username, email, passwd,) => {
     try {
         const [row] = await promisePool.execute(
@@ -60,6 +73,7 @@ const changeUserPic = async (params) => {
 module.exports = {
     getAllUsers,
     getUser,
+    getUserInfo,
     addUser,
     changeUserPic,
     getUserLogin,

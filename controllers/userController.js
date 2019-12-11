@@ -12,6 +12,12 @@ const user_get = async (req, res) => {
   await res.json(user[0]);
 };
 
+const user_get_info = async (req, res) => {
+  const params = [req.params.name];
+  const user = await userModel.getUserInfo(params);
+  await res.json(user[0]);
+};
+
 const user_create_post = async (req,res)=>{
   await userModel.addUser(req.body.username, req.body.email, req.body.passwd);
   res.sendFile(path.join(__dirname + '/../public/html/login.html'));
@@ -29,6 +35,7 @@ const user_change_put = async (req, res) => {
 };
 
 module.exports ={
+  user_get_info,
   user_get,
   user_list_get,
   user_create_post,
