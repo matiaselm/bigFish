@@ -8,8 +8,10 @@
 }
 
 #commentPage{
+    padding: 0;
     position: relative;
     overflow-y: scroll;
+    overflow-x: hidden;
     margin-top: 11vh;
     height: 89vh;
 }
@@ -76,15 +78,17 @@
 */
 
 #commentList{
+    overflow-x: hidden;
     position: relative;
-    width: 100%;
+    padding: 0;
 }
 
 .commentCard{
     padding: 1ch;
     position: relative;
     margin: 1ch;
-    background-color: var(--secondary-col2);
+    background-color: var(--secondary-col1);
+
     min-height: 10ch;
 }
 
