@@ -1,21 +1,16 @@
 const commentModel = require('../model/commentModel');
 
-const post_create_post = async (req, res) => {
+const comment_create_post = async (req, res) => {
   try {
-    const id = 6;
     // add to db
     console.log('request?', req);
     const params = [
       req.body.comment_text,
-      localStorage.getItem(id),
-      req.file.filename,
-      id
+      req.body.comment_creator,
+      req.body.comment_post
     ];
-    //res.sendFile(path.join(__dirname + '/../public/index.html'));
-    res.redirect('/index');
-    const response = await postModel.addPost(params);
+    const response = await commentModel.addComment(params);
     await res.json(response);
-
   }
   catch (e) {
     console.log('exif error', e);
@@ -24,4 +19,4 @@ const post_create_post = async (req, res) => {
 
 };
 
-module.exports={};
+module.exports={comment_create_post};

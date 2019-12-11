@@ -95,9 +95,11 @@ app.use('thumbnails', express.static('thumbnails'));
 
 const userRoute = require('./routes/userRoute');
 const postRoute = require('./routes/postRoute');
+const commentRoute = require('./routes/commentRoute');
 
 app.use('/user', userRoute);
 app.use('/post', postRoute);
+app.use('/comment',commentRoute);
 
 app.listen(port, () => console.log(`\nApp listening on port ${port}!`));
 

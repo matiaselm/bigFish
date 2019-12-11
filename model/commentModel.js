@@ -2,7 +2,7 @@ const pool = require('../database/db');
 const promisePool = pool.promise();
 
 
-const addPost = async (params) => {
+const addComment = async (params) => {
   try {
 
     const [rows] = await promisePool.execute(
@@ -16,4 +16,4 @@ const addPost = async (params) => {
   }
 };
 
-module.exports={addPost};
+module.exports={addComment};
