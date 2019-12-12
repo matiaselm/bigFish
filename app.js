@@ -95,9 +95,9 @@ const userRoute = require('./routes/userRoute');
 const postRoute = require('./routes/postRoute');
 const commentRoute = require('./routes/commentRoute');
 
-app.use('/app/user', userRoute);
-app.use('/app/post', postRoute);
-app.use('/app/comment',commentRoute);
+app.use('user', userRoute);
+app.use('post', postRoute);
+app.use('comment',commentRoute);
 
 app.listen(port, () => console.log(`\nApp listening on port ${port}!`));
 
