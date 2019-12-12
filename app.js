@@ -65,27 +65,27 @@ passport.deserializeUser((user_id, done) => {
     done(null, {user_id: user_id});
 });
 
-app.post('/login',
+app.post('/app/login',
     passport.authenticate('local', {
-        successRedirect: '/loginSuccess',
-        failureRedirect: '/loginError'
+        successRedirect: '/app/loginSuccess',
+        failureRedirect: '/app/loginError'
     })
 );
 
-app.get('/loginSuccess', (req, res) => {
-    res.redirect('/index.html');
+app.get('/app/loginSuccess', (req, res) => {
+    res.redirect('/app/index.html');
 });
 
-app.get('/index', (req, res) => {
-    res.redirect('/index.html');
+app.get('/app/index', (req, res) => {
+    res.redirect('/app/index.html');
 });
 
-app.get('/loginError', (req, res) => {
-    res.redirect('/html/login.html');
+app.get('/app/loginError', (req, res) => {
+    res.redirect('/app/html/login.html');
 });
 
-app.get('/', (req, res) => {
-    res.redirect('/html/login.html');
+app.get('/app/', (req, res) => {
+    res.redirect('/app/html/login.html');
 });
 
 app.use(express.static('public'));
