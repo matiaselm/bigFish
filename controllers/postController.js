@@ -47,7 +47,7 @@ const post_create_post = async (req, res) => {
       req.body.user_id
     ];
     //console.log(req.body.user_id);
-    //res.sendFile(path.join(__dirname + '/../public/main.html'));
+    //res.sendFile(path.join(__dirname + '/../public/index.html'));
     res.redirect('/index');
     const response = await postModel.addPost(params);
     await res.json(response);

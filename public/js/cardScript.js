@@ -1,5 +1,5 @@
 'use strict';
-const url = '/app/';
+const url = 'http://localhost:3000';
 console.log('cardScript loaded');
 
 //Getting references to all elements inside posts
