@@ -18,7 +18,7 @@ const headerRight = document.getElementById('headerRight');
 let bool = false;
 
 const gohome = () => {
-  window.location.href='../index.html';
+  window.location.href='../main.html';
 };
 
 /* Commented out these, as they were related to search-things

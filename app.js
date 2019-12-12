@@ -73,11 +73,11 @@ app.post('/login',
 );
 
 app.get('/loginSuccess', (req, res) => {
-    res.redirect('/index.html');
+    res.redirect('/main.html');
 });
 
 app.get('/index', (req, res) => {
-    res.redirect('/index.html');
+    res.redirect('/main.html');
 });
 
 app.get('/loginError', (req, res) => {
