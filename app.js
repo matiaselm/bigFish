@@ -81,11 +81,11 @@ app.get('/app/index', (req, res) => {
 });
 
 app.get('/loginError', (req, res) => {
-    res.redirect('/html/login.html');
+    res.redirect('/app/html/login.html');
 });
 
 app.get('/app', (req, res) => {
-    res.redirect('/html/login.html');
+    res.redirect('/app/html/login.html');
 });
 
 app.use(express.static('public'));
